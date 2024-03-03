@@ -1,0 +1,117 @@
+[
+    {
+        "key": "ctrl+shift+enter",
+        "command": "openInIntegratedTerminal"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "cph.runTestCases"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-cph.runTestCases"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.terminal.copySelection",
+        "when": "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.copySelection",
+        "when": "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "workbench.action.terminal.paste",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "-workbench.action.terminal.paste",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "-code-runner.run"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "ctrl+shift+backspace",
+        "command": "workbench.action.terminal.killAll"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFolder"
+    },
+    {
+        "key": "alt+r",
+        "command": "renameFile"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+enter",
+        "command": "mysql.runSQL",
+        "when": "editorLangId == 'cql' || editorLangId == 'dbclient-js' || editorLangId == 'postgres' || editorLangId == 'sql'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-mysql.runSQL",
+        "when": "editorLangId == 'cql' || editorLangId == 'dbclient-js' || editorLangId == 'postgres' || editorLangId == 'sql'"
+    },
+    {
+        "key": "f5",
+        "command": "mysql2.refresh"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+f4",
+        "command": "-workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "shift+enter",
+        "command": "livePreview.start.preview.atFile"
+    },
+    {
+        "key": "shift+backspace",
+        "command": "livePreview.end"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "code-runner.run"
+    },
+    {
+        "key": "shift+tab",
+        "command": "editor.action.inlineSuggest.showNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+backspace",
+        "command": "workbench.action.terminal.kill"
+    }
+]
