@@ -1,9 +1,5 @@
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
-<<<<<<< HEAD
-
-=======
->>>>>>> 8850e74045591b79836ad17d548519ca6cfad740
 #Cache folder
 .alcache/
 #Symbols folder
@@ -22,3 +18,4 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+python/room1/
