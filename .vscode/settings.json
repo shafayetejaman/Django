@@ -181,9 +181,6 @@
     "editor.smoothScrolling": true,
     "workbench.list.smoothScrolling": true,
     "terminal.integrated.smoothScrolling": true,
-    "files.exclude": {
-        ".cph": true
-    },
     "terminal.integrated.sendKeybindingsToShell": false,
     "C_Cpp.vcFormat.space.afterKeywordsInControlFlowStatements": true,
     "cph.language.cpp.Args": "-Wall -Wextra -DLOCAL",
@@ -220,5 +217,11 @@
     "accessibility.signals.terminalBell": {
         "sound": "on"
     },
+
     "terminal.integrated.enableVisualBell": true,
+    "files.exclude": {
+        "**/*.js": true,
+        "**/*.git": true,
+        ".cph": true,
+    }
 }
