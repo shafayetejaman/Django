@@ -219,9 +219,12 @@
     },
 
     "terminal.integrated.enableVisualBell": true,
+    
     "files.exclude": {
         "**/*.js": true,
-        "**/*.git": true,
+        "**/*.gitignore": true,
+        "**/*.md": true,
         ".cph": true,
+
     }
 }
