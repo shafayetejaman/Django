@@ -4,73 +4,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH Tube</title>
-
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         ntegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="styles.css">
+
 </head>
+
 
 <body>
 
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid mx-5 my-4 flex-column flex-md-row align-items-md-center row-gap-4">
-            <a class="navbar-brand mb-2 mb-md-0" href="#">
-                <img class="main-icon" src="./PHero-Tube-main/Logo.png" alt="">
-            </a>
-
-            <button onclick="sorted()" class="btn border-0 mb-2 mb-md-0" id="sort-by-btn"><strong>Sort BY View</strong></button>
-
-            <a href="./blog/index.html" target="_blank">
-                <button class="btn border-0 bg-danger p-2 px-4 text-white">Blog</button>
-            </a>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid col-lg-9" id="navbar-container-id">
+            <a class="navbar-brand" href="#"><img class="main-icon-container" src="./resources/Group 2.png" alt=""></a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white ps-lg-5 ms-lg-5" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled text-white-50 ps-lg-5" aria-disabled="true">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50 ps-lg-5" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item lg">
+                        <i class="shopping-icon fa-solid fa-cart-shopping ps-lg-2"></i>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
 
-    <!-- btn section -->
-    <section class="bg-body-tertiary">
-        <hr class="m-0">
-        <div class="text-center">
-            <button class="sorting-btn btn m-3 my-5" onclick="get_data('1000')" id="1000">All</button>
-            <button class="sorting-btn btn m-3 my-5" onclick="get_data('1001')" id="1001">Music</button>
-            <button class="sorting-btn btn m-3 my-5" onclick="get_data('1003')" id="1003">Comedy</button>
-            <button class="sorting-btn btn m-3 my-5" onclick="get_data('1005')" id="1005">Drawing</button>
+    <!-- slider section -->
+
+    <section id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="position-relative bg-black" id="page-1-first">
+                    <h1 class="text-white position-relative" id="slider-1st-text"><strong>iphone 15 Pro
+                            MAX</strong></h1>
+                    <img src="./resources/Apple_announce-iphone12pro_10132020_big.jpg.large.png"
+                        class="d-block w-75 position-absolute" alt="..." id="slider-1st-image">
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="position-relative" id="page-1-second">
+                    <h1 class="text-white position-absolute" id="slider-2nd-text"><strong>iphone 15 Pro MAX
+                        </strong></h1>
+                    <img src="./resources/Iphone 14 pro 1-2.png" class="d-block w-50 position-absolute" alt="..."
+                        id="slider-2nd-image">
+
+                </div>
+            </div>
         </div>
+
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </section>
 
-    <!-- video section -->
-    <section class="container-fluid bg-body-tertiary">
-        <div class="row" id="video-container">
+    <!-- display-product-section -->
 
-            <!-- <div class="row">
-                <div class="col-md-3 my-3">
-                    <div class="card">
-                        <img src="./PHero-Tube-main/Logo.png" class="card-img-top" alt="...">
-                        <div class="card-body">
+    <section class="page-2 container-fluid position-relative">
 
-                            <div class="d-flex justify-content-start">
-                                <img src="./PHero-Tube-main/Logo.png" class="w-25 m-2" alt="...">
-                                <p class="card-title">Card title</p>
+        <div class="row flex-row-reverse">
+            <div class="page-2-right col-lg-6">
+                <div class="page-2-right-container d-flex justify-content-around">
+                    <div class="text ps-lg-5 pb-lg-3 ps-sm-2 pb-sm-2">
+                        <h3 class="position-relative ps-5 pt-5 pb-5 ps-3">ipad 9</h3>
+
+                        <p><strong>Display</strong>: 10.2-inch Retina display with 2160-by-1620-pixel,<br> 500 nits
+                            brightness.</p>
+
+                        <p><strong>Chip</strong>: A13 Bionic chip with Neural Engine.</p>
+
+                        <p><strong>Storage</strong>: Available in 64GB and 256GB.</p>
+
+                        <p><strong>Camera</strong>: 8MP Wide rear camera<br> and 12MP Ultra Wide front camera.</p>
+
+                        <p><strong>Connectivity</strong>: Wi-Fi 5 (802.11ac) with 2x2 MIMO.<br> speeds up to 866 Mbps,
+                            Bluetooth
+                            4.2.</p>
+
+                        <p><strong>Sensors</strong>: Touch ID,<br> Accelerometer, Barometer, Ambient
+                            light
+                            sensor.</p>
+
+                    </div>
+
+                    <img class="ipad-image mb-5 img-fluid pe-0 me-0 ms-0 ps-0" src="./resources/ipad.png" alt="">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class='row position-relative'>
+                    <div class="page-2-upper-left col-lg-12">
+                        <div class="page-2-right-container d-flex justify-content-around">
+                            <div class="text ps-lg-4 pb-lg-4 ps-sm-2 pb-sm-2 ps-md-1">
+                                <h3 class="position-relative ps-5 pt-5 pb-5">iPhone 12 Pro Max</h3>
+
+                                <p><strong>Display</strong>: 10.2-inch Retina display with 2160-by-1620-pixel,<br> 500
+                                    nits
+                                    brightness.</p>
+
+                                <p><strong>Chip</strong>: A13 Bionic chip with Neural Engine.</p>
+
+                                <p><strong>Storage</strong>: Available in 64GB and 256GB.</p>
+
+                                <p><strong>Camera</strong>: 8MP Wide rear camera<br> and 12MP Ultra Wide front camera.
+                                </p>
+
+
                             </div>
+
+                            <img class="iphone-image mb-5 img-fluid" src="./resources/Iphone Image.png" alt="">
+
+                        </div>
+                    </div>
+                    <div class="page-2-lower-left col-lg-12">
+                        <div class="page-2-right-container d-flex justify-content-around">
+                            <div class="text ps-lg-4 pb-lg-4 ps-sm-2 ps-md-2
+                            pb-sm-2">
+                                <h3 class="position-relative ps-5 pt-5 pb-5">Cannon 5 Pro</h3>
+
+
+                                <p><strong>Chip</strong>: A13 Bionic chip with Neural Engine.</p>
+
+                                <p><strong>Storage</strong>: Available in 64GB and 256GB.</p>
+
+                                <p><strong>Camera</strong>: 8MP Wide rear camera<br> and 12MP Ultra Wide front camera.
+                                </p>
+
+                                <p><strong>Sensors</strong>: Touch ID,<br> Accelerometer, Barometer, Ambient
+                                    light
+                                    sensor.</p>
+
+                            </div>
+
+                            <img class="cannon-image mb-5 img-fluid" src="./resources/Iphone 14 pro 1-3.png" alt="">
 
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+            <hr>
+        </div>
+    </section>
+
+    <!-- browse by category -->
+
+    <section class="bg-white container-fluid">
+        <div>
+            <h4 class="ms-5 mt-5 p-4 ps-5">Browse By Category</h4>
+        </div>
+        <div class="page-3">
+            <div class="page-3-cards row d-flex justify-content-center">
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="Mobile-icon img-fluid" src="./resources/iphone.png" alt="">
+                    <h5 class="m-2 ms-3">Mobile</h5>
+                </div>
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="Camera-icon img-fluid" src="./resources/camera.png" alt="">
+                    <h5 class="m-2 ms-2">Camera</h5>
+                </div>
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="Watch-icon img-fluid" src="./resources/hand-watch.png" alt="">
+                    <h5 class="m-2 ms-3">Watch</h5>
+                </div>
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="Games-icon img-fluid" src="./resources/console.png" alt="">
+                    <h5 class="m-2 ms-3">Games</h5>
+                </div>
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="headPhone-icon img-fluid" src="./resources/earphones.png" alt="">
+                    <h6 class="page-3-font m-1 ms-0 mt-3">headPhone</h6>
+                </div>
+                <div class="col-lg-1 col-sm-4 m-4 rounded-3 bg-body-secondary">
+                    <img class="Computer-icon img-fluid" src="./resources/pc.png" alt="">
+                    <h5 class="m-2 ms-0">Computer</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- cards section -->
+
+    <section class="container bg-white my-5" id="page-4">
+        <hr>
+        <div class="d-flex gap-4 ms-lg-0 ms-sm-5">
+            <h5 class="text-decoration-underline">New Arrival</h5>
+            <h5 class="text-black-50">Bestseller</h5>
+            <h5 class="text-black-50">Featured Products</h5>
 
         </div>
 
+        <div class="row d-flex justify-content-center my-5">
+            <div class="col-sm-5 col-lg-3">
+                <div class="text-center p-3 my-5 bg-body-secondary rounded-3" id="4-cards">
+                    <img class="mt-4 img-fluid mb-4" src="./resources/Iphone 14 pro 1-2.png" alt="">
+
+                    <p class="">Apple iPhone 14 Pro Max
+                        1280B Deep Purple
+                        (MQ9T3RX/A)</p>
+
+                    <h4 class="my-4"><strong>$900</strong></h4>
+
+                    <h5 class="fs-6 pt-3 pb-3 bg-black text-white rounded-3">Buy Now</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-5 col-lg-3">
+                <div class="text-center p-3 my-5 bg-body-secondary rounded-3" id="4-cards">
+                    <img class="mt-4 img-fluid mb-4" src="./resources/Iphone 14 pro 1-3.png" alt="">
+
+                    <p>Blackmagic Pocket Cinema
+                        Camera 6k</p>
+
+                    <h4 class="my-4"><strong>$900</strong></h4>
+
+                    <h5 class="fs-6 pt-3 pb-3 bg-black text-white rounded-3">Buy Now</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-5 col-lg-3">
+                <div class="text-center p-3 my-5 bg-body-secondary rounded-3" id="4-cards">
+                    <img class="mt-4 img-fluid mb-4" src="./resources/Iphone 14 pro 1.png" alt="">
+
+                    <p>Apple iPhone 14 Pro Max
+                        1280B Deep Purple
+                        (MQ9T3RX/A)</p>
+
+                    <h4 class="my-4"><strong>$900</strong></h4>
+
+                    <h5 class="fs-6 pt-3 pb-3 bg-black text-white rounded-3">Buy Now</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-5 col-lg-3">
+                <div class="text-center p-3 my-5 bg-body-secondary rounded-3" id="4-cards">
+                    <img class="mt-4 img-fluid mb-4" src="./resources/Iphone 14 pro 1-1.png" alt="">
+
+                    <p>Apple watch Series 9 CPS
+                        41mm Starlight Aluminium</p>
+
+                    <h4 class="my-4"><strong>$900</strong></h4>
+
+                    <h5 class="fs-6 pt-3 pb-3 bg-black text-white rounded-3">Buy Now</h5>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- last page section -->
+
+    <section>
+        <div class="row-cols-1 position-relative" id="last-page">
+            <div class="col">
+
+                <div class="d-flex justify-content-between">
+                    <img class="position-relative img-fluid me-5" src="./resources/image 19.png" alt=""
+                        id="last-page-right-image">
+
+                    <div class="position-relative text-center my-5" id="last-page-text">
+
+                        <div class="d-flex gap-3 justify-content-center my-3">
+                            <h1 class="text-primary-emphasis"><strong>11.11</strong></h1>
+                            <h1 class="text-white"><strong>Sale</strong></h1>
+                        </div>
+
+                        <p>🎉 Welcome to our 11.11 Mega Sale! 🎉 <br>
+
+                            This November 11,<br> prepare yourself for <br> the biggest sale of the year at our store!
+                            We’re <br> offering unbelievable
+                            discounts on a wide range of products.
+                        </p>
+
+                    </div>
+
+                    <img class="position-relative img-fluid ms-5" src="./resources/Group 6.png" alt=""
+                        id="last-page-left-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="row-cols-1 position-relative overflow-hidden">
+            <div class="col d-lg-flex justify-content-lg-center" id="footer-page">
+                <img class="position-relative" id="footer-main-icon" src="./resources/Group 2.png" alt="">
+
+                <div class="d-flex justify-content-center position-relative gap-5 mb-0" id="footer-icons">
+
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+
+                </div>
+
+                <div class="d-lg-flex justify-content-lg-center position-relative text-center" id="footer-text">
+
+                    <p class="text-white-50">
+                        <strong>Services</strong><br>
+                        Bonus program<br>
+                        Cift cards<br>
+                        Credit and payment<br>
+                        Service contracts<br>
+                        Non-cash account<br>
+                        Payment<br>
+                    </p>
+
+
+                    <p class="text-white-50">
+                        <strong>Assistance to the buyer</strong><br>
+                        Find an order<br>
+                        Terms of delivery<br>
+                        Exchange and return of goods<br>
+                        Frequently asked questions<br>
+                        Terms of use of the site<br>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
-    <script src="scripts.js"></script>
 </body>
 
 </html>
