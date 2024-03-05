@@ -217,14 +217,10 @@
     "accessibility.signals.terminalBell": {
         "sound": "on"
     },
-
     "terminal.integrated.enableVisualBell": true,
-    
     "files.exclude": {
-        "**/*.js": true,
         "**/*.gitignore": true,
         "**/*.md": true,
         ".cph": true,
-
     }
 }
