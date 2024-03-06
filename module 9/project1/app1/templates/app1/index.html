@@ -17,12 +17,9 @@
 <body>
     
     <h1>
-    {% for item, value in items.items %}
-        <p>{{item}} : {{value}}</p>
-    {% endfor %}
-</h1>
+       {{items | join:"-"}}
+    </h1>
 
-    
     
 </body>
 
