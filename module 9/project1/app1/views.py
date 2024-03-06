@@ -6,6 +6,6 @@ from django.http import HttpResponse
 def index(request):
     d = {"shope" : 50,
          "oil" : 300,
-         ""
+         "fruit" : 30
          }
     return render(request, "app1/index.html", d)
