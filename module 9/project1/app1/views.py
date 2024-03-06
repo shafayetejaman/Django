@@ -4,5 +4,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    d = {'author' : 'Rahim', 'age' : 5}
+    d = {"shope" : 50,
+         "oil" : 300,
+         ""
+         }
     return render(request, "app1/index.html", d)
