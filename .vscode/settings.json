@@ -222,5 +222,9 @@
         "**/*.gitignore": true,
         "**/*.md": true,
         ".cph": true,
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "jinja-html": "html"
     }
 }
