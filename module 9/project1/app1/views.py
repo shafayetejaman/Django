@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    d = { {"shope" : 50,
+    d = {"items" : {"shope" : 50,
          "oil" : 300,
          "fruit" : 30}
          }
