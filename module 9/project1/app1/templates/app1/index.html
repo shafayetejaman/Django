@@ -16,9 +16,12 @@
 
 <body>
     
-    <h1>{% for item in {{items}} %}
-            <p>item</p>
-        {% endfor %}<h1/>
+    <h1>
+    {% for item, value in items.items %}
+        <p>{{item}} : {{value}}</p>
+    {% endfor %}
+</h1>
+
     
     
 </body>
