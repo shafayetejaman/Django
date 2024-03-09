@@ -23,12 +23,12 @@ def home(request):
         {
             'id' : 4,
             'name' : 'C++',
-            'fee' : 1000 
+            'fee' : 2000 
         },
         {
-            'id' : 3,
-            'name' : 'C',
-            'fee' : 1000 
+            'id' : 5,
+            'name' : 'C#',
+            'fee' : 3000 
         },
     ]
 
