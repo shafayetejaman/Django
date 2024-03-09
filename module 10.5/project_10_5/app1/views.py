@@ -4,8 +4,7 @@ from datetime import timedelta, date
 # Create your views here.
 
 
-def home(request):
-    data = [
+data = [
         {
             "id": 1,
             "name": ["Introduction", "to", "Python"],
@@ -38,7 +37,10 @@ def home(request):
         },
     ]
 
+def home(request):
+
     return render(request, "app1/home.html", {"course": data})
 
 def filter(request):
-    return render(request, "app1/filter_practice.html")
+
+    return render(request, "app1/filter_practice.html", {"course": data})
