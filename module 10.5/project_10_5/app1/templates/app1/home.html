@@ -12,12 +12,8 @@
 </head>
 <body>
     <h1>this is an app</h1>
-  
-    <ul>
-        {% for book in data %}
-            <li>{{ book.Title }}</li>
-        {% endfor %}
-    </ul>
-    
+    {% for i in data %}
+        <h1>book id {{i}}</h1>
+    {% endfor %}
 </body>
 </html>
