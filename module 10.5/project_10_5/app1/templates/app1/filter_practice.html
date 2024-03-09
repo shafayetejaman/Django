@@ -34,7 +34,9 @@
     <h2>Last : {{ data | last }}</h2>
     <h2>Sorted : {{ data | dictsort:"age" }}</h2>
 
-    <h2>{{ data | make_list }}</h2>
+     {% for i in data %}
+        <h2>{{i.age | make_list}}</h2>
+    {% endfor %}
 
 </body>
 </html>
