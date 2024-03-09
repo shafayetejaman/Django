@@ -39,3 +39,6 @@ def home(request):
     ]
 
     return render(request, "app1/home.html", {"course": data})
+
+def filter(request):
+    return render(request, "app1/fit")
