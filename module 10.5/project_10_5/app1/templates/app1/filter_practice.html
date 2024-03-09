@@ -16,9 +16,14 @@
     <a href="/"><h2>goto Home</h2></a>
 
     <h2>{{10 | add:10}}</h2>
-    <h2>{{ "abc" | capfirst }}</h2>
+    <h2>{{ data | capfirst }}</h2>
     <h2>{{ "Introduction - to - C#" | cut:"-" }}</h2>
-    <h2>{{ 2 | divisibleby:"2" }}</h2>
+
+    {% for i in data %}
+        <h2> i {{ i.age | divisibleby:"2" }}</h2>
+
+    {% endfor %}
+    
     <h2>First : {{ data | first }}</h2>
     <h2>Last : {{ data | last }}</h2>
     <h2>Sorted : {{ data | dictsort:"age" }}</h2>
