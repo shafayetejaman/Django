@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>this is an app/home</h1>
+    <a href="/app/filter/"><h2>goto app/filter</h2></a>
+    <a href="/"><h2>goto Home</h2></a>
+
+    <h1>Total Course: {{course | length}}</h1>
+    {% for i in course %}
+        <h2>Course ID : {{i.id}} </h2>
+        <h2>Course Name : {{i.name | join:" - "}} </h2>
+        <h2>Course Fee : {{i.fee}} </h2>
+        <h2>Inroll Date : {{i.date | date:"D, d-M-Y"}} </h2>
+        <hr>
+    {% endfor %}
+
+    
+</body>
+</html>
