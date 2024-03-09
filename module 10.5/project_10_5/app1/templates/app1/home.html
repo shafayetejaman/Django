@@ -11,7 +11,8 @@
     </style>
 </head>
 <body>
-    <h1>this is an app</h1>
+    <h1>this is an app/home</h1>
+    <h1>Total Course: {{course | length}}</h1>
     {% for i in course %}
         <h2>Course ID : {{i.id}} </h2>
         <h2>Course Name : {{i.name | join:" - "}} </h2>
