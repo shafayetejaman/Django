@@ -15,12 +15,20 @@
     <a href="/app/"><h2>goto app</h2></a>
     <a href="/"><h2>goto Home</h2></a>
 
-    <h2>{{10 | add:10}}</h2>
+    {% for i in data %}
+        <h2> {{i.age}} + 10 = {{i.age | add:10}}</h2>
+    {% endfor %}
+    
+    {% for i in data %}
+        <h2> {{i.name}} + 10 = {{i.age | add:10}}</h2>
+    {% endfor %}
+    
+
     <h2>{{ data | capfirst }}</h2>
     <h2>{{ "Introduction - to - C#" | cut:"-" }}</h2>
 
     {% for i in data %}
-        <h2> i {{ i.age | divisibleby:"2" }}</h2>
+        <h2> {{i.age}} / 2 = {{ i.age | divisibleby:"2" }}</h2>
 
     {% endfor %}
     
