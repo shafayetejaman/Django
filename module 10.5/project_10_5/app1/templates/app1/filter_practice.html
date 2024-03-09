@@ -20,7 +20,8 @@
     {% endfor %}
     
     {% for i in data %}
-        <h2> {{i.name}} + 10 = {{i.age | add:10}}</h2>
+        <h2> {{i.name}} = {{i.name | capfirst}}</h2>
+        <h2>{{ 'ABC' | lower }}</h2>
     {% endfor %}
     
 
@@ -35,7 +36,6 @@
     <h2>First : {{ data | first }}</h2>
     <h2>Last : {{ data | last }}</h2>
     <h2>Sorted : {{ data | dictsort:"age" }}</h2>
-    <h2>{{ 'ABC' | lower }}</h2>
     <h2>{{ "abc" | make_list }}</h2>
 
 </body>
