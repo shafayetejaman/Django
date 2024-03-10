@@ -23,7 +23,7 @@
                         {% comment %} <p class="mx-3">{% lorem 10 w random %}</p> {% endcomment %}
 
                         <p class="mx-3">{{i.strMealDescription |slice:":80"}}
-                            {% if {{i.strMealDescription | length}} > 80 %}...{% endif %}
+                            {% if i.strMealDescription|length > 80 %}...{% endif %}
                         </p>
                     </div>
                 </div>
