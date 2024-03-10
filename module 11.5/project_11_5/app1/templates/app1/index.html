@@ -10,18 +10,18 @@
 
             {% for i in meals %}
             
-                    <div class="col-md-3 my-3">
-                        <div class="card">
-                            <img src="i.strMealThumb" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-start">
-            
-                                    <p class="card-title">Card title</p>
-                                    
-                                </div>
+                <div class="col-md-3 my-3">
+                    <div class="card">
+                        <img src="{{i.strMealThumb}}" class="card-img-top w-100 h-25" alt="...">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-start">
+        
+                                <p class="card-title">{{i.strMeal}}</p>
+                                
                             </div>
                         </div>
                     </div>
+                </div>
 
             {% endfor %}
         </div>
