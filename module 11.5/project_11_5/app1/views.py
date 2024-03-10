@@ -57,4 +57,4 @@ def index(request):
         },
     ]
 
-    return render(request, "app1/home.html", {"course": meals})
+    return render(request, "app1/index.html", {"course": meals})
