@@ -5,25 +5,28 @@
 
     <!-- card section -->
     
-    <section class="container-fluid bg-body-tertiary">
-        <div class="row-cols-3" id="video-container">
+    <section class="justify-content-center">
+        <div class="container-fluid bg-body-tertiary">
 
-            {% for i in meals %}
+            <div class="row row-cols-3 w-75" id="video-container">
+    
+                {% for i in meals %}
+                
+                    <div class="col my-3">
+                        <div class="card">
+                            <img src="{{i.strMealThumb}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-start">
             
-                <div class="col my-3">
-                    <div class="card">
-                        <img src="{{i.strMealThumb}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-start">
-        
-                                <p class="card-title">{{i.strMeal}}</p>
-                                
+                                    <p class="card-title">{{i.strMeal}}</p>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-            {% endfor %}
+    
+                {% endfor %}
+            </div>
         </div>
     </section>
 
