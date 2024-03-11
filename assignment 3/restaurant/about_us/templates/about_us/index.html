@@ -2,7 +2,14 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+{% comment %}
+<link rel="stylesheet" href="{% static "css/style.css" %}"> {% endcomment %}
+<style>
+    .my-img {
+        width: 20vw;
+        margin-left: 35px;
+    }
+</style>
 {% endblock css %}
 
 {% block content %}
@@ -16,7 +23,7 @@
             <storng> Thanks For Coming
                 <storng />
         </h1>
-        <p class="text-white mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Eaque, ea! Dolor
+        <p class="text-white mx-5 my">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Eaque, ea! Dolor
             mollitia
             atque
             qui
