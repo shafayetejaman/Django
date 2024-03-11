@@ -236,5 +236,9 @@
             "django-html"
         ]
     }
+      "[html]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+    },
    
 }
