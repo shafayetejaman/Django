@@ -175,7 +175,9 @@
         "bitset": "cpp",
         "ostream": "cpp",
         "algorithm": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "**/templates/*.html": "django-html",
+        "**/templates/*": "django-txt"
     },
     "files.enableTrash": true,
     "editor.smoothScrolling": true,
@@ -226,5 +228,6 @@
     "emmet.includeLanguages": {
         "django-html": "html",
         "jinja-html": "html"
-    }
+    },
+   
 }
