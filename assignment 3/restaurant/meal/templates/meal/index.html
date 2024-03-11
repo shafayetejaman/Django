@@ -8,7 +8,7 @@
     }
 
     .card {
-        background-color: gray;
+        background-color: rgb(115, 59, 151);
     }
 </style>
 
@@ -24,18 +24,18 @@
         {% for i in categories %}
 
         <div class="col my-3">
-            <div class="card text-white">
+            <div class="card">
                 <img style="width:20vw" src="{{i.strCategoryThumb}}" class="card-img-top m-2 ms-3" alt="...">
 
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
 
-                        <h3 class="card-title">{{i.strCategory}}</h3>
+                        <h3 class="card-title text-danger">{{i.strCategory}}</h3>
 
                     </div>
                 </div>
 
-                <p class="mx-3">
+                <p class="mx-3 text-light">
                     {{i.strCategoryDescription | truncatewords:10}}
                 </p>
             </div>
