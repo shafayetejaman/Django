@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="home-bg w-100 d-flex justify-content-center align-items-center gap-5">
+
+    <img class="home-img" src="{% static "images/my_pic.png" %}" alt="">
+
+    <div>
+        <h1 class="text-danger mx-5">
+            <storng> Thanks For Coming
+                <storng />
+        </h1>
+        <p class="text-white mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Eaque, ea! Dolor
+            mollitia
+            atque
+            qui
+            est
+            ex nisi
+            provident quisquam!<br> Obcaecati natus odit, earum molestias quae<br> harum nulla reprehenderit quis
+            dolorem.
+        </p>
+    </div>
+    {% endblock content %}
