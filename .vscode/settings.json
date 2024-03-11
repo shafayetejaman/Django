@@ -235,10 +235,11 @@
             "html",
             "django-html"
         ]
-    }
+    },
       "[html]": {
       "editor.tabSize": 2,
       "editor.insertSpaces": true
     },
+    "terminal.integrated.mouseWheelZoom": true,
    
 }
