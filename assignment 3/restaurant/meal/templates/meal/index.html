@@ -1,20 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
-<head>
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
-</head>
+{% block css %}
+<style>
+    body {
+        background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
+    }
+    card
+</style>
 
+{% endblock css %}
 
 {% block content %}
 
 <!-- card section -->
 
-<section class="page-bg container-fluid bg-body-tertiary ">
+<section class="page-bg container-fluid">
     <div class="row row-cols-4 mx-4" id="video-container">
 
         {% for i in categories %}
