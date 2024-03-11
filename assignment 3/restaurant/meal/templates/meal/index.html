@@ -6,7 +6,10 @@
     body {
         background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
     }
-    card
+
+    .card {
+        background-color: gray;
+    }
 </style>
 
 {% endblock css %}
@@ -21,7 +24,7 @@
         {% for i in categories %}
 
         <div class="col my-3">
-            <div class="card">
+            <div class="card text-white">
                 <img style="width:20vw" src="{{i.strCategoryThumb}}" class="card-img-top m-2 ms-3" alt="...">
 
                 <div class="card-body">
