@@ -5,4 +5,4 @@ from django.db import models
 class DBStudent(models.Model):
     name = models.CharField(max_length=50)
     ID = models.IntegerField(primary_key=True)
-    # email = models.CharField()
+    email = models.TextField()
