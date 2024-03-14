@@ -3,7 +3,9 @@ body{
 }
 
 .form-container {
-    width: 20%;
+    width: 50%;
     height: 500px;
     margin: auto;
+    background-color: gray;
+    text-c
 }
