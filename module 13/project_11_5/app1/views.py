@@ -7,5 +7,5 @@ def index(request):
     return render(request, "app1/index.html")
 
 def result(request):
-    
+    form = request.
     return render(request, "app1/result.html")
