@@ -11,7 +11,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<form method="POST" class="form-continer pt-4" action="{% url "result" %}">
+<form method="POST" class="form-container pt-4" action="{% url "result" %}">
     {% csrf_token %}
     {{form|crispy}}
     <button type="submit" class="btn btn-primary mt-2">Submit</button>
