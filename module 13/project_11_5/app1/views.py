@@ -8,4 +8,6 @@ def index(request):
 
 def result(request):
     form = StudentForm(request.POST)
-    return render(request, "app1/result.html")
+    if form.is_valid():
+        print(form.changed_data)
+        return render(request, "app1/result.html", )
