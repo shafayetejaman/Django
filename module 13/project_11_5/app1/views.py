@@ -13,4 +13,4 @@ def result(request):
     if form.is_valid():
         print(form.changed_data)
 
-    return render(request, "app1/result.html", {f"form": form})
+    return render(request, "app1/result.html", {"form": form})
