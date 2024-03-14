@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block  %}{% endblock  %}
+{% block link %}
+{{ block.super }}
+
+<link rel="stylesheet" href="app1/style.css">
+
+{% endblock link %}
 
 {% block content %}
 
