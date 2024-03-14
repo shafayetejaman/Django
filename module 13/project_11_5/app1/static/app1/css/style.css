@@ -3,5 +3,7 @@ body{
 }
 
 .form-container{
-    width: 50%; height: 500px; margin:auto;
+    width: 50%;
+    height: 500px;
+    margin: auto;
 }
