@@ -4,10 +4,13 @@
 {% block css %}
 <link rel="stylesheet" href="{% static "app1/css/style.css" %}">
 {% endblock css %}
-{% csrf_token %}
-
 
 {% block content %}
+{% load crispy_forms_tags %}
 
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+</form>
 
 {% endblock content %}
