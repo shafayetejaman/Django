@@ -1,4 +1,4 @@
 from django import forms
 
-class MyForm(forms.forms):
+class MyForm(forms.Form):
     name = forms.CharField(max_length=10)
