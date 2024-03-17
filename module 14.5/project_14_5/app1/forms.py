@@ -22,4 +22,4 @@ class MyForm(forms.Form):
     day = forms.DateField(widget=NumberInput(attrs={"type": "date"}))
     services = forms.MultipleChoiceField(choices=CHOICES)
     top_service = forms.ChoiceField(label="Top Service", choices=CHOICES)
-    
+    include=forms.MultipleChoiceField(widget=fo)
