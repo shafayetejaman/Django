@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app1.views import index
+from app1.views import index, clear_form
 
 urlpatterns = [
-    path("", index, name='index')
+    path("", index, name='index'),
+    path("", clear_form, name='clear')
 ]
