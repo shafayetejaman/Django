@@ -9,3 +9,4 @@ class MyForm(forms.Form):
     )
     email = forms.EmailField(required=False, initial="name@gmail.come"),
     day = forms.DateField(initial=date.today)
+    log = forms.BooleanField(label="Keep Loged In")
