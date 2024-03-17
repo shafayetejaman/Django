@@ -10,5 +10,5 @@ class MyForm(forms.Form):
     )
     email = forms.EmailField(label="Email", required=False, initial="name@gmail.come"),
     
-    log = forms.BooleanField(label="Keep Login"))
-    # day = forms.DateField(initial=date.today),
+    log = forms.BooleanField(label="Keep Login"),
+    day = forms.DateField(initial=date.today),
