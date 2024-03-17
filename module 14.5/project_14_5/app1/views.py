@@ -10,9 +10,8 @@ def index(request):
             return render(
                 request,
                 "app1/index.html",
-                {"form": form},
-                {"data": form.cleaned_data},
+                {"form": form, "data": form.cleaned_data},
             )
-    
-    form = MyForm(request.POST)
+
+    form = MyForm()
     return render(request, "app1/index.html", {"form": form})
