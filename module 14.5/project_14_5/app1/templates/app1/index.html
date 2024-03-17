@@ -11,6 +11,7 @@
 <form class="w-50 m-auto my-5" action="{% url "index" %}" method="post">
     {% csrf_token %}
     {{ form|crispy }}
+    <button class="btn text-white bg-primary">Submit</button>
 </form>
 
 <div class="w-50 m-auto my-5">
