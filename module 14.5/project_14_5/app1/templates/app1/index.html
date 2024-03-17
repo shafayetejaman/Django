@@ -13,8 +13,8 @@
     {{ form|crispy }}
 </form>
 
-{% for key, value in data.itmes() %}
-<h3>{{key}} : {{i.items}}</h3>
+{% for key, value in data.itmes %}
+<h3>{{key}} : {{value}}</h3>
 {% endfor %}
 
 {% endblock content %}
