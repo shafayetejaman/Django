@@ -19,7 +19,15 @@ class MyForm(forms.Form):
     )
     email = forms.EmailField(label="Email", required=False, initial="name@gmail.com")
     log = forms.BooleanField(label="Keep Login", initial=True)
-    day = forms.DateField(widget=NumberInput(attrs={"type": "date"}))
+    date = forms.DateField(
+        label="Submission Date",
+        widget=NumberInput(attrs={"type": "date"}),
+        initial=date.today()
+    )
     services = forms.MultipleChoiceField(choices=CHOICES)
     top_service = forms.ChoiceField(label="Top Service", choices=CHOICES)
-    include=forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=CHOICES)
+    include = forms.MultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple, choices=CHOICES
+    )
+    url = forms.URLField(label="Your Website", required=False)
+    profile_pic = forms.ImageField()
