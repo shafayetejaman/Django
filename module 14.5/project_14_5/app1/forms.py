@@ -20,8 +20,6 @@ class MyForm(forms.Form):
     email = forms.EmailField(label="Email", required=False, initial="name@gmail.com")
     log = forms.BooleanField(label="Keep Login", initial=True)
     day = forms.DateField(widget=NumberInput(attrs={"type": "date"}))
-    services = forms.MultipleChoiceField(
-        choices=CHOICES,
-        widget=forms.CheckboxSelectMultiple(attrs={"class": "text-white"}),
-    )
+    services = forms.MultipleChoiceField(choices=CHOICES)
     top_service = forms.ChoiceField(label="Top Service", choices=CHOICES)
+    
