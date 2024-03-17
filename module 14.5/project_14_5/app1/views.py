@@ -13,5 +13,6 @@ def index(request):
                 {"form": form},
                 {"data": form.cleaned_data},
             )
-    form = MyForm()
+    
+    form = MyForm(request.POST)
     return render(request, "app1/index.html", {"form": form})

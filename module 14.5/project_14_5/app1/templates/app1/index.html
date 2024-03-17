@@ -8,7 +8,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<form class="w-50 m-auto" action="" method="post">
+<form class="w-50 m-auto" action="{% url "index" %}" method="post">
     {% csrf_token %}
     {{ form|crispy }}
 </form>
