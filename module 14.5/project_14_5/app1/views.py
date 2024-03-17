@@ -7,6 +7,6 @@ def index(request):
     if request.method == "POST":
         form = MyForm(request.POST)
         if form.is_valid():
-     
+            return render(request, "app1/index.html", {})
 
     return render(request, "app1/index.html", {"form": form})
