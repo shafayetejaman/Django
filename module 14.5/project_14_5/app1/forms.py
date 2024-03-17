@@ -6,4 +6,4 @@ class MyForm(forms.Form):
         max_length=10,
         widget=forms.TextInput(attrs={"class": "bg-black text-white"}),
     )
-    email = forms.EmailField(error_messages={"required": "Not a Email!"})
+    email = forms.EmailField(required=False)
