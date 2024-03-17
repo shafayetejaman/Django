@@ -21,5 +21,6 @@ class MyForm(forms.Form):
     log = forms.BooleanField(label="Keep Login", initial=True)
     day = forms.DateField(widget=NumberInput(attrs={"type": "date"}))
     services = forms.MultipleChoiceField(choices=CHOICES)
-    service = forms.ChoiceField(widget=forms.BooleanField(, required=False) choices=CHOICES)
-   
+    top_service = forms.ChoiceField(
+        label="Top Service", widget=forms.BooleanField, choices=CHOICES
+    )
