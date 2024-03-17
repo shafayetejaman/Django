@@ -7,15 +7,13 @@ def index(request):
     if request.method == "POST":
         form = MyForm(request.POST)
         if form.is_valid():
+            form = MyForm()
+            data = form.cleaned_data
             return render(
                 request,
                 "app1/index.html",
-                {"form": form, "data": form.cleaned_data},
+                {"form": form, "data": },
             )
 
-    form = MyForm()
-    return render(request, "app1/index.html", {"form": form})
-
-def clear_form(request):
     form = MyForm()
     return render(request, "app1/index.html", {"form": form})
