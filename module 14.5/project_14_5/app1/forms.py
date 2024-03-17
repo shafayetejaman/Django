@@ -22,7 +22,7 @@ class MyForm(forms.Form):
     date = forms.DateField(
         label="Submission Date",
         widget=NumberInput(attrs={"type": "date"}),
-        initial=date.today()
+        initial=date.today(),
     )
     services = forms.MultipleChoiceField(choices=CHOICES)
     top_service = forms.ChoiceField(label="Top Service", choices=CHOICES)
@@ -30,4 +30,4 @@ class MyForm(forms.Form):
         widget=forms.CheckboxSelectMultiple, choices=CHOICES
     )
     url = forms.URLField(label="Your Website", required=False)
-    profile_pic = forms.ImageField()
+    profile_pic = forms.ImageField(label="Upload Your Image", required=False)
