@@ -1,5 +1,5 @@
 from django import forms
-from datetime import datetime
+from datetime import date
 
 
 class MyForm(forms.Form):
@@ -8,4 +8,4 @@ class MyForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "bg-black text-white"}),
     )
     email = forms.EmailField(required=False, initial="name@gmail.come"),
-    day = forms.DateField(initial=datetime.date.today)
+    day = forms.DateField(initial=date.today)
