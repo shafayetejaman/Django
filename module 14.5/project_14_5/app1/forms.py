@@ -1,5 +1,6 @@
 from django import forms
 from datetime import date
+from django.forms.widgets import NumberInput
 
 
 class MyForm(forms.Form):
@@ -9,5 +10,5 @@ class MyForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "bg-black text-white"}),
     )
     email = forms.EmailField(label="Email", required=False, initial="name@gmail.com")
-    log = forms.BooleanField(label="Keep Login", initial="clicked")
-    day = forms.DateField(initial=date.today)
+    log = forms.BooleanField(label="Keep Login", initial=True)
+    day = forms.DateField(widget=NumberInput(attrs={"type": "date"}))
