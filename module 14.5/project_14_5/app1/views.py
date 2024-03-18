@@ -23,3 +23,6 @@ def index(request):
 
     form = MyForm()
     return render(request, "app1/index.html", {"form": form})
+
+def db(request):
+    return render(request, "app1/dbpage.html")
