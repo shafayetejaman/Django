@@ -19,8 +19,11 @@
     {% for key, value in data.items %}
     <h3>{{key}} : {{value|default:"Not Found!"}}</h3>
     {% endfor %}
-    
-    <img src="{% static 'app1/images/'|add:data['profile_img'] %}" alt="">
+
+    {% if data %}
+    <img src="{% static 'app1/images/'|add:data.profile_img.name %}" alt="">
+    {% endif %}
+
 
 </div>
 
