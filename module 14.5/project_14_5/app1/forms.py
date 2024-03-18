@@ -31,3 +31,6 @@ class MyForm(forms.Form):
     )
     url = forms.URLField(label="Your Website", required=False)
     profile_pic = forms.ImageField(label="Upload Your Image", required=False)
+
+class MyDBForm():
+    pass
