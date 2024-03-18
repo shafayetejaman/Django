@@ -19,10 +19,10 @@
     {% for key, value in data.items %}
     <h3>{{key}} : {{value|default:"Not Found!"}}</h3>
 
-    {% if key == 'profile_image' %}
-    <img src="{% static "app1/images/key" %}" alt="">
+    {% if key == 'profile_img' %}
+    <img src="{% static "app1/images/{{key}}" %}" alt="">
     {% endif %}
-    
+
     {% endfor %}
 </div>
 
