@@ -5,9 +5,10 @@ from app1.forms import MyForm
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        form = MyForm(request.POST)
+        form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
+            file = data['profile_img']
             form = MyForm()
             return render(
                 request,
