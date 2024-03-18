@@ -10,7 +10,7 @@ def index(request):
             data = form.cleaned_data
 
             file = data["profile_img"]
-            with open("./static/images/" + file.name, "wb+") as des:
+            with open("./app1/static/app1/images/" + file.name, "wb+") as des:
                 for i in file.chunks():
                     des.write(i)
 
