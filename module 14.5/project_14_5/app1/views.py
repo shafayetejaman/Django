@@ -8,12 +8,12 @@ def index(request):
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            
+
             file = data["profile_img"]
-            with open("./static/images/"+file.name, 'wb+') as des:
+            with open("./static/images/" + file.name, "wb+") as des:
                 for i in file.chunks():
                     des.write(i)
-                    
+
             form = MyForm()
             return render(
                 request,
