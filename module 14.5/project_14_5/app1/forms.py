@@ -30,7 +30,7 @@ class MyForm(forms.Form):
         widget=forms.CheckboxSelectMultiple, choices=CHOICES
     )
     url = forms.URLField(label="Your Website", required=False)
-    profile_pic = forms.ImageField(label="Upload Your Image", required=False)
+    profile_img = forms.FileField(label="Upload Your Image", required=False)
 
 class MyDBForm():
     pass
