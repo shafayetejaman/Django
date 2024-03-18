@@ -11,7 +11,8 @@ def index(request):
             
             file = data["profile_img"]
             with open("./static/images/"+file.name, 'wb+') as des:
-                for 
+                for i in file.chunks():
+                    i.write
             form = MyForm()
             return render(
                 request,
