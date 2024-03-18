@@ -8,8 +8,10 @@ def index(request):
         form = MyForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
+            
             file = data["profile_img"]
-            with open("./static/images/"+file.name, '')
+            with open("./static/images/"+file.name, 'wb+') as des:
+                for 
             form = MyForm()
             return render(
                 request,
