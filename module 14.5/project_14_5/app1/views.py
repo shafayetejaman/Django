@@ -31,8 +31,8 @@ def db(request):
         if form.is_valid():
             data = form.cleaned_data
 
-            print(data))
             form.save()
+            print(data)
 
             form = MyDBForm()
             return render(
