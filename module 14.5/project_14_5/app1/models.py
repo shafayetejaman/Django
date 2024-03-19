@@ -8,3 +8,4 @@ class MyDBFormClass(models.Model):
     balance = models.BigIntegerField()
     login = models.BooleanField(default=True)
     about = models.TextField(max_length=50)
+    date = models.DateField()
