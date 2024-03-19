@@ -5,9 +5,9 @@ from django.db import models
 class MyDBFormClass(models.Model):
     ID = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=10)
-    # balance = models.IntegerField(blank=True, null=True)
-    # login = models.BooleanField(default=True)
-    # about = models.TextField(max_length=50, default=None)
+    balance = models.IntegerField(blank=True, null=True)
+    login = models.BooleanField(default=True)
+    about = models.TextField(max_length=50, default=None)
     # date = models.DateField()
     # hour_rate = models.DecimalField(max_digits=5, decimal_places=2)
     # email = models.EmailField()
