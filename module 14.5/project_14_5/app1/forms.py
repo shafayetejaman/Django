@@ -40,7 +40,7 @@ class MyDBForm(forms.ModelForm):
         fields = "__all__"
         labels = {
             "ID": "Enter Your ID:",
-            # "balance": "Total Fee:",
+            "balance": "Total Fee:",
             "login": "Keep login",
         }
         widgets = {
