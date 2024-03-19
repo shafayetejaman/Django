@@ -31,6 +31,11 @@ def db(request):
         if form.is_valid():
             data = form.cleaned_data
 
+            file = data["profile_img"]
+            with open("./app1/static/app1/images/" + file.name, "wb+") as des:
+                for i in file.chunks():
+                    des.write(i)
+
             form.save()
             form = MyDBForm()
             return render(
