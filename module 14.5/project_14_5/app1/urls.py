@@ -21,6 +21,6 @@ from app1.views import index,db
 
 urlpatterns = [
     path("", index, name="index"),
-    path("db", db, name="db"),
+    path("db/", db, name="db"),
 
 ]
