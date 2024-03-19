@@ -34,7 +34,7 @@ def db(request):
                 for i in file.chunks():
                     des.write(i)
 
-            form.save(commit=True)
+            form.save(commit=False)
             form = MyDBForm()
             return render(
                 request,
