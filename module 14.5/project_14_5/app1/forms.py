@@ -39,6 +39,4 @@ class MyDBForm(forms.ModelForm):
         model = MyDBFormClass
         fields = "__all__"
         labels = {"ID": "Enter Your ID:", "balance": "Total Fee:"}
-        widgets={
-            "login":forms.
-        }
+        # widgets = {"login": forms.BooleanField(label="Keep Login")}
