@@ -27,7 +27,7 @@ def index(request):
 
 def db(request):
     if request.method == "POST":
-        form = MyDBForm(request.POST)
+        form = MyDBForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
 
