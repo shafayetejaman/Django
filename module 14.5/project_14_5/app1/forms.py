@@ -39,4 +39,4 @@ class MyDBForm(forms.ModelForm):
         model = MyDBFormClass
         fields = "__all__"
         labels = {"ID": "Enter Your ID:", "balance": "Total Fee:"}
-        required = {"balance": "False"}
+   
