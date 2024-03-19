@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ("ID", models.IntegerField(primary_key=True, serialize=False)),
                 ("name", models.CharField(max_length=10)),
-                ("balance", models.BigIntegerField()),
+                ("balance", models.IntegerField()),
                 ("login", models.BooleanField(default=True)),
                 ("about", models.TextField(default=None, max_length=50)),
                 ("date", models.DateField()),
