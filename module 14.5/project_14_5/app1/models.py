@@ -11,4 +11,4 @@ class MyDBFormClass(models.Model):
     date = models.DateField()
     hour_rate = models.DecimalField(max_digits=5, decimal_places=2)
     email = models.EmailField()
-    profile_img = models.FileField(upload_to="files/")
+    profile_img = models.FileField(upload_to="static/app1/images/")
