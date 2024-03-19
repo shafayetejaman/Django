@@ -42,6 +42,7 @@ class MyDBForm(forms.ModelForm):
             "ID": "Enter Your ID:",
             "balance": "Total Fee:",
             "login": "Keep login",
+            "website":"Your Company Website"
         }
         widgets = {
             "date": forms.DateInput(
