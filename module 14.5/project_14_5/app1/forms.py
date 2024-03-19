@@ -31,24 +31,6 @@ class MyForm(forms.Form):
         widget=forms.CheckboxSelectMultiple, choices=CHOICES
     )
     url = forms.URLField(label="Your Website", required=False)
-    profile_img = forms.FileField(label="Upload Your Image", required=False)
+    profile_img = forms.FileField(label="Upload Your Image", required=True)
 
 
-class MyDBForm(forms.ModelForm):
-    class Meta:
-        model = MyDBFormClass
-        fields = "__all__"
-        labels = {
-            "ID": "Enter Your ID:",
-            "balance": "Total Fee:",
-            "login": "Keep login",
-            "website":"Your Company Website"
-        }
-        widgets = {
-            "date": forms.DateInput(
-                attrs={
-                    "type": "date",
-                    "value": date.today(),
-                }
-            ),
-        }
