@@ -47,7 +47,7 @@ class MyDBForm(forms.ModelForm):
             "date": forms.DateInput(
                 attrs={
                     "type": "date",
-                    "value": date.today().strftime("%Y-%m-%d"),
+                    "value": date.today(),
                 }
             ),
         }
