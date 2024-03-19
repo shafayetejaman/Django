@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from app1.forms import MyForm, MyDBForm
 
+
 # Create your views here.
 def index(request):
     if request.method == "POST":
@@ -23,6 +24,7 @@ def index(request):
     form = MyForm()
     return render(request, "app1/index.html", {"form": form})
 
+
 def db(request):
     if request.method == "POST":
         form = MyDBForm(request.POST)
@@ -39,4 +41,3 @@ def db(request):
 
     form = MyDBForm()
     return render(request, "app1/dbpage.html", {"form": form})
-   
