@@ -38,7 +38,8 @@ class MyDBForm(forms.ModelForm):
     class Meta:
         model = MyDBFormClass
         fields = "__all__"
-        labels = {"ID": "Enter Your ID:", "balance": "Total Fee:"}
-        widgets = {
-            "login": forms.CheckboxInput(attrs={"label": "Keep Login"})
+        labels = {
+            "ID": "Enter Your ID:",
+            "balance": "Total Fee:",
+            "login": "Keep login",
         }
