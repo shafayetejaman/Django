@@ -34,7 +34,7 @@ class MyForm(forms.Form):
     profile_img = forms.FileField(label="Upload Your Image", required=False)
 
 
-class MyDBForm:
+class MyDBForm(forms.ModelForm):
     class Meta:
-        model = MyDBFormClass()
+        model = MyDBFormClass
         fields = "__all__"
