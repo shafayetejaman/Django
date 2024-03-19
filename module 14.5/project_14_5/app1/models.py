@@ -7,3 +7,4 @@ class MyDBFormClass(models.Model):
     name = models.CharField(max_length=10)
     balance = models.BigIntegerField()
     login = models.BooleanField(default=True)
+    about = models.TextField(max_length=50)
