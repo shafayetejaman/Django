@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from app1.forms import MyForm
-
+from app1.forms import MyForm, MyDBForm
 
 # Create your views here.
 def index(request):
@@ -26,7 +25,7 @@ def index(request):
 
 def db(request):
     if request.method == "POST":
-        form = MyForm(request.POST, request.FILES)
+        form = MyDBForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
 
@@ -35,13 +34,13 @@ def db(request):
                 for i in file.chunks():
                     des.write(i)
 
-            form = MyForm()
+            form = MyDBForm()
             return render(
                 request,
                 "app1/dbpage.html",
                 {"form": form, "data": data},
             )
 
-    form = MyForm()
+    form = MyDBForm()
     return render(request, "app1/dbpage.html", {"form": form})
    
