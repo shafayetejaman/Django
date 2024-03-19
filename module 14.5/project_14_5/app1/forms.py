@@ -43,4 +43,11 @@ class MyDBForm(forms.ModelForm):
             "balance": "Total Fee:",
             "login": "Keep login",
         }
-        widgets = {"date": NumberInput(attrs={"type": "date"})}
+        widgets = {
+            "date": forms.DateInput(
+                attrs={
+                    "type": "date",
+                    "value": date.today().strftime("%Y-%m-%d"),
+                }
+            ),
+        }
