@@ -38,5 +38,5 @@ class MyDBForm(forms.ModelForm):
     class Meta:
         model = MyDBFormClass
         fields = "__all__"
-        labels = {"ID": "Enter Your ID:",
-                  "balance":"Total Fee:"}
+        labels = {"ID": "Enter Your ID:", "balance": "Total Fee:"}
+        required = {"balance": "False"}
