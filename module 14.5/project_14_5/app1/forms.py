@@ -38,6 +38,5 @@ class MyDBForm(forms.ModelForm):
     class Meta:
         model = MyDBFormClass
         fields = "__all__"
-        lable={
-            "ID":"Enter Your ID:"
-        }
+        labels = {"ID": "Enter Your ID:",
+                  "balance":"Total Fee:"}
