@@ -36,4 +36,5 @@ class MyForm(forms.Form):
 
 class MyDBForm:
     class Meta:
-        model = My
+        model = MyDBFormClass()
+        fields = "__all__"
