@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "album",
-    "musician",
     "crispy_forms",
     "crispy_bootstrap5",
+    "album",
+    "musician",
+    "show_detail",
 ]
 
 # django-crispy-forms
