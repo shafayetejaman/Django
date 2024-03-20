@@ -39,8 +39,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "album",
     "musician",
-    "profiles"
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+# django-crispy-forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 MIDDLEWARE = [
@@ -58,7 +63,7 @@ ROOT_URLCONF = "musician_directory.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
