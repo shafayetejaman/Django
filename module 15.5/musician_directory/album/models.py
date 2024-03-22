@@ -1,5 +1,5 @@
 from django.db import models
-from .
+from musician_directory.musician import musician
 
 
 # Create your models here.
