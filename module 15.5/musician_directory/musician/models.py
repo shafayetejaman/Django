@@ -1,14 +1,16 @@
 from django.db import models
-choice = [
-    ("guitar", "Guitar"),
-    ("piano", "Piano"),
-    ("drums", "Drums"),
-    ("violin", "Violin"),
-    ("flute", "Flute"),
-]
+
 
 # Create your models here.
 class musicians(models.Model):
+    choice = [
+        ("guitar", "Guitar"),
+        ("piano", "Piano"),
+        ("drums", "Drums"),
+        ("violin", "Violin"),
+        ("flute", "Flute"),
+    ]
+    
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()

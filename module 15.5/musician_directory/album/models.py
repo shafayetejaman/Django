@@ -1,5 +1,5 @@
 from django.db import models
-from musician_directory.musician import musician
+from musician.models import musicians
 
 
 # Create your models here.
@@ -14,4 +14,4 @@ class albums(models.Model):
     album_name = models.CharField(max_length=20)
     release_date = models.DateField()
     rating = models.CharField(choices=choice, max_length=50, null=True, blank=True)
-    musician = models.ForeignKey(musician, on_delete=models.CASCADE)
+    musician = models.ForeignKey(musicians, on_delete=models.CASCADE)
