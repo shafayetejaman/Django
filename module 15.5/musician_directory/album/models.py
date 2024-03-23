@@ -16,4 +16,5 @@ class albums(models.Model):
     rating = models.CharField(choices=choice, max_length=50, default=True)
     musician = models.ForeignKey(musicians, on_delete=models.CASCADE)
 
-    
+    def __str__(self) -> str:
+        return f"{self.album_name}"
