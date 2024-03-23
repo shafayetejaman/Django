@@ -4,17 +4,6 @@ from album.models import albums
 
 # Create your views here.
 def index(request):
-    if request.method == "POST":
-        form = musicians_forms(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
+    data = albums.objects.get()
 
-            form = musicians_forms()
-            return render(
-                request,
-                "musician/index.html",
-                {"form": form, "data": data},
-            )
-
-    form = musicians_forms()
-    return render(request, "show_detail/index.html", {"form": form})
+    return render(request, "show_detail/index.html", {"data": data})
