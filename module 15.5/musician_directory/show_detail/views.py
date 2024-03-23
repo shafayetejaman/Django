@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from album.forms import musicians_forms
+from album.models import albums
 
 
 # Create your views here.
@@ -17,4 +17,4 @@ def index(request):
             )
 
     form = musicians_forms()
-    return render(request, "musician/index.html", {"form": form})
+    return render(request, "show_detail/index.html", {"form": form})
