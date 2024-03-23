@@ -4,5 +4,5 @@ from album.models import albums
 
 class album_forms(forms.ModelForm):
     class Meta:
-        models = albums
+        model = albums
         fields = "__all__"
