@@ -3,20 +3,9 @@
 
 {% block link %}
 {{ block.super }}
-
-
 {% endblock link %}
 
 {% block content %}
-ID
-Musician Name
-Email
-Album Rating
-Instrument Type
-Album Name
-Release Date
-Actions
-
 
 <section>
     <table class="table">
@@ -27,29 +16,20 @@ Actions
                 <th scope="col">Email</th>
                 <th scope="col">Album Rating</th>
                 <th scope="col">Instrument Type</th>
-                <th scope="col">Album Rating</th>
-                <th scope="col">Album Rating</th>
-                <th scope="col">Album Rating</th>
+                <th scope="col">Album Name</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
+            {% for i in data %}
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">i.</th>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 
