@@ -26,9 +26,15 @@
             <tr>
                 <th scope="row">{{i.id}}</th>
                 <td>{{i.musician.first_name}}</td>
+                <td>{{i.musician.email}}</td>
+                <td>{{i.rating}}</td>
+                <td>{{i.instrument_type|default:"None"}}</td>
                 <td>{{i.album_name}}</td>
                 <td>{{i.first_name}}</td>
-                <td>{{i.first_name}}</td>
+                <td>{{i.release_date}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Edit</button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
