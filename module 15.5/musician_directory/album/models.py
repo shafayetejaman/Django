@@ -15,3 +15,5 @@ class albums(models.Model):
     release_date = models.DateField()
     rating = models.CharField(choices=choice, max_length=50, default=True)
     musician = models.ForeignKey(musicians, on_delete=models.CASCADE)
+
+    
