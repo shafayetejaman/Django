@@ -10,7 +10,7 @@ choice = [
 ]
 
 class album_forms(forms.ModelForm):
-    class Mata:
+    class Meta:
         model = albums
         fields = "__all__"
         widgets = {
