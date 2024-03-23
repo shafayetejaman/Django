@@ -1,20 +1,20 @@
 from django.shortcuts import render
-from .forms import albums
+from .forms import album_forms
 
 
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        form = albums(request.POST)
+        form = album_forms(request.POST)
         if form.is_valid():
             data = form.cleaned_data
 
-            form = albums()
+            form = album_forms()
             return render(
                 request,
                 "album/index.html",
                 {"form": form, "data": data},
             )
 
-    form = albums()
+    form = album_forms()
     return render(request, "album/index.html", {"form": form})
