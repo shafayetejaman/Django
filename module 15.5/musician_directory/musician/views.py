@@ -17,4 +17,4 @@ def index(request):
             )
 
     form = musicians_forms()
-    return render(request, "musican/index.html", {"form": form})
+    return render(request, "musician/index.html", {"form": form})

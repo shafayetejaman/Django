@@ -7,7 +7,7 @@ def index(request):
         form = album_forms(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-
+            form.save()
             form = album_forms()
             return render(
                 request,
