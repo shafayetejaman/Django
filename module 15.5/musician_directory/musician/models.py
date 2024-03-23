@@ -1,4 +1,11 @@
 from django.db import models
+choice = [
+    ("guitar", "Guitar"),
+    ("piano", "Piano"),
+    ("drums", "Drums"),
+    ("violin", "Violin"),
+    ("flute", "Flute"),
+]
 
 # Create your models here.
 class musicians(models.Model):
@@ -6,4 +13,4 @@ class musicians(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
     phone_number = models.IntegerField()
-    instrument_type = models.CharField(max_length=100)
+    instrument_type = models.CharField(max_length=50, choices=choice, d)
