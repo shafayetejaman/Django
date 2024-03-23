@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from forms import albums
+from .forms import albums
+
 
 # Create your views here.
 def index(request):
@@ -7,7 +8,7 @@ def index(request):
         form = albums(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            
+
             form = albums()
             return render(
                 request,
