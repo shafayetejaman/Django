@@ -12,7 +12,7 @@
 
 <section class="form-container">
 
-    <form method="POST" action="{% url "result" %}" class="pt-4">
+    <form method="POST" action="" class="pt-4">
         {% csrf_token %}
         {{form|crispy}}
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
