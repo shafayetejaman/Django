@@ -5,16 +5,16 @@ from .forms import musicians_forms
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        form = album_forms(request.POST)
+        form = musicians_forms(request.POST)
         if form.is_valid():
             data = form.cleaned_data
 
-            form = album_forms()
+            form = musicians_forms()
             return render(
                 request,
                 "album/index.html",
                 {"form": form, "data": data},
             )
 
-    form = album_forms()
+    form = musicians_forms()
     return render(request, "album/index.html", {"form": form})
