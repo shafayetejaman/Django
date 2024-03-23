@@ -1,9 +1,9 @@
 from django import forms
-from album.models import albums
+from album.models import musicians
 
 
-class album_forms(forms.ModelForm):
+class musicians_forms(forms.ModelForm):
     class Meta:
-        model = albums
+        model = musicians
         fields = "__all__"
        
