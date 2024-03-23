@@ -8,7 +8,10 @@ def index(request):
         form = musicians_forms(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+
             form.save()
+            print(data)
+
             form = musicians_forms()
             return render(
                 request,
