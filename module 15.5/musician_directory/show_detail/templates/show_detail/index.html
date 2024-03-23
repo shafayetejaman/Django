@@ -24,10 +24,11 @@
         <tbody class="table-group-divider">
             {% for i in data %}
             <tr>
-                <th scope="row">i.</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.musician.first_name}}</td>
+                <td>{{i.album_name}}</td>
+                <td>{{i.first_name}}</td>
+                <td>{{i.first_name}}</td>
             </tr>
             {% endfor %}
         </tbody>
