@@ -26,7 +26,7 @@
             <tr>
                 <th scope="row">{{i.id}}</th>
                 <td><a class="h4 text-decoration-none"
-                        href="{% url "edit_musician" i.id %}">{{i.musician.first_name}}</a></td>
+                        href="{% url "edit_musician" i.musician.id %}">{{i.musician.first_name}}</a></td>
                 <td>{{i.musician.email}}</td>
                 <td>{{i.rating}}</td>
                 <td>{{i.instrument_type|default:"None"}}</td>

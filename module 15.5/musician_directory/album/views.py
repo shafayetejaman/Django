@@ -18,7 +18,7 @@ def index(request):
 
 def edit(request, id):
     model_data = albums.objects.get(pk=id)
-    form = album_forms(request.POST, instance=model_data)
+    form = album_forms(instance=model_data)
 
     if request.method == "POST":
         if form.is_valid():
