@@ -20,4 +20,6 @@ from .views import index
 
 urlpatterns = [
     path("", index, name="add_musician"),
+    path("edit/<int:id>", index, name="edit_musician"),
+
 ]
