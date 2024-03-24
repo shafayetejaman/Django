@@ -8,12 +8,8 @@ def index(request):
     if request.method == "POST":
         form = album_forms(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-
             form.save()
-            print(data)
 
-            form = album_forms()
             return redirect("show")
 
     form = album_forms()
@@ -26,7 +22,8 @@ def edit(request, id):
 
     if request.method == "POST":
         if form.is_valid():
-            form.save()   
+            form.save()
+               
             return redirect("show")
 
     return render(request, "album/index.html", {"form": form})
@@ -35,4 +32,5 @@ def edit(request, id):
 def delete(request, id):
     model_data = albums.objects.get(pk=id)
     model_data.delete()
+    
     return redirect("show")
