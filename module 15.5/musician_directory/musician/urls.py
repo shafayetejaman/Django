@@ -16,10 +16,10 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import index
+from .views import index,edit
 
 urlpatterns = [
     path("", index, name="add_musician"),
-    path("edit/<int:id>", index, name="edit_musician"),
+    path("edit/<int:id>", edit, name="edit_musician"),
 
 ]
