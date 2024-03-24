@@ -21,9 +21,10 @@ def edit(request, id):
     form = album_forms(instance=model_data)
 
     if request.method == "POST":
+        form = album_forms(request.POST, instance=model_data)
         if form.is_valid():
             form.save()
-               
+
             return redirect("show")
 
     return render(request, "album/index.html", {"form": form})

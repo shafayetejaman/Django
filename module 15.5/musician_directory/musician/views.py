@@ -21,6 +21,7 @@ def edit(request, id):
     form = musicians_forms(instance=model_data)
 
     if request.method == "POST":
+        form = musicians_forms(request.POST, instance=model_data)
         if form.is_valid():
             form.save()
             
