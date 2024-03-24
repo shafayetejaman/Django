@@ -20,3 +20,4 @@ def index(request):
 
     form = album_forms()
     return render(request, "album/index.html", {"form": form})
+
