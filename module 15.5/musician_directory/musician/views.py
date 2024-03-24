@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .forms import musicians_forms          
+from django.shortcuts import render, redirect
+from .forms import musicians_forms
 
 
 # Create your views here.
@@ -13,11 +13,7 @@ def index(request):
             print(data)
 
             form = musicians_forms()
-            return render(
-                request,
-                "musician/index.html",
-                {"form": form, "data": data},
-            )
+            return redirect("show")
 
     form = musicians_forms()
     return render(request, "musician/index.html", {"form": form})

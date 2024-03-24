@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import album_forms
 from .models import albums
+
 
 # Create your views here.
 def index(request):
@@ -22,10 +23,11 @@ def index(request):
     form = album_forms()
     return render(request, "album/index.html", {"form": form})
 
+
 def edit(request, id):
     model_data = albums.objects.get(pk=id)
-    form = album_forms(request.POST, instance=model_data) 
-    
+    form = album_forms(request.POST, instance=model_data)
+
     if request.method == "POST":
         form = album_forms(request.POST, instance=model_data)
         if form.is_valid():
@@ -35,33 +37,12 @@ def edit(request, id):
             print(data)
 
             form = album_forms()
-            return render(
-                request,
-                "album/index.html",
-                {"form": form, "data": data},
-            )
-
+            return redirect("show")
 
     return render(request, "album/index.html", {"form": form})
+
 
 def delete(request, id):
     model_data = albums.objects.get(pk=id)
-    form = album_forms(request.POST, instance=model_data) 
-    
-    if request.method == "POST":
-        form = album_forms(request.POST, instance=model_data)
-        if form.is_valid():
-            data = form.cleaned_data
-
-            form.save()
-            print(data)
-
-            form = album_forms()
-            return render(
-                request,
-                "album/index.html",
-                {"form": form, "data": data},
-            )
-
-
-    return render(request, "album/index.html", {"form": form})
+    model_data.delete()
+    return redirect("show")
