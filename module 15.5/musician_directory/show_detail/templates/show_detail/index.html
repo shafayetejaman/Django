@@ -25,7 +25,7 @@
             {% for i in data %}
             <tr>
                 <th scope="row">{{i.id}}</th>
-                <td>{{i.musician.first_name}}</td>
+                <td><a href="{% url "edit_musician" i.id %}">{{i.musician.first_name}}</a></td>
                 <td>{{i.musician.email}}</td>
                 <td>{{i.rating}}</td>
                 <td>{{i.instrument_type|default:"None"}}</td>
@@ -33,7 +33,7 @@
                 <td>{{i.release_date}}</td>
                 <td>
                     <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="false"
-                        autocomplete="off" href="{% url "edit" i.id %}">Edit</button>
+                        autocomplete="off" href="{% url "edit_album" i.id %}">Edit</button>
                     <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false"
                         autocomplete="off" href="{% url "delete" i.id %}">Delete</button>
                 </td>
