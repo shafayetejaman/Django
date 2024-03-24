@@ -27,7 +27,29 @@ def edit(request, id):
     form = album_forms(request.POST, instance=model_data) 
     
     if request.method == "POST":
-        form = album_forms(request.POST)
+        form = album_forms(request.POST, instance=model_data)
+        if form.is_valid():
+            data = form.cleaned_data
+
+            form.save()
+            print(data)
+
+            form = album_forms()
+            return render(
+                request,
+                "album/index.html",
+                {"form": form, "data": data},
+            )
+
+
+    return render(request, "album/index.html", {"form": form})
+
+def delete(request, id):
+    model_data = albums.objects.get(pk=id)
+    form = album_forms(request.POST, instance=model_data) 
+    
+    if request.method == "POST":
+        form = album_forms(request.POST, instance=model_data)
         if form.is_valid():
             data = form.cleaned_data
 
