@@ -16,10 +16,10 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import index
+from .views import index,edit, delete
 
 urlpatterns = [
     path("", index, name="add_album"),
-    path("edit/<int:id>", index, name="edit_album"),
-    path("delete/<int:id>", index, name="delete_album")
+    path("edit/<int:id>", edit, name="edit_album"),
+    path("delete/<int:id>", delete, name="delete_album")
 ]
