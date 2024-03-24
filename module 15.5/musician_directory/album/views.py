@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import album_forms
+from .models import albums
 
 # Create your views here.
 def index(request):
@@ -22,11 +23,15 @@ def index(request):
     return render(request, "album/index.html", {"form": form})
 
 def edit(request, id):
+    model_data = al 
+    
     if request.method == "POST":
         form = album_forms(request.POST)
         if form.is_valid():
             data = form.cleaned_data
 
+            form.save()
+            print(data)
 
             form = album_forms()
             return render(
