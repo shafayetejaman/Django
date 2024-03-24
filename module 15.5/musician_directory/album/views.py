@@ -23,7 +23,7 @@ def index(request):
     return render(request, "album/index.html", {"form": form})
 
 def edit(request, id):
-    model_data = al 
+    model_data = albums.objects.get(pk=) 
     
     if request.method == "POST":
         form = album_forms(request.POST)
