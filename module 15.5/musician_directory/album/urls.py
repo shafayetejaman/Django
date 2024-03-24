@@ -20,5 +20,6 @@ from .views import index
 
 urlpatterns = [
     path("", index, name="add_album"),
-    path("edit/<int:id>", index, name="edit_album")
+    path("edit/<int:id>", index, name="edit_album"),
+    path("delete/<int:id>", index, name="delete_album")
 ]
