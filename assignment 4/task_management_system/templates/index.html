@@ -9,20 +9,30 @@
 <!-- card section -->
 
 <section class="page-bg container-fluid">
-    <div class="row row-cols-4 mx-4" id="video-container">
+    <div class="row row-cols-3 mx-4" id="video-container">
 
         {% for i in data %}
 
         <div class="col my-3">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-start text-center">
+                    <div class="text-center">
 
                         <h3 class="card-title text-danger">{{i.task_title}}</h3>
-                        <h4></h4>
+                        <h4>ID: {{i.id}}</h4>
+                        <h4>Date: {{i.date_assigned}}</h4>
+                        <h4>Category:-</h4>
+                        {% for j in i.category.objects.all %}
+                        <h5>{{j.name}}</h5>
+                        {% endfor %}
+                        {% if not i.is_completed %}
+                        <h5 class="m-2 btn fs-5 bg-success text-white">Completed</h5>
+                        {% else %}
+                            
+                        {% endif %}
 
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
 
