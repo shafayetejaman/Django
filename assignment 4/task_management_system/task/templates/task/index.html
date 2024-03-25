@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+{{ block.super }}
+{% endblock link %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<section class="form-container">
+
+    <form method="POST" action="{% url "home" %}" class="pt-4 w-50 m-auto">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+
+</section>
+
+
+{% endblock content %}

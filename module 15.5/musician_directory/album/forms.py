@@ -10,6 +10,7 @@ class album_forms(forms.ModelForm):
             "release_date": forms.DateInput(
                 attrs={
                     "type": "date",
+                    
                 }
             ),
         }
