@@ -6,4 +6,4 @@ from task.models import Task
 def index(request):
     data = Task.objects.all()
 
-    return render(request, "task/index.html", {"data": data})
+    return render(request, "index.html", {"data": data})

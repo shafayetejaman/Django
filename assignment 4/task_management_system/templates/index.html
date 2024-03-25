@@ -11,14 +11,14 @@
 <section class="page-bg container-fluid">
     <div class="row row-cols-4 mx-4" id="video-container">
 
-        {% for i in categories %}
+        {% for i in data %}
 
         <div class="col my-3">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-start text-center">
 
-                        <h3 class="card-title text-danger">{{i.strCategory}}</h3>
+                        <h3 class="card-title text-danger">{{i.task_title}}</h3>
                         <h4></h4>
 
                     </div>
