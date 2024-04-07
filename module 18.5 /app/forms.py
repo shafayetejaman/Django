@@ -5,5 +5,4 @@ from django.contrib.auth.forms import UserCreationForm
 class Register(UserCreationForm):
     class Meta:
         model = User
-        fields = 
-    
+        fields = ["username", "email"]
