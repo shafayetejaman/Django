@@ -13,7 +13,12 @@
 
     <form method="POST" action="" class="pt-4 w-50 m-auto" novalidate>
         {% csrf_token %}
-        {{form|crispy}}
+        {% comment %} {{form|crispy}} {% endcomment %}
+        {% for i in form %}
+        {{i.label_tag}}
+        {{i}}
+        {{i.errors|striptags}}
+        {% endfor %}
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 
