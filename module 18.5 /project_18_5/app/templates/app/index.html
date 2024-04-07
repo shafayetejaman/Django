@@ -12,7 +12,7 @@
 
 <form method="POST" action="" class="pt-4 w-50 m-auto" novalidate>
     {% csrf_token %}
-    {% comment %} {{form|crispy}} {% endcomment %}
+    {{form|crispy}}
     {% for i in form %}
     {{i.label_tag}}
     {{i}}
