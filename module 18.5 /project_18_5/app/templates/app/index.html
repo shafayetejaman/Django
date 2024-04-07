@@ -9,20 +9,19 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<section class="form-container mb-4">
 
-    <form method="POST" action="" class="pt-4 w-50 m-auto" novalidate>
-        {% csrf_token %}
-        {% comment %} {{form|crispy}} {% endcomment %}
-        {% for i in form %}
-        {{i.label_tag}}
-        {{i}}
-        {{i.errors|striptags}}
-        {% endfor %}
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
-    </form>
+<form method="POST" action="" class="pt-4 w-50 m-auto" novalidate>
+    {% csrf_token %}
+    {% comment %} {{form|crispy}} {% endcomment %}
+    {% for i in form %}
+    {{i.label_tag}}
+    {{i}}
+    {{i.errors|striptags}}
+    {% endfor %}
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
 
-</section>
+
 
 
 {% endblock content %}
