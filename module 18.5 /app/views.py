@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import Re
+from .forms import Rege
 
 # Create your views here.
 def index(request):
