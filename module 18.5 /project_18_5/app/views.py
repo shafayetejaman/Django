@@ -6,6 +6,8 @@ from .forms import Register
 def index(request):
     if request.method == "POST":
         form = Register(request.POST)
+        if form.is_valid():
+            form.save()
 
     form = Register()
     return render(request, "app/index.html", {"form": form})
