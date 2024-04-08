@@ -4,6 +4,8 @@ from .forms import Register
 
 # Create your views here.
 def index(request):
-    form = Register()
+    if request.method == "POST":
+        form = Register(request.POST)
 
+    form = Register()
     return render(request, "app/index.html", {"form": form})
