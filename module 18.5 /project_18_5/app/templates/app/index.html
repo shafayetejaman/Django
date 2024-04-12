@@ -11,7 +11,7 @@
 <section>
     {% if messages %}
     {% for m in messages %}
-    <strong class="{{m.lable}}">{{m}}</strong>
+    <strong class="{% if m.tags %}bg-m.tags{% endif %}">{{m}}</strong>
     {% endfor %}
     {% endif %}
 
