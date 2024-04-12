@@ -8,16 +8,13 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<section>
-    {% if messages %}
-    {% for m in messages %}
-    <strong class="{% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
-    {% endfor %}
-    {% endif %}
-
-</section>
 
 <section class="m-3">
+    {% if messages %}
+    {% for m in messages %}
+    <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
+    {% endfor %}
+    {% endif %}
 
     <form method="post" class="w-50 m-auto" novalidate>
 
