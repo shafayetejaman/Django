@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import Register
 from django.contrib import messages
+from django.contrib.auth import authenticate, logout,login
 
 # Create your views here.
 
@@ -18,3 +19,5 @@ def index(request):
             messages.warning(request, "Account Creation Failed!")
 
     return render(request, "app/index.html", {"form": form})
+
+def 
