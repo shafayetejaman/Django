@@ -27,7 +27,7 @@ def user_login(request):
         form = AuthenticationForm(request, request.POST)
 
         if form.is_valid():
-            da
+            pass
         else:
             messages.warning(request, "Account Creation Failed!")
 
