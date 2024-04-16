@@ -20,6 +20,6 @@ from .views import index, user_signup, user_login
 
 urlpatterns = [
     path("", index, name="home"),
-    path("", user_signup, name="signup"),
+    # path("", user_signup, name="signup"),
     path("", user_login, name="login"),
 ]
