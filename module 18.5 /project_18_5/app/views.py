@@ -41,5 +41,7 @@ def user_login(request):
     return render(request, "app/index.html", {"form": form})
 
 def home(request):
-    if request.user.is_au
+    if request.user.is_authenticated:
+        return render(request, "app/home.html")
+    
     return render(request, "app/home.html")
