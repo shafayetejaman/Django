@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 
 
-def index(request):
+def user_signup(request):
     form = Register()
     if request.method == "POST":
         form = Register(request.POST)
@@ -38,3 +38,4 @@ def user_login(request):
             messages.warning(request, "Account Creation Failed!")
 
     return render(request, "app/index.html", {"form": form})
+

@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import index, user_signup, user_login
+from .views import user_signup, user_login
 
 urlpatterns = [
-    path("", index, name="home"),
-    # path("", user_signup, name="signup"),
-    path("", user_login, name="login"),
+    path("", user_signup, name="signup"),
+    path("log/", user_login, name="login"),
 ]
