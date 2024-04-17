@@ -31,12 +31,11 @@ def user_login(request):
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
             user = authenticate(username, password)
-            
+
             if user is not None:
                 login(request, user)
                 return HttpResponse(request, "Home")
         else:
-            messages.(request, "Login Failed!")
+            messages.warning(request, "Login Failed!")
 
     return render(request, "app/index.html", {"form": form})
-
