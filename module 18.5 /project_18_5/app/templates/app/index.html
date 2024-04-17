@@ -22,7 +22,9 @@
     {% endif %}
 
     <form method="post" class="w-50 m-auto" novalidate>
-
+        <div class="m-5">
+            {% for err in  %}{% endfor %}
+        </div>
         {% csrf_token %}
         <!-- {{form | crispy }} -->
         {% for fm in form%}
