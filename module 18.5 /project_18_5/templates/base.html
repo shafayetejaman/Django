@@ -39,9 +39,7 @@
                 </div>
             </div>
             <a href="{% url 'signup' %}" class="btn btn-outline-success mx-4 text-white">Sign Up</a>
-            {% block log %}
-            <a href="{% url 'login' %}" class="btn btn-outline-warning text-white" type="submit">Login</a>
-            {% endblock log %}
+            {% block log %}{% endblock log %}
         </div>
     </nav>
 

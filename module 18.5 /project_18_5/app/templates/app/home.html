@@ -5,11 +5,11 @@
 {{ block.super }}
 {% endblock link %}
 
-{% block content %}
-
 {% block log %}
-<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
+<a href="{% url 'logout' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
 {% endblock log %}
+
+{% block content %}
 
 <section class="m-3">
     <h1>Wellcome {{user}}</h1>

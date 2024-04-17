@@ -5,6 +5,10 @@
 {{ block.super }}
 {% endblock link %}
 
+{% block log %}
+<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
+{% endblock log %}
+
 {% block content %}
 {% load crispy_forms_tags %}
 
