@@ -61,9 +61,28 @@ def user_logout(request):
 
 
 def password_change(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+
     form = PasswordChangeForm(request.user)
     if request.method == "POST":
         form = PasswordChangeForm(request.user, request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Password Updated Successfully!")
+            update_session_auth_hash(request, form.cleaned_data["user"])
+            return redirect("login")
+
+    return render(request, "app/index.html", {"form": form, "pass": True})
+
+def password_change_without(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+
+    form = SetPasswordForm(request.user)
+    if request.method == "POST":
+        form = SetPasswordForm(request.user, request.POST)
 
         if form.is_valid():
             form.save()
