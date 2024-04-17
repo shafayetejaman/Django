@@ -7,7 +7,7 @@
 
 {% block log %}
 {{block.super}}
-<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
+{% if not pass %}<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>{% endif %}
 {% endblock log %}
 
 {% block content %}
