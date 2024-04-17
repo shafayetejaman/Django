@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import Register
 from django.contrib import messages
-from django.contrib.auth import authenticate, logout, login
-from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm,SetPasswordForm
+from django.contrib.auth import authenticate, logout, login, update_session_auth_hash
+from django.contrib.auth.forms import (
+    AuthenticationForm,
+    PasswordChangeForm,
+    SetPasswordForm,
+)
 
 # Create your views here.
 
@@ -50,9 +54,11 @@ def home(request):
 
     return redirect("signup")
 
+
 def user_logout(request):
     logout(request)
     return redirect("login")
+
 
 def password_change(request):
     form = PasswordChangeForm(request.user)
@@ -62,6 +68,7 @@ def password_change(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Password Updated Successfully!")
+            update_session_auth_hash(request,)
             return redirect("login")
 
-    return render(request, "app/index.html", {"form": form, "pass":True})
+    return render(request, "app/index.html", {"form": form, "pass": True})
