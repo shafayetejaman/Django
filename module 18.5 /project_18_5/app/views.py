@@ -23,6 +23,7 @@ def user_signup(request):
 
 
 def user_login(request):
+    form = AuthenticationForm()
     if request.method == "POST":
         form = AuthenticationForm(request, request.POST)
 
@@ -35,7 +36,7 @@ def user_login(request):
                 login(request, user)
                 return HttpResponse(request, "Home")
         else:
-            messages.warning(request, "Account Creation Failed!")
+            messages.(request, "Login Failed!")
 
     return render(request, "app/index.html", {"form": form})
 
