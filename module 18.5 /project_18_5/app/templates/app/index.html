@@ -22,8 +22,8 @@
     {% endif %}
 
     <form method="post" class="w-50 m-auto" novalidate>
-        {% for err in from.no_field_errors %}
-        <div class="m-5 bg-danger p-3">{{err}}</div>
+        {% for err in form.non_field_errors %}
+        <div class="m-5 bg-danger p-3 rounded-3 text-white h5">{{err}}</div>
         {% endfor %}
 
         {% csrf_token %}
