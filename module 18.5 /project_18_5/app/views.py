@@ -68,7 +68,7 @@ def password_change(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Password Updated Successfully!")
-            update_session_auth_hash(request,)
+            update_session_auth_hash(request, form.cleaned_data["user"])
             return redirect("login")
 
     return render(request, "app/index.html", {"form": form, "pass": True})
