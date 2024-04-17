@@ -64,4 +64,4 @@ def password_change(request):
             messages.success(request, "Password Updated Successfully!")
             return redirect("login")
 
-    return render(request, "app/index.html", {"form": form})
+    return render(request, "app/index.html", {"form": form, "pass":True})
