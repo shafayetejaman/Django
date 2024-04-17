@@ -71,10 +71,11 @@ def password_change(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Password Updated Successfully!")
-            update_session_auth_hash(request, form.cleaned_data["user"])
+            update_session_auth_hash(request, form.user)
             return redirect("login")
 
     return render(request, "app/index.html", {"form": form, "pass": True})
+
 
 def password_change_without(request):
     if not request.user.is_authenticated:
@@ -87,7 +88,7 @@ def password_change_without(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Password Updated Successfully!")
-            update_session_auth_hash(request, form.cleaned_data["user"])
+            update_session_auth_hash(request, form.user)
             return redirect("login")
 
     return render(request, "app/index.html", {"form": form, "pass": True})
