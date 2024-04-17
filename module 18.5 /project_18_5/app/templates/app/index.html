@@ -23,7 +23,7 @@
 
     <form method="post" class="w-50 m-auto" novalidate>
         <div class="m-5">
-            {% for err in  %}{% endfor %}
+            {% for err in from.no_fild %}{% endfor %}
         </div>
         {% csrf_token %}
         <!-- {{form | crispy }} -->
