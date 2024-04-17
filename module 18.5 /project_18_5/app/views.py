@@ -8,8 +8,6 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 def user_signup(request):
-    if request.user.is_authenticated:
-        redirect("home")
     form = Register()
     if request.method == "POST":
         form = Register(request.POST)
@@ -17,7 +15,7 @@ def user_signup(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account Created Successfully!")
-            form = Register()
+            return redirect("login")
         else:
             messages.warning(request, "Account Creation Failed!")
 
@@ -25,6 +23,9 @@ def user_signup(request):
 
 
 def user_login(request):
+    if request.user.is_authenticated:
+        return redirect("home")
+
     form = AuthenticationForm()
     if request.method == "POST":
         form = AuthenticationForm(request, request.POST)
@@ -32,7 +33,7 @@ def user_login(request):
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            user = authenticate(username, password)
+            user = authenticate(username=username, password=password)
 
             if user is not None:
                 login(request, user)
