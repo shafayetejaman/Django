@@ -51,4 +51,5 @@ def home(request):
     return redirect("signup")
 
 def user_logout(request):
+    logout(request)
     return redirect("login")

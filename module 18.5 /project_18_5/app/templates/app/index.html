@@ -6,6 +6,7 @@
 {% endblock link %}
 
 {% block log %}
+{{block.super}}
 <a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
 {% endblock log %}
 

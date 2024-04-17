@@ -38,8 +38,10 @@
 
                 </div>
             </div>
+
+            {% block log %}
             <a href="{% url 'signup' %}" class="btn btn-outline-success mx-4 text-white">Sign Up</a>
-            {% block log %}{% endblock log %}
+            {% endblock log %}
         </div>
     </nav>
 
