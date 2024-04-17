@@ -53,3 +53,6 @@ def home(request):
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+def password_change(request):
+    return redirect("login")
