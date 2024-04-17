@@ -55,9 +55,9 @@ def user_logout(request):
     return redirect("login")
 
 def password_change(request):
-    form =PasswordChangeForm()
+    form = PasswordChangeForm()
     if request.method == "POST":
-        form =PasswordChangeForm(request, request.POST)
+        form = PasswordChangeForm(request, request.POST)
 
         if form.is_valid():
             username = form.cleaned_data["username"]
@@ -71,5 +71,3 @@ def password_change(request):
             messages.warning(request, "Login Failed!")
 
     return render(request, "app/index.html", {"form": form})
-
-    return redirect("login")
