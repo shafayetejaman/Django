@@ -8,6 +8,8 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 def user_signup(request):
+    if request.user.is_authenticated:
+        redirect("home")
     form = Register()
     if request.method == "POST":
         form = Register(request.POST)
@@ -23,9 +25,6 @@ def user_signup(request):
 
 
 def user_login(request):
-    if request.user.is_authenticated:
-        redirect("home")
-
     form = AuthenticationForm()
     if request.method == "POST":
         form = AuthenticationForm(request, request.POST)
@@ -48,4 +47,4 @@ def home(request):
     if request.user.is_authenticated:
         return render(request, "app/home.html", {"user": request.user})
 
-    return redirect("home")
+    return redirect("signup")
