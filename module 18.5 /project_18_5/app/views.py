@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Register
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
-from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm,SetPasswordForm
 
 # Create your views here.
 
@@ -55,9 +55,9 @@ def user_logout(request):
     return redirect("login")
 
 def password_change(request):
-    form =Pass()
+    form =PasswordChangeForm()
     if request.method == "POST":
-        form =Pass(request, request.POST)
+        form =PasswordChangeForm(request, request.POST)
 
         if form.is_valid():
             username = form.cleaned_data["username"]
