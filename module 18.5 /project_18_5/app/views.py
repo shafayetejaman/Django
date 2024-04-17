@@ -49,3 +49,6 @@ def home(request):
         return render(request, "app/home.html", {"user": request.user})
 
     return redirect("signup")
+
+def user_logout(request):
+    return redirect("login")
