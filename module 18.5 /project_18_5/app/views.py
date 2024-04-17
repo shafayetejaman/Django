@@ -55,7 +55,7 @@ def user_logout(request):
     return redirect("login")
 
 def password_change(request):
-    form = PasswordChangeForm()
+    form = PasswordChangeForm(request.user)
     if request.method == "POST":
         form = PasswordChangeForm(request, request.POST)
 
