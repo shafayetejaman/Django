@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render,redirect
 from .forms import Register
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
@@ -34,7 +34,7 @@ def user_login(request):
 
             if user is not None:
                 login(request, user)
-                return HttpResponse(request, "Home")
+                return redirect()
         else:
             messages.warning(request, "Login Failed!")
 
@@ -42,6 +42,6 @@ def user_login(request):
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, "app/home.html")
+        return render(request, "app/home.html",{"user", request.user})
     
-    return render(request, "app/home.html")
+    return redirect("home")
