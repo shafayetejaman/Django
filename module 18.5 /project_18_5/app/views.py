@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Register
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 
 # Create your views here.
 
@@ -55,4 +55,21 @@ def user_logout(request):
     return redirect("login")
 
 def password_change(request):
+    form =Pass()
+    if request.method == "POST":
+        form =Pass(request, request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect("home")
+        else:
+            messages.warning(request, "Login Failed!")
+
+    return render(request, "app/index.html", {"form": form})
+
     return redirect("login")
