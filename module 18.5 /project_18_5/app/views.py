@@ -63,7 +63,7 @@ def user_logout(request):
 def password_change(request):
     form = PasswordChangeForm(request.user)
     if request.method == "POST":
-        form = PasswordChangeForm(request, request.POST)
+        form = PasswordChangeForm(request.user, request.POST)
 
         if form.is_valid():
             form.save()
