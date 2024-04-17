@@ -7,7 +7,8 @@
 
 {% block log %}
 {{block.super}}
-{% if not pass %}<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>{% endif %}
+{% if not pass %}<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white"
+    type="submit">Login</a>{% endif %}
 {% endblock log %}
 
 {% block content %}
@@ -23,7 +24,7 @@
 
     <form method="post" class="w-50 m-auto" novalidate>
         {% for err in form.non_field_errors %}
-        <div class="m-5 bg-danger p-3 rounded-3 text-white h5">{{err}}</div>
+        <div class="m-3 bg-danger p-3 rounded-3 text-white h5">{{err}}</div>
         {% endfor %}
 
         {% csrf_token %}
