@@ -23,6 +23,9 @@ def user_signup(request):
 
 
 def user_login(request):
+    if request.user.is_authenticated:
+        redirect("home")
+
     form = AuthenticationForm()
     if request.method == "POST":
         form = AuthenticationForm(request, request.POST)
