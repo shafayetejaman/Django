@@ -39,3 +39,6 @@ def user_login(request):
             messages.warning(request, "Login Failed!")
 
     return render(request, "app/index.html", {"form": form})
+
+def home(request):
+    return render(request, "app/home.html")
