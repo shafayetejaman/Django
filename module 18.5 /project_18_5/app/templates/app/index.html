@@ -23,8 +23,7 @@
 
     <form method="post" class="w-50 m-auto" novalidate>
         {% for err in from.no_field_errors %}
-        <div class="m-5 bg-danger p-3">
-            {{err}}</div>
+        <div class="m-5 bg-danger p-3">{{err}}</div>
         {% endfor %}
 
         {% csrf_token %}
