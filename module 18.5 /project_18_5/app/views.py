@@ -60,14 +60,8 @@ def password_change(request):
         form = PasswordChangeForm(request, request.POST)
 
         if form.is_valid():
-            username = form.cleaned_data["username"]
-            password = form.cleaned_data["password"]
-            user = authenticate(username=username, password=password)
-
-            if user is not None:
-                login(request, user)
-                return redirect("home")
-        else:
-            messages.warning(request, "Login Failed!")
+            form.save()
+            messages.success(request, "Password Updated Successfully!")
+            return redirect("login")
 
     return render(request, "app/index.html", {"form": form})
