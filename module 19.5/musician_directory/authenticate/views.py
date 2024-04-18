@@ -67,6 +67,7 @@ class UserLoginView(LoginView):
         return super().form_invalid(form)
 
 class UserLogoutView(LoginView):
+    template_name = "authenticate/index.html"
     def get_success_url(self):
         return reverse_lazy("login")
 
