@@ -66,6 +66,8 @@ class UserLoginView(LoginView):
         messages.success(self.request, "Login Failed!")
         return super().form_invalid(form)
 
+
+@method_decorator(login_required, name="dispatch")
 class UserLogoutView(LoginView):
     template_name = "authenticate/index.html"
     def get_success_url(self):
