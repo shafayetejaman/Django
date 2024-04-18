@@ -4,9 +4,10 @@
 {% block link %}
 {{ block.super }}
 {% endblock link %}
+
 {% if not loged %}
 {% block log %}
-<a href="{% url 'logout' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
+<a href="{% url 'logoin' %}" class="btn btn-outline-daneger text-white" type="submit">Logoin</a>
 {% endblock log %}
 {% endif %}
 
