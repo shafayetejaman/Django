@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import album_forms
 from .models import albums
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
 
@@ -19,7 +19,7 @@ def index(request):
 
 
 
-class IndexFormView(FormView):
+class IndexFormView(CreateView):
     template_name = "album/index.html"
     form_class = album_forms
     success_url = reverse_lazy("show")
@@ -41,6 +41,7 @@ def edit(request, id):
 
     return render(request, "album/index.html", {"form": form})
 
+class EditFromView
 
 def delete(request, id):
     model_data = albums.objects.get(pk=id)
