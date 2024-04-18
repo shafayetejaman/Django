@@ -68,8 +68,9 @@ class UserLoginView(LoginView):
 
 
 @method_decorator(login_required, name="dispatch")
-class UserLogoutView(LoginView):
+class UserLogoutView(LogoutView):
     template_name = "authenticate/index.html"
+
     def get_success_url(self):
         return reverse_lazy("login")
 
