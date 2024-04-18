@@ -7,3 +7,5 @@ def index(request):
     data = albums.objects.all()
     print(data)
     return render(request, "show_detail/index.html", {"data": data})
+
+
