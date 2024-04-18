@@ -53,18 +53,17 @@ def user_login(request):
 
 
 class UserLoginView(LoginView):
-    template_name = "register.html"
+    template_name = "authenticate/index.html"
 
-    # success_url = reverse_lazy('profile')
     def get_success_url(self):
-        return reverse_lazy("profile")
+        return reverse_lazy("home")
 
     def form_valid(self, form):
-        messages.success(self.request, "Logged in Successful")
+        messages.success(self.request, "Logged In Successful")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, "Logged in information incorrect")
+        messages.success(self.request, "Login Failed!")
         return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
@@ -73,6 +72,7 @@ class UserLoginView(LoginView):
         return context
 
 
+@method_decorator(login_required, name="dispatch")
 def home(request):
     if request.user.is_authenticated:
         return render(request, "authenticate/home.html", {"user": request.user})
