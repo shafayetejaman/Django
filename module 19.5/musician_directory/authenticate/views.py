@@ -65,7 +65,10 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.success(self.request, "Login Failed!")
         return super().form_invalid(form)
-    
+
+class UserLogoutView(LoginView):
+    def get_success_url(self):
+        return reverse_lazy("login")
 
 
 def home(request):
