@@ -67,11 +67,11 @@ class UserLoginView(LoginView):
         return super().form_invalid(form)
 
 
-@method_decorator(login_required, name="dispatch")
 class UserLogoutView(LogoutView):
     template_name = "authenticate/index.html"
 
-    
+    def get_success_url(self):
+        return reverse_lazy("login")
 
 
 def home(request):
