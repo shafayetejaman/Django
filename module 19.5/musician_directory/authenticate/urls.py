@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import user_signup, user_login, home, user_logout, password_change,password_change_without , UserLoginView
-from django.
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("signup/", user_signup, name="signup"),
