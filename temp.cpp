@@ -8,7 +8,7 @@ void conquer(int a[], int si, int mid, int ei)
     int idx2 = mid + 1;
     int x = 0;
 
-    while (idx1 < mid && idx2 < ei)
+    while (idx1 <= mid && idx2 <= ei)
     {
         if (idx1 > idx2)
         {
@@ -46,7 +46,7 @@ void print(int a[], int n)
 {
     for (int i = 0; i < n;i++)
     {
-        cout << a[i];
+        cout << a[i]<<" ";
     }
 }
 int main()
