@@ -6,4 +6,8 @@ from album.models import albums
 def index(request):
     data = albums.objects.all()
     print(data)
-    return render(request, "show_detail/index.html", {"data": data})
+    return render(
+        request,
+        "show_detail/index.html",
+        {"data": data, "log": request.user.is_authenticated},
+    )
