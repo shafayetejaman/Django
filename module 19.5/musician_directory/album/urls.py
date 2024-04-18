@@ -16,10 +16,13 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import index,edit, delete
+from .views import index,edit, delete, IndexFormView, EditFromView, DeleteFromView
 
 urlpatterns = [
-    path("", index, name="add_album"),
-    path("edit/<int:id>", edit, name="edit_album"),
+    # path("", index, name="add_album"),
+    path("", IndexFormView.as_view(), name="add_album"),
+    # path("edit/<int:id>", edit, name="edit_album"),
+    path("edit/<int:id>", EditFromView.as_view(), name="edit_album"),
+    path("delete/<int:id>", delete, name="delete_album")
     path("delete/<int:id>", delete, name="delete_album")
 ]
