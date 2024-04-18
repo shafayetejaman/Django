@@ -10,6 +10,8 @@
 <a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
 {% endblock log %}
 {% else %}
+
+<a href="{% url 'logout' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
 {% endif %}
 
 
