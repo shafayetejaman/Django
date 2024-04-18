@@ -23,7 +23,7 @@ def user_signup(request):
         else:
             messages.warning(request, "Account Creation Failed!")
 
-    return render(request, "app/index.html", {"form": form})
+    return render(request, "authenticate/index.html", {"form": form})
 
 
 def user_login(request):
@@ -45,12 +45,12 @@ def user_login(request):
         else:
             messages.warning(request, "Login Failed!")
 
-    return render(request, "app/index.html", {"form": form})
+    return render(request, "authenticate/index.html", {"form": form})
 
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, "app/home.html", {"user": request.user})
+        return render(request, "authenticate/home.html", {"user": request.user})
 
     return redirect("signup")
 
@@ -74,7 +74,7 @@ def password_change(request):
             update_session_auth_hash(request, form.user)
             return redirect("login")
 
-    return render(request, "app/index.html", {"form": form, "pass": True})
+    return render(request, "authenticate/index.html", {"form": form, "pass": True})
 
 
 def password_change_without(request):
@@ -91,4 +91,4 @@ def password_change_without(request):
             update_session_auth_hash(request, form.user)
             return redirect("login")
 
-    return render(request, "app/index.html", {"form": form, "pass": True})
+    return render(request, "authenticate/index.html", {"form": form, "pass": True})
