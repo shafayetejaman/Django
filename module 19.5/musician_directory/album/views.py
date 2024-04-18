@@ -20,6 +20,7 @@ def index(request):
 
 
 class IndexFormView(CreateView):
+    model = albums
     template_name = "album/index.html"
     form_class = album_forms
     success_url = reverse_lazy("show")
