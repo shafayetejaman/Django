@@ -1,4 +1,3 @@
-
 from album.models import albums
 from django.shortcuts import render, redirect
 from .forms import Register
@@ -11,7 +10,7 @@ from django.contrib.auth.forms import (
 )
 
 # Create your views here.
-# Create your views here.
+
 def index(request):
     data = albums.objects.all()
     print(data)
