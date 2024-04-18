@@ -3,6 +3,8 @@ from .forms import album_forms
 from .models import albums
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
@@ -42,6 +44,7 @@ def edit(request, id):
     return render(request, "album/index.html", {"form": form})
 
 
+@method_decorator(login_required, name="dispatch")
 class EditFromView(UpdateView):
     model = albums
     form_class = album_forms
@@ -57,6 +60,7 @@ def delete(request, id):
     return redirect("show")
 
 
+@method_decorator(login_required, name="dispatch")
 class DeleteFromView(DeleteView):
     model = albums
     template_name = "album/delete.html"
