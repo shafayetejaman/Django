@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+{{ block.super }}
+{% endblock link %}
+
+{% block content %}
+
+<section>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Musician Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Album Rating</th>
+                <th scope="col">Instrument Type</th>
+                <th scope="col">Album Name</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for i in data %}
+            <tr>
+                <th scope="row">{{i.id}}</th>
+                <td><a class="h4 text-decoration-none"
+                        href="{% url "edit_musician" i.musician.id %}">{{i.musician.first_name}}</a></td>
+                <td>{{i.musician.email}}</td>
+                <td>{{i.rating}}</td>
+                <td>{{i.instrument_type|default:"None"}}</td>
+                <td>{{i.album_name}}</td>
+                <td>{{i.release_date}}</td>
+                <td>
+                    <a role="button" class="btn btn-warning" href="{% url 'edit_album' i.id %}">Edit</a>
+                    <a role="button" class="btn btn-danger" href="{% url 'delete_album' i.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+
+
+{% endblock content %}
