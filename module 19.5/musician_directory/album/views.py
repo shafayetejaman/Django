@@ -8,18 +8,19 @@ from django.utils.decorators import method_decorator
 
 
 # Create your views here.
-def index(request):
-    if request.method == "POST":
-        form = album_forms(request.POST)
-        if form.is_valid():
-            form.save()
+# def index(request):
+#     if request.method == "POST":
+#         form = album_forms(request.POST)
+#         if form.is_valid():
+#             form.save()
 
-            return redirect("show")
+#             return redirect("show")
 
-    form = album_forms()
-    return render(request, "album/index.html", {"form": form})
+#     form = album_forms()
+#     return render(request, "album/index.html", {"form": form})
 
 
+@method_decorator(login_required, name="dispatch")
 class IndexFormView(CreateView):
     model = albums
     form_class = album_forms
@@ -30,18 +31,18 @@ class IndexFormView(CreateView):
         return super().form_valid(form)
 
 
-def edit(request, id):
-    model_data = albums.objects.get(pk=id)
-    form = album_forms(instance=model_data)
+# def edit(request, id):
+#     model_data = albums.objects.get(pk=id)
+#     form = album_forms(instance=model_data)
 
-    if request.method == "POST":
-        form = album_forms(request.POST, instance=model_data)
-        if form.is_valid():
-            form.save()
+#     if request.method == "POST":
+#         form = album_forms(request.POST, instance=model_data)
+#         if form.is_valid():
+#             form.save()
 
-            return redirect("show")
+#             return redirect("show")
 
-    return render(request, "album/index.html", {"form": form})
+#     return render(request, "album/index.html", {"form": form})
 
 
 @method_decorator(login_required, name="dispatch")
@@ -53,11 +54,11 @@ class EditFromView(UpdateView):
     pk_url_kwarg = "id"
 
 
-def delete(request, id):
-    model_data = albums.objects.get(pk=id)
-    model_data.delete()
+# def delete(request, id):
+#     model_data = albums.objects.get(pk=id)
+#     model_data.delete()
 
-    return redirect("show")
+#     return redirect("show")
 
 
 @method_decorator(login_required, name="dispatch")
