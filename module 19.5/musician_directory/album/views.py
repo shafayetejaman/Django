@@ -45,7 +45,7 @@ class IndexFormView(CreateView):
 #     return render(request, "album/index.html", {"form": form})
 
 
-@method_decorator(login_required, name="dispatch")
+
 class EditFromView(UpdateView):
     model = albums
     form_class = album_forms
@@ -61,7 +61,6 @@ class EditFromView(UpdateView):
 #     return redirect("show")
 
 
-@method_decorator(login_required, name="dispatch")
 class DeleteFromView(DeleteView):
     model = albums
     template_name = "album/delete.html"
