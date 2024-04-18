@@ -40,10 +40,10 @@
                     <a class="nav-link mx-2 text-white" href="{% url "show" %}">Show</a>
 
                 </div>
-                 {% block log %}
-                 <a href="{% url 'signup' %}" class="btn btn-outline-success mx-4 text-white">Sign Up</a>
-                 {% endblock log %}
             </div>
+            {% block log %}
+            <a href="{% url 'signup' %}" class="btn btn-outline-success mx-4 text-white">Sign Up</a>
+            {% endblock log %}
         </div>
     </nav>
 
