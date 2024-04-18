@@ -7,15 +7,14 @@
 
 {% block log %}
 
-{% if loged %}
-<a href="{% url 'logout' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
+{% if logged %}
+<a href="{% url 'logout' %}" class="btn btn-outline-danger text-white" type="submit">Logout</a>
+{% else %}
+<a href="{% url 'login' %}" class="btn btn-outline-danger text-white" type="submit">Login</a>
 {% endif %}
 
-{% else %}
-
-<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
-
 {% endblock log %}
+
 
 {% block content %}
 
@@ -30,7 +29,7 @@
                 <th scope="col">Instrument Type</th>
                 <th scope="col">Album Name</th>
                 <th scope="col">Release Date</th>
-                {% if loged %}
+                {% if logged %}
                 <th scope="col">Actions</th>
                 {% endif %}
             </tr>
@@ -46,7 +45,7 @@
                 <td>{{i.instrument_type|default:"None"}}</td>
                 <td>{{i.album_name}}</td>
                 <td>{{i.release_date}}</td>
-                {% if loged %}
+                {% if logged %}
                 <td>
                     <a role="button" class="btn btn-warning" href="{% url 'edit_album' i.id %}">Edit</a>
                     <a role="button" class="btn btn-danger" href="{% url 'delete_album' i.id %}">Delete</a>
