@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "album",
     "musician",
     "show_detail",
+    "authenticate",
 ]
 
 # django-crispy-forms
