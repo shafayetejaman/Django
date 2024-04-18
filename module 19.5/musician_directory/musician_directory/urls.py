@@ -23,4 +23,5 @@ urlpatterns = [
     path("show/", include("show_detail.urls")),
     path("album/", include("album.urls")),
     path("musician/", include("musician.urls")),
+    path("auth/", include("authenticate.urls")),
 ]
