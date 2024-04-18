@@ -10,7 +10,7 @@ void conquer(int a[], int si, int mid, int ei)
 
     while (idx1 <= mid && idx2 <= ei)
     {
-        if (idx1 > idx2)
+        if (a[idx1] > a[idx2])
         {
             marged[x++] = a[idx1++];
         }
@@ -35,7 +35,7 @@ void conquer(int a[], int si, int mid, int ei)
 }
 void devide(int a[], int si, int ei)
 {
-    if (si <= ei) return;
+    if (si >= ei) return;
     int mid = si + (ei - si) / 2;
     devide(a, si, mid);
     devide(a, mid + 1, ei);
