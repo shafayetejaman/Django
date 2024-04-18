@@ -9,5 +9,5 @@ def index(request):
     return render(
         request,
         "show_detail/index.html",
-        {"data": data, "loged": request.user.is_authenticated},
+        {"data": data, "logged": request.user.is_authenticated},
     )
