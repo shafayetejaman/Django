@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .forms import album_forms
 from .models import albums
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -14,6 +16,16 @@ def index(request):
 
     form = album_forms()
     return render(request, "album/index.html", {"form": form})
+
+
+
+class IndexFormView(FormView):
+    template_name = "album/index.html"
+    form_class = album_forms
+    success_url = reverse_lazy("show")
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 def edit(request, id):
