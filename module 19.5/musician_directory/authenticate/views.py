@@ -70,9 +70,8 @@ class UserLoginView(LoginView):
 @method_decorator(login_required, name="dispatch")
 class UserLogoutView(LogoutView):
     template_name = "authenticate/index.html"
-  
-    def get_success_url(self):
-        return self.get_redirect_url("login") 
+
+    
 
 
 def home(request):
