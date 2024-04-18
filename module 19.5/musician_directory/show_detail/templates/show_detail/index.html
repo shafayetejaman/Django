@@ -7,8 +7,9 @@
 
 {% if not loged %}
 {% block log %}
-<a href="{% url 'logoin' %}" class="btn btn-outline-daneger text-white" type="submit">Logoin</a>
+<a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>
 {% endblock log %}
+{% else %}
 {% endif %}
 
 
