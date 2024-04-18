@@ -65,14 +65,9 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.success(self.request, "Login Failed!")
         return super().form_invalid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["type"] = "Login"
-        return context
+    
 
 
-@method_decorator(login_required, name="dispatch")
 def home(request):
     if request.user.is_authenticated:
         return render(request, "authenticate/home.html", {"user": request.user})
