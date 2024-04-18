@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import album_forms
 from .models import albums
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 
 
@@ -41,7 +41,8 @@ def edit(request, id):
 
     return render(request, "album/index.html", {"form": form})
 
-class EditFromView
+class EditFromView(UpdateView):
+    model_data = 
 
 def delete(request, id):
     model_data = albums.objects.get(pk=id)
