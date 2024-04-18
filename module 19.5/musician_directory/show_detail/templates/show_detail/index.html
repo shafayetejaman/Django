@@ -6,6 +6,7 @@
 {% endblock link %}
 
 {% block log %}
+{{block.super}}
 
 {% if logged %}
 <a href="{% url 'logout' %}" class="btn btn-outline-danger text-white" type="submit">Logout</a>
