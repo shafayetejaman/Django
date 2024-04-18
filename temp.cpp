@@ -36,7 +36,9 @@ void conquer(int a[], int si, int mid, int ei)
 void devide(int a[], int si, int ei)
 {
     if (si >= ei) return;
+
     int mid = si + (ei - si) / 2;
+    
     devide(a, si, mid);
     devide(a, mid + 1, ei);
     conquer(a, si, mid, ei);
