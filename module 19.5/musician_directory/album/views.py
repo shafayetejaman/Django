@@ -21,8 +21,8 @@ def index(request):
 
 class IndexFormView(CreateView):
     model = albums
-    template_name = "album/index.html"
     form_class = album_forms
+    template_name = "album/index.html"
     success_url = reverse_lazy("show")
 
     def form_valid(self, form):
@@ -43,7 +43,10 @@ def edit(request, id):
     return render(request, "album/index.html", {"form": form})
 
 class EditFromView(UpdateView):
-    model_data = 
+    model = albums
+    form_class = album_forms
+    template_name = "album/index.html"
+    success_url = reverse_lazy("show")
 
 def delete(request, id):
     model_data = albums.objects.get(pk=id)
