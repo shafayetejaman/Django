@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth.views import LoginView, PasswordChangeView, CreateView
+from django.contrib.auth.views import LoginView, PasswordChangeView
+from django.views.generic.edit import CreateView
 
 from django.urls import reverse_lazy
 
@@ -22,22 +23,7 @@ class UserSignupView(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
-
-
-def user_signup(request):
-    form = Register()
-    if request.method == "POST":
-        form = Register(request.POST)
-
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Account Created Successfully!")
-            return redirect("login")
-        else:
-            messages.error(request, "Account Creation Failed!")
-
-    return render(request, "authenticate/index.html", {"form": form})
-
+    
 
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
