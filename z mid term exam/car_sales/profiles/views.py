@@ -41,4 +41,3 @@ class UserUpdateView(UpdateView):
     form_class = UserChangeForm
     template_name = "profiles/edit_profile.html"
     success_url = reverse_lazy("home")
-    pk_url_kwarg = get_
