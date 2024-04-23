@@ -25,7 +25,7 @@ def user_signup(request):
             messages.success(request, "Account Created Successfully!")
             return redirect("login")
         else:
-            messages.warning(request, "Account Creation Failed!")
+            messages.error(request, "Account Creation Failed!")
 
     return render(request, "authenticate/index.html", {"form": form})
 
@@ -63,7 +63,7 @@ class UserLoginView(LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, "Login Failed!")
+        messages.error(self.request, "Login Failed!")
         return super().form_invalid(form)
 
 

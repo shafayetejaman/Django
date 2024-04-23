@@ -34,7 +34,7 @@ def user_signup(request):
             messages.success(request, "Account Created Successfully!")
             return redirect("login")
         else:
-            messages.warning(request, "Account Creation Failed!")
+            messages.error(request, "Account Creation Failed!")
 
     return render(request, "authenticate/index.html", {"form": form})
 
