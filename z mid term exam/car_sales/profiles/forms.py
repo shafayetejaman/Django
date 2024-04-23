@@ -5,5 +5,4 @@ from django.contrib.auth.forms import UserChangeForm
 class UserChangeForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ["username", "email"]
-
+        fields = "__all__"
