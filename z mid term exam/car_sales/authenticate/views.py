@@ -41,7 +41,9 @@ class UserLoginView(LoginView):
     def get(self, request, *args, **kwargs):
         form = self.get_form()
         return render(
-            request, self.template_name, {"pass": request.user.is_authenticated , "form": form}
+            request,
+            self.template_name,
+            {"logged": request.user.is_authenticated, "form": form},
         )
 
     def form_valid(self, form):
