@@ -18,9 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import PasswordChangeView,profile
+from .forms import UserUpdateView
 
 urlpatterns = [
    
     path("pass_change/", PasswordChangeView.as_view(), name="pass_change"),
     path("", profile, name="profile"),
+    path('edit_profile/', UserUpdateView.as_view(), name='edit_profile'),
 ]

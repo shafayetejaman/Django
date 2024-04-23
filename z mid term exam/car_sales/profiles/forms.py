@@ -13,7 +13,7 @@ class UserChangeForm(UserChangeForm):
 class UserUpdateView(UpdateView):
     model = User
     form_class = UserChangeForm
-    template_name = "authenticate/edit_profile.html"
+    template_name = "profiles/edit_profile.html"
     success_url = reverse_lazy("home")
 
     def get_object(self):
