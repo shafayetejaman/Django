@@ -6,3 +6,4 @@ class UserChangeForm(UserChangeForm):
     class Meta:
         model = User
         fields = ["username", "email"]
+        exclude = "password"

@@ -6,8 +6,8 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
-from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
+from .forms import UserChangeForm
 
 
 # Create your views here.
