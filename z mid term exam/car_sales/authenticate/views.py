@@ -45,6 +45,11 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.success(self.request, "Login Failed!")
         return super().form_invalid(form)
+    
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect("home")
+        return super().dispatch(request, *args, **kwargs)
 
 
 @login_required()
