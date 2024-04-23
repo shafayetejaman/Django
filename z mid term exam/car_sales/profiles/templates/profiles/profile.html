@@ -2,7 +2,7 @@
 
 {% block content %}
 <section>
-    <h1>Wellcome {{data.name}}</h1>
+    <h1 class="m-5">Wellcome {{data.username}}</h1>
     <a href="{% url "pass_change" %}" class="m-5 btn btn-danger">Change Your Password</a>
 </section>
 {% endblock content %}
