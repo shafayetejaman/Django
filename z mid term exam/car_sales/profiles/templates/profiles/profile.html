@@ -1,8 +1,8 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 
-{% block contant %}
+{% block content %}
 <section>
     <h1>Wellcome {{data.name}}</h1>
     <a href="{% url "pass_change" %}" class="m-5 btn btn-danger">Change Your Password</a>
 </section>
-{% endblock contant %}
+{% endblock content %}
