@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
+
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
@@ -38,8 +39,9 @@ class UserLoginView(LoginView):
         return reverse_lazy("home")
 
     def get(self, request, *args, **kwargs):
+        form = self.get_form()
         return render(
-            request, self.template_name, {"pass": request.user.is_authenticated}
+            request, self.template_name, {"pass": request.user.is_authenticated , "form": form}
         )
 
     def form_valid(self, form):
