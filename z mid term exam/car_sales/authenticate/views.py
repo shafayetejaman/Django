@@ -31,7 +31,7 @@ def user_signup(request):
 
 
 class UserLoginView(LoginView):
-    template_name = "authenticate/index.html"
+    template_name = "authenticate/login.html"
 
     def get_success_url(self):
         return reverse_lazy("home")
