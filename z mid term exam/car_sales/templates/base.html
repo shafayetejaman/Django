@@ -35,7 +35,8 @@
 
         </div>
       </div>
-      {% if  %}
+      {% if logged %}
+
       <a href="{% url 'signup' %}" class="btn btn-outline-success mx-4 text-white">Sign Up</a>
       <a href="{% url 'login' %}" class="btn btn-outline-daneger text-white" type="submit">Login</a>{% endif %}
 
@@ -43,6 +44,7 @@
 
       <a href="" class="btn btn-outline-daneger text-white" type="submit">Profile</a>
       <a href="{% url 'logout' %}" class="btn btn-outline-daneger text-white" type="submit">Logout</a>
+      
       {% endif %}
     </div>
   </nav>
