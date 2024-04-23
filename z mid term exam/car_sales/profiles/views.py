@@ -6,8 +6,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
-from django.contrib.auth.models import User
-from .forms import UserChangeForm
+from .forms import UserChangeForm, User
 
 
 # Create your views here.
@@ -29,7 +28,11 @@ login_required()
 
 def profile(request):
     data = request.user
-    return render(request, "profiles/profile.html", {"data": data, "logged":request.user.is_authenticated})
+    return render(
+        request,
+        "profiles/profile.html",
+        {"data": data, "logged": request.user.is_authenticated},
+    )
 
 
 class UserUpdateView(UpdateView):
