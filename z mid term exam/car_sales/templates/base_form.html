@@ -34,7 +34,7 @@
         <!-- {{form | crispy }} -->
         {% for fm in form %}
         <div class="my-3">
-            <h5>{{fm.label_tag}}</h5>
+            <h5 class="my-1">{{fm.label_tag}}</h5>
             <div class="bg-dark">{{fm}}</div> {{fm.errors|striptags}}
         </div>
         {% endfor %}
