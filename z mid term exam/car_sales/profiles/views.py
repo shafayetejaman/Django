@@ -4,6 +4,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.views import PasswordChangeView
+from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
 
@@ -27,3 +28,13 @@ login_required()
 def profile(request):
     data = request.user
     return render(request, "profiles/profile.html", {"data": data, "logged":request.user.is_authenticated})
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    form_class = UserChangeForm
+    template_name = "profiles/edit_profile.html"
+    success_url = reverse_lazy("home")
+
+    def get_object(self):
+        return self.request.user
