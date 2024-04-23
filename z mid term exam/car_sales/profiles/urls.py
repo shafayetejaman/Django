@@ -22,5 +22,5 @@ from .views import PasswordChangeView,profile
 urlpatterns = [
    
     path("pass_change/", PasswordChangeView.as_view(), name="pass_change"),
-    path("profile/", profile, name="profile"),
+    path("", profile, name="profile"),
 ]
