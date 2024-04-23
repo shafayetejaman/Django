@@ -19,3 +19,6 @@ class PasswordChangeView(PasswordChangeView):
         messages.success(self.request, "Password Updated Successfully!")
         update_session_auth_hash(self.request, form.user)
         return super().form_valid(form)
+
+def profile(request):
+    return render(request, "")
