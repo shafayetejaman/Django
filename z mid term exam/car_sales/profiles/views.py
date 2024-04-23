@@ -26,4 +26,4 @@ login_required()
 
 def profile(request):
     data = request.user
-    return render(request, "profiles/profile.html", {"data": data})
+    return render(request, "profiles/profile.html", {"data": data, "logged":request.user.is_authenticated})
