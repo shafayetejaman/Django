@@ -5,15 +5,22 @@ from django.contrib.auth import logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.views import LoginView, PasswordChangeView, CreateView
-  
+
 from django.urls import reverse_lazy
 
 # Create your views here.
 
-class SignUpView(CreateView):
-    template_name = 'users/register.html'
+class UserSignupView(CreateView):
+    template_name = "authenticate/signup.html"
     success_url = reverse_lazy('login')
     form_class = Register
+    def form_valid(self, form):
+        messages.success(self.request, "Account Created Successfully!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.success(self.request, "Account Creation Failed!")
+        return super().form_invalid(form)
 
 
 def user_signup(request):
