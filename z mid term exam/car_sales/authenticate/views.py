@@ -12,7 +12,6 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
@@ -38,7 +37,7 @@ class UserLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy("home")
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         return render(
             request, self.template_name, {"pass": request.user.is_authenticated}
         )
