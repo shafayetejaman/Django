@@ -14,12 +14,13 @@ class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy('login')
     form_class = Register
+    
     def form_valid(self, form):
         messages.success(self.request, "Account Created Successfully!")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, "Account Creation Failed!")
+        messages.error(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
 
 
