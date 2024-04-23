@@ -20,6 +20,7 @@ class PasswordChangeView(PasswordChangeView):
         update_session_auth_hash(self.request, form.user)
         return super().form_valid(form)
 
+login_required()
 def profile(request):
-    data = request.user.
+    data = request.user
     return render(request, "profiles/profile", {"data", data})
