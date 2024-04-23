@@ -17,8 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import PasswordChangeView,profile
-from .forms import UserUpdateView
+from .views import PasswordChangeView,profile,UserUpdateView
+
 
 urlpatterns = [
    
