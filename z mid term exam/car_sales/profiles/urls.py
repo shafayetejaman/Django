@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import PasswordChangeView
+from .views import PasswordChangeView,profile
 
 urlpatterns = [
    
     path("pass_change/", PasswordChangeView.as_view(), name="pass_change"),
+    path("profile/", profile, name="profile"),
 ]
