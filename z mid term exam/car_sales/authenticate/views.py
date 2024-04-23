@@ -9,13 +9,14 @@ from django.views.generic.edit import CreateView
 
 from django.urls import reverse_lazy
 
-# Create your views here.
 
+# Create your views here.
+@method_decorator(login_required, name="dispatch")
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy("login")
     form_class = Register
-    
+
     def form_valid(self, form):
         messages.success(self.request, "Account Created Successfully!")
         return super().form_valid(form)
@@ -23,7 +24,7 @@ class UserSignupView(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
-    
+
 
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
@@ -40,11 +41,13 @@ class UserLoginView(LoginView):
         return super().form_invalid(form)
 
 
+@login_required()
 def user_logout(request):
     logout(request)
     return redirect("login")
 
 
+@method_decorator(login_required, name="dispatch")
 class PasswordChangeView(PasswordChangeView):
     template_name = "authenticate/pass_change.html"
     success_url = reverse_lazy("login")
