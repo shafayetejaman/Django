@@ -1,18 +1,19 @@
 from django.shortcuts import render, redirect
 from .forms import Register
 from django.contrib import messages
-from django.contrib.auth import authenticate, logout, login, update_session_auth_hash
-from django.contrib.auth.forms import (
-    AuthenticationForm,
-    PasswordChangeForm,
-    SetPasswordForm,
-)
+from django.contrib.auth import logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.contrib.auth.views import LoginView, PasswordChangeView
+from django.contrib.auth.views import LoginView, PasswordChangeView, CreateView
+  
 from django.urls import reverse_lazy
 
 # Create your views here.
+
+class SignUpView(CreateView):
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('login')
+    form_class = Register
 
 
 def user_signup(request):
