@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 
 
 # Create your views here.
-@method_decorator(login_required, name="dispatch")
+
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
