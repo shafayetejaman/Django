@@ -38,14 +38,6 @@ class UserLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy("home")
 
-    def get(self, request, *args, **kwargs):
-        form = self.get_form()
-        return render(
-            request,
-            self.template_name,
-            {"logged": request.user.is_authenticated, "form": form},
-        )
-
     def form_valid(self, form):
         messages.success(self.request, "Logged In Successful")
         return super().form_valid(form)
