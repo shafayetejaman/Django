@@ -25,6 +25,11 @@ class UserSignupView(CreateView):
         messages.error(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect("home")
+        return super().dispatch(request, *args, **kwargs)
+
 
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
