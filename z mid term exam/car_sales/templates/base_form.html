@@ -12,6 +12,10 @@
         background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
         height: 100vh;
     }
+    input {
+    background-color: #yourColorHere;
+    color: #yourColorHere;
+    }
 </style>
 {% endblock css %}
 
@@ -35,7 +39,7 @@
         {% for fm in form %}
         <div class="my-3">
             <h5 class="my-1">{{fm.label_tag}}</h5>
-            <div class="dark">{{fm}}</div>
+            {{fm}}
             {{fm.errors|striptags}}
         </div>
         {% endfor %}
