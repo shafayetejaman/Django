@@ -21,4 +21,4 @@ class PasswordChangeView(PasswordChangeView):
         return super().form_valid(form)
 
 def profile(request):
-    return render(request, "")
+    return render(request, "profiles/profile", {data:})
