@@ -32,10 +32,9 @@ class UserSignupView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
-    success_url = reverse_lazy("home")
 
-    # def get_success_url(self):
-    #     return reverse_lazy("home")
+    def get_success_url(self):
+        return reverse_lazy("home")
 
     def form_valid(self, form):
         messages.success(self.request, "Logged In Successful")
