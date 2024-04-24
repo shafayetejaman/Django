@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
-from .forms import UserChangeForm, User
+from .forms import UserChangeFormClass, User
 
 
 # Create your views here.
@@ -36,7 +36,7 @@ def profile(request):
 @method_decorator(login_required, name="dispatch")
 class UserUpdateView(UpdateView):
     model = User
-    form_class = UserChangeForm
+    form_class = UserChangeFormClass
     template_name = "profiles/edit_profile.html"
     success_url = reverse_lazy("home")
 
