@@ -23,9 +23,7 @@ class PasswordChangeView(PasswordChangeView):
         return super().form_valid(form)
 
 
-login_required()
-
-
+@login_required()
 def profile(request):
     data = request.user
     return render(
