@@ -29,7 +29,7 @@ class UserSignupView(CreateView):
         return super().form_invalid(form)
 
 
-# @method_decorator(login_required, name="dispatch")
+@method_decorator(login_required, name="dispatch")
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
 
