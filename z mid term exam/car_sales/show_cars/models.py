@@ -17,4 +17,6 @@ class Car(models.Model):
     bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
 class Comment(models.Model):
-    name = models.CharField(max_lenght=50)
+    name = models.CharField(max_length=50)
+    text = models.TextField()
+    
