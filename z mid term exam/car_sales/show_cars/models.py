@@ -11,3 +11,4 @@ class Car(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=20)
+    
