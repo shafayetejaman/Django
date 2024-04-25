@@ -20,5 +20,5 @@ from django.urls import path, include
 from .views import DetailPostView
 
 urlpatterns = [
-    path("",DetailPostView.as_view(), name="show"),
+    path("detail/", DetailPostView.as_view(), name="detail"),
 ]
