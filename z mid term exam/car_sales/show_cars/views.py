@@ -15,4 +15,5 @@ class CreateCarPostView(CreateView):
     success_url = reverse_lazy("show")
 
     def is_valid(self, form):
-        form.instance.authe
+        form.instance.author = self.request.user
+        return super().is_valid
