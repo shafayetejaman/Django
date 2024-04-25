@@ -19,4 +19,4 @@ class Car(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=50)
     text = models.TextField()
-    
+    car = models.ForeignKey(Car, on_delete=)
