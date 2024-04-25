@@ -10,6 +10,9 @@
     .card {
         background-color: rgb(115, 59, 151);
     }
+    .card-img-top{
+        
+    }
 </style>
 {% endblock css %}
 
@@ -26,7 +29,7 @@
 
         <div class="col my-3">
             <div class="card">
-                <img style="width:20vw" src="{{i.image}}" class="card-img-top m-2 ms-3" alt="...">
+                <img src="{{i.image.url}}" class="card-img-top m-2 ms-3" alt="...">
 
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
