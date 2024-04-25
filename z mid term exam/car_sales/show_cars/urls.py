@@ -17,8 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import show_list
+from .views import DetailPostView
 
 urlpatterns = [
-    path("",show_list, name="show"),
+    path("",DetailPostView.as_view(), name="show"),
 ]
