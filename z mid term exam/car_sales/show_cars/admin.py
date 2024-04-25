@@ -5,7 +5,7 @@ from .models import Brand, Car
 
 
 class BrandAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name")}
+    prepopulated_fields = {"slug": ("name",)}
     list_display = ["name", "slug"]
 
 
