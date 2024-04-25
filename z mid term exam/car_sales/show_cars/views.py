@@ -26,12 +26,14 @@ class DetailPostView(DetailView):
     success_url = reverse_lazy("post_list")
 
 
-
 class DeletePostView(DeleteView):
     model = Car
     pk_url_kwarg = "id"
     template_name = "show_cars/delete_post.html"
     success_url = reverse_lazy("post_list")
+
+    def get(self, request):
+        return render(request, self.template_name, {"logged": request.user.is_authenticated})
 
 
 class UpdatePostView(UpdateView):
