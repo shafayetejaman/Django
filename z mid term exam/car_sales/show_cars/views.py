@@ -16,4 +16,4 @@ class CreateCarPostView(CreateView):
 
     def is_valid(self, form):
         form.instance.author = self.request.user
-        return super().is_valid
+        return super().is_valid(form)
