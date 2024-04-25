@@ -35,6 +35,7 @@ class DeletePostView(DeleteView):
 
 class UpdatePostView(UpdateView):
     model = Car
+    form_class = CarForm
     pk_url_kwarg = "id"
     template_name = "show_cars/Update_post.html"
     success_url = reverse_lazy("show")
