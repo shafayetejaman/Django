@@ -39,7 +39,7 @@ class UserUpdateView(UpdateView):
     form_class = UserChangeFormClass
     template_name = "profiles/edit_profile.html"
     success_url = reverse_lazy("home")
-    
+
     def post(self, request, *args, **kwargs):
-        self.object = self.get_object(request.user)
+        self.object = self.get_object()
         return super().post(request, *args, **kwargs)
