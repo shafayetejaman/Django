@@ -23,11 +23,7 @@ class UserSignupView(CreateView):
     def form_invalid(self, form):
         messages.warning(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
-
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect("home")
-        return super().dispatch(request, *args, **kwargs)
+    
 
 
 class UserLoginView(LoginView):
@@ -44,10 +40,6 @@ class UserLoginView(LoginView):
         messages.warning(self.request, "Login Failed!")
         return super().form_invalid(form)
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect("home")
-        return super().dispatch(request, *args, **kwargs)
 
 
 @login_required()
