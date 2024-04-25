@@ -14,6 +14,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # @method_decorator(login_required, name="dispatch")
 
+
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
@@ -29,7 +30,7 @@ class UserSignupView(CreateView):
 
 
 # @method_decorator(login_required, name="dispatch")
-class UserLoginView(LoginRequiredMixin,LoginView):
+class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
 
     def get_success_url(self):
