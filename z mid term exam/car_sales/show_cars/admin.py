@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Brand,Car
+from .models import Brand, Car
 
 # Register your models here.
-admin.site.register(Car)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name")}
+    list_display = ["name", "slug"]
+
+
+admin.site.register(Car, Brand, CategoryAdmin)
