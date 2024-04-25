@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 class CreatePostView(CreateView):
     model = Car
     form_class = CarForm
-    template_name = "show_cars/make_post.html"
+    template_name = "show_cars/add_post.html"
     success_url = reverse_lazy("show")
 
     def is_valid(self, form):
