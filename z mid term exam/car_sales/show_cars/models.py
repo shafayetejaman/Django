@@ -5,6 +5,9 @@ from django.db import models
 class Brand(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=100, unique=True)
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class Car(models.Model):
@@ -15,6 +18,9 @@ class Car(models.Model):
     price = models.FloatField()
     slug = models.SlugField(max_length=100, unique=True)
     bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class Comment(models.Model):
@@ -23,3 +29,6 @@ class Comment(models.Model):
     email = models.EmailField()
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self) -> str:
+        return self.name
