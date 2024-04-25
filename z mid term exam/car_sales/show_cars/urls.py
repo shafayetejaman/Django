@@ -20,7 +20,7 @@ from django.urls import path, include
 from .views import DetailPostView, CreatePostView, DeletePostView, home, UpdatePostView
 
 urlpatterns = [
-    path("post_list/", home, name="home"),
+    path("", home),
     path("add/", CreatePostView.as_view(), name="add"),
     path("detail/<int:id>/", DetailPostView.as_view(), name="detail"),
     path("update/<int:id>/", UpdatePostView.as_view(), name="update"),
