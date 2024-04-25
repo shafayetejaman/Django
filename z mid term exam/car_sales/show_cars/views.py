@@ -16,7 +16,7 @@ class CreatePostView(CreateView):
     model = Car
     form_class = CarForm
     template_name = "show_cars/add_post.html"
-    success_url = reverse_lazy("post_list")
+    success_url = reverse_lazy("home")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -32,7 +32,7 @@ class DetailPostView(DetailView):
     model = Car
     pk_url_kwarg = "id"
     template_name = "show_cars/detail_post.html"
-    success_url = reverse_lazy("post_list")
+    success_url = reverse_lazy("home")
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,7 +44,7 @@ class DeletePostView(DeleteView):
     model = Car
     pk_url_kwarg = "id"
     template_name = "show_cars/delete_post.html"
-    success_url = reverse_lazy("post_list")
+    success_url = reverse_lazy("home")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -57,7 +57,7 @@ class UpdatePostView(UpdateView):
     form_class = CarForm
     pk_url_kwarg = "id"
     template_name = "show_cars/Update_post.html"
-    success_url = reverse_lazy("post_list")
+    success_url = reverse_lazy("home")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
