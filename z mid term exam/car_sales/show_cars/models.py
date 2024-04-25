@@ -20,4 +20,6 @@ class Car(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=50)
     text = models.TextField()
+    email = models.EmailField()
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
