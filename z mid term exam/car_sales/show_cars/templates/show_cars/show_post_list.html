@@ -2,8 +2,15 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet"
-    href="{% static "show_cars/css/style.css" %}">
+<style>
+    .card {
+        background-color: rgb(115, 59, 151);
+    }
+
+    .card-img-top {
+        width: 100%;
+    }
+</style>
 {% endblock css %}
 
 {% block content %}
