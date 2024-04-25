@@ -37,3 +37,10 @@ class DetailPostView(DetailView):
     success_url = reverse_lazy("show")
 
     
+class UpdatePostView(UpdateView):
+    model = Car
+    pk_url_kwarg = "id"
+    template_name = "show_cars/delete_post.html"
+    success_url = reverse_lazy("show")
+
+    
