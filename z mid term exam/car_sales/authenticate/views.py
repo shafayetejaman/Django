@@ -7,11 +7,13 @@ from django.contrib.auth.views import LoginView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 
-@method_decorator(login_required, name="dispatch")
+# @method_decorator(login_required, name="dispatch")
+
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
@@ -26,8 +28,8 @@ class UserSignupView(CreateView):
         return super().form_invalid(form)
 
 
-@method_decorator(login_required, name="dispatch")
-class UserLoginView(LoginView):
+# @method_decorator(login_required, name="dispatch")
+class UserLoginView(LoginRequiredMixin,LoginView):
     template_name = "authenticate/login.html"
 
     def get_success_url(self):
