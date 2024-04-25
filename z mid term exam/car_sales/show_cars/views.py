@@ -13,3 +13,6 @@ class CreateCarPostView(CreateView):
     form_class = CarForm
     template_name = "show_cars/make_car.html"
     success_url = reverse_lazy("show")
+
+    def is_valid(self, form):
+        form.instance.authe
