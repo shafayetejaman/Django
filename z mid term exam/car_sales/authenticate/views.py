@@ -6,11 +6,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 
 
+@method_decorator(login_required, name="dispatch")
 class UserSignupView(CreateView):
     template_name = "authenticate/signup.html"
     success_url = reverse_lazy("login")
@@ -24,12 +25,8 @@ class UserSignupView(CreateView):
         messages.warning(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect("home")
-        return super().dispatch(request, *args, **kwargs)
 
-
+@method_decorator(login_required, name="dispatch")
 class UserLoginView(LoginView):
     template_name = "authenticate/login.html"
 
@@ -43,11 +40,6 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.warning(self.request, "Login Failed!")
         return super().form_invalid(form)
-
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect("home")
-        return super().dispatch(request, *args, **kwargs)
 
 
 @login_required()
