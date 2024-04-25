@@ -17,6 +17,11 @@ class CreatePostView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().is_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["logged"] = self.request.user.is_authenticated
+        return context
 
 
 class DetailPostView(DetailView):
@@ -24,6 +29,11 @@ class DetailPostView(DetailView):
     pk_url_kwarg = "id"
     template_name = "show_cars/detail_post.html"
     success_url = reverse_lazy("post_list")
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["logged"] = self.request.user.is_authenticated
+        return context
 
 
 class DeletePostView(DeleteView):
@@ -32,8 +42,10 @@ class DeletePostView(DeleteView):
     template_name = "show_cars/delete_post.html"
     success_url = reverse_lazy("post_list")
 
-    def get(self, request):
-        return render(request, self.template_name, {"logged": request.user.is_authenticated})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["logged"] = self.request.user.is_authenticated
+        return context
 
 
 class UpdatePostView(UpdateView):
@@ -42,3 +54,8 @@ class UpdatePostView(UpdateView):
     pk_url_kwarg = "id"
     template_name = "show_cars/Update_post.html"
     success_url = reverse_lazy("post_list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["logged"] = self.request.user.is_authenticated
+        return context

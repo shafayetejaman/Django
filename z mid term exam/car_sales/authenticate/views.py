@@ -27,6 +27,7 @@ class UserSignupView(CreateView):
     def form_invalid(self, form):
         messages.warning(self.request, "Account Creation Failed!")
         return super().form_invalid(form)
+    
 
 
 # @method_decorator(login_required, name="dispatch")
@@ -43,6 +44,7 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.warning(self.request, "Login Failed!")
         return super().form_invalid(form)
+
 
 
 @login_required()
