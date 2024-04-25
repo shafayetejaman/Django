@@ -8,3 +8,4 @@ class CreateCarPostView(CreateView):
     model = Car
     form_class = CarForm
     template_name = "show_cars/show_list.html"
+    success_url = 
