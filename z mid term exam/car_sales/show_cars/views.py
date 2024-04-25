@@ -22,8 +22,9 @@ class CreatePostView(CreateView):
 class DetailPostView(DetailView):
     model = Car
     pk_url_kwarg = "id"
-    template_name = "show_cars/show_post_list.html"
+    template_name = "show_cars/detail_post.html"
     success_url = reverse_lazy("show")
+
 
 
 class DeletePostView(DeleteView):
