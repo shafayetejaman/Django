@@ -7,7 +7,12 @@ from .models import Brand, Car
 class BrandAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     list_display = ["name", "slug"]
+    
+class CarAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ["name", "slug"]
 
 
 admin.site.register(Brand, BrandAdmin)
-admin.site.register(Car)
+admin.site.register(Car, CarAdmin)
+
