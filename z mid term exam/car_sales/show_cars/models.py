@@ -13,4 +13,4 @@ class Car(models.Model):
     quantity = models.IntegerField()
     price = models.FloatField()
     slug = models.SlugField(max_length=100, unique=True)
-    bland = Pk
+    bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
