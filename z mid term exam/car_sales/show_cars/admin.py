@@ -4,10 +4,10 @@ from .models import Brand, Car
 # Register your models here.
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class BrandAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name")}
     list_display = ["name", "slug"]
 
 
-admin.site.register(CategoryAdmin)
-admin.site.register(Car, Brand)
+admin.site.register(Brand, BrandAdmin)
+admin.site.register(Car)
