@@ -8,18 +8,12 @@
 {% block css %}{% endblock css %}
 
 {% block content %}
-{% load crispy_forms_tags %}
 
 <section class="m-3">
-    {% if messages %}
-    {% for m in messages %}
-    <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
-    {% endfor %}
-    {% endif %}
 
     <form method="post" class="w-50 m-auto text-danger h5" novalidate>
-
-
+        {% csrf_token %}
+       
         <button class="btn btn-primary my-4" type="submit">Submit</button>
 
     </form>
