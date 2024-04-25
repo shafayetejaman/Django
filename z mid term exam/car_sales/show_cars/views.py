@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 def show_list(request):
-    return render(request, "show_cars/make_car.html")
+    return render(request, "show_cars/show_list",{"logged":})
 
 class CreateCarPostView(CreateView):
     model = Car
