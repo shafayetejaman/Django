@@ -7,6 +7,10 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
+def home(request):
+    data = car
+    return render(request,"show_cars/show_post_list.html",{"logged": request.user.is_authenticated,"data": data})
+
 
 class CreatePostView(CreateView):
     model = Car
