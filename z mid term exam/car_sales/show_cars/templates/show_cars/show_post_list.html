@@ -2,18 +2,7 @@
 {% load static %}
 
 {% block css %}
-<style>
-    body {
-        background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
-    }
-
-    .card {
-        background-color: rgb(115, 59, 151);
-    }
-    .card-img-top{
-        
-    }
-</style>
+<link rel="stylesheet" href="show_cars/css/style.css">
 {% endblock css %}
 
 {% block content %}
@@ -25,7 +14,6 @@
     <div class="row row-cols-4 mx-4" id="post-container">
 
         {% for i in data %}
-
 
         <div class="col my-3">
             <div class="card">
