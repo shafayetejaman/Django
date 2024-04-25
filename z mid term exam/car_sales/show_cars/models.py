@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 class Brand(models.Model):
     name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=100, unique=True)
 
 
 class Car(models.Model):
@@ -14,3 +15,5 @@ class Car(models.Model):
     price = models.FloatField()
     slug = models.SlugField(max_length=100, unique=True)
     bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
+
+class comment
