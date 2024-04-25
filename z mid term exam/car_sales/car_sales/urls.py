@@ -22,5 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("authenticate.urls")),
     path("profile/", include("profiles.urls")),
+    path("show/", include("show_cars.urls")),
     path("", home, name="home")
 ]
