@@ -8,8 +8,8 @@
 
     <form method="post" class="w-50 m-auto text-danger h5" novalidate>
         {% csrf_token %}
-       
-        <button class="btn btn-outline-danger text-white my-4" type="submit">Delete</button>
+        <h1 class="text-danger">Are you sure, you want want to delete this post?</h1>
+        <button class="btn bg-danger text-white my-4" type="submit">Delete</button>
 
     </form>
 </section>
