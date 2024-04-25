@@ -15,4 +15,4 @@ class BrandForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields=["name"]
+        fields=["name", "email"]
