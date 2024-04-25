@@ -9,4 +9,5 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ["name", "slug"]
 
 
-admin.site.register(Car, Brand, CategoryAdmin)
+admin.site.register(CategoryAdmin)
+admin.site.register(Car, Brand)
