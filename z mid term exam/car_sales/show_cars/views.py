@@ -14,7 +14,7 @@ class CreatePostView(CreateView):
     template_name = "show_cars/add_post.html"
     success_url = reverse_lazy("show")
 
-    def is_valid(self, form):
+    def form_valid(self, form):
         form.instance.author = self.request.user
         return super().is_valid(form)
 
@@ -38,5 +38,3 @@ class UpdatePostView(UpdateView):
     pk_url_kwarg = "id"
     template_name = "show_cars/Update_post.html"
     success_url = reverse_lazy("show")
-
-    

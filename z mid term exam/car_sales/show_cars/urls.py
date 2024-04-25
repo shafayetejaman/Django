@@ -17,11 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import DetailPostView
+from .views import DetailPostView,CreatePostView,DeletePostView,UpdatePostView
 
 urlpatterns = [
-    path("add/", DetailPostView.as_view(), name="add"),
+    path("add/", CreatePostView.as_view(), name="add"),
     path("detail/<int:id>/", DetailPostView.as_view(), name="detail"),
-    path("edit/<int:id>/", DetailPostView.as_view(), name="edit"),
-    path("delete/<int:id>/", DetailPostView.as_view(), name="delete"),
+    path("edit/<int:id>/", UpdatePostView.as_view(), name="edit"),
+    path("delete/<int:id>/", DeletePostView.as_view(), name="delete"),
 ]
