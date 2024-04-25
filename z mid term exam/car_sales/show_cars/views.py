@@ -30,8 +30,10 @@ class DeletePostView(DeleteView):
     success_url = reverse_lazy("show")
 
 
-class DetailPostView(DetailView):
-    model = Car
-    pk_url_kwarg = "id"
-    template_name = "show_cars/delete_post.html"
-    success_url = reverse_lazy("show")
+# class DetailPostView(DetailView):
+#     model = Car
+#     pk_url_kwarg = "id"
+#     template_name = "show_cars/delete_post.html"
+#     success_url = reverse_lazy("show")
+
+#     def post(d)
