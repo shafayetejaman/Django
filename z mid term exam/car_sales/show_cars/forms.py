@@ -10,13 +10,13 @@ class CarForm(forms.ModelForm):
 
 class BrandForm(forms.ModelForm):
     class Meta:
-        model = Car
+        model = Brand
         fields = "__all__"
 
     
 
 class CommentForm(forms.ModelForm):
     class Meta:
-        model = Car
+        model = Comment
         fields = ["name", "email"]
 
