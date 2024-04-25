@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 def show_list(request):
     return render(
-        request, "show_cars/show_list", {"logged": request.user.is_authenticated}
+        request, "show_cars/show_post_list", {"logged": request.user.is_authenticated}
     )
 
 
@@ -28,6 +28,7 @@ class DeletePostView(DeleteView):
     pk_url_kwarg = "id"
     template_name = "show_cars/delete_post.html"
     success_url = reverse_lazy("show")
+
 
 class DetailPostView(DetailView):
     model = Car
