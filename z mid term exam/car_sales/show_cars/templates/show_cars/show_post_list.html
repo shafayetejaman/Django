@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="show_cars/css/style.css">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
 {% endblock css %}
 
 {% block content %}
@@ -11,7 +11,7 @@
 <!-- card section -->
 
 <section class="page-bg container-fluid my-4">
-    <div class="row row-cols-4 mx-4" id="post-container">
+    <div class="row row-cols-4 mx-4">
 
         {% for i in data %}
 
