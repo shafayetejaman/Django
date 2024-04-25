@@ -16,6 +16,7 @@ class Car(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
 
+
 class Comment(models.Model):
     name = models.CharField(max_length=50)
     text = models.TextField()
