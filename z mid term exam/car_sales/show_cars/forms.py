@@ -12,7 +12,7 @@ class BrandForm(forms.ModelForm):
         model = Car
         fields = "__all__"
         
-class CarForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = "__all__"
+        fields=["name"]
