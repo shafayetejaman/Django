@@ -9,4 +9,4 @@ class CreateCarPostView(CreateView):
     model = Car
     form_class = CarForm
     template_name = "show_cars/make_car.html"
-    success_url = reverse_lazy()
+    success_url = reverse_lazy("show")
