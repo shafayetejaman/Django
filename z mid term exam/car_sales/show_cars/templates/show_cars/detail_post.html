@@ -14,18 +14,18 @@
 
         <div class="col my-3">
             <div class="card border-0">
-                <img src="{{show_car.image.url}}" class="card-img-top" alt="...">
+                <img src="{{car.image.url}}" class="card-img-top" alt="...">
 
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
 
-                        <h3 class="card-title text-danger">{{show_car.name}}</h3>
+                        <h3 class="card-title text-danger">{{car.name}}</h3>
 
                     </div>
                 </div>
 
                 <p class="mx-3 text-light">
-                    {{show_car.description | truncatewords:10}}
+                    {{car.description | truncatewords:10}}
                 </p>
             </div>
         </div>
