@@ -1,21 +1,36 @@
-{% extends "base_form.html" %}
-
+{% extends "base.html" %}
+{% load static %}
 
 {% block link %}
-<style>
-    body {
-        background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
-        height: 150vh;
-    }
-
-    textarea {
-        background-color: rgb(18, 27, 60) !important;
-        color: white !important;
-    }
-
-    select {
-        background-color: rgb(18, 27, 60) !important;
-        color: white !important;
-    }
-</style>
+<link rel="stylesheet" href="{% static "show_cars/css/style_detail.css" %}">
 {% endblock link %}
+
+{% block content %}
+
+<!-- card section -->
+
+<section class="container-fluid my-4">
+    <div class="card-page row row-cols-1 mx-4">
+
+        <div class="col my-3">
+            <div class="card border-0">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-start">
+
+                        <h3 class="card-title text-danger">{{i.name}}</h3>
+
+                    </div>
+                </div>
+
+                <p class="mx-3 text-light">
+                    {{i.description | truncatewords:10}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock content %}
