@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from car_sales.car_sales. import view
+from car_sales.show_cars import views
 from . import settings
 from django.conf.urls.static import static
 
