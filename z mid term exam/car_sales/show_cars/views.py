@@ -6,4 +6,5 @@ from django.views.generic import CreateView,UpdateView,DeleteView,DetailView
 # Create your views here.
 class CreateCarPostView(CreateView):
     model = Car
-    
+    form_class = CarForm
+    template_name = "show"
