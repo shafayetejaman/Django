@@ -9,4 +9,5 @@ class Car(models.Model):
     quantity = models.IntegerField()
     price = models.FloatField()
 
-class Brand
+class Brand(models.Model):
+    name = models.CharField(max_length=20)
