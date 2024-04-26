@@ -65,5 +65,6 @@ class UpdatePostView(UpdateView):
         return context
     
 def buy_car(request, id):
-    
+    car = Car.objects.get(pk=id)
+    car.quantity =
     return redirect("home")
