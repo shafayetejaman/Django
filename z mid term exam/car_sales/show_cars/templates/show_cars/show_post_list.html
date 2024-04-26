@@ -31,7 +31,8 @@
         {% for brand in brands %}
 
         <input type="radio" class="btn-check" name="options-base" id="option{{brand.id}}" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="option{{brand.id}}">{{brand.name}}</label>
+        <label class="btn btn-outline-danger" for="option{{brand.id}}"><a
+                clas="text-decoration-none" href="{% url "group_by" brand.slug %}">{{brand.name}}</a></label>
 
         {% endfor %}
 
