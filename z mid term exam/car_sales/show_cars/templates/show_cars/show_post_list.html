@@ -2,7 +2,22 @@
 {% load static %}
 
 {% block link %}
-<link rel="stylesheet" href="{% static "show_cars/css/style_home.css" %}">
+<style>
+    body {
+        background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
+        height: 100;
+    }
+
+    .card {
+        background-color: rgb(115, 59, 151);
+
+    }
+
+    .card-img-top {
+        width: 100%;
+    }
+</style>
+
 {% endblock link %}
 
 {% block content %}
