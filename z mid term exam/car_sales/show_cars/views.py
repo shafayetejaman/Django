@@ -8,12 +8,12 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-def home(request):
-    cars = Car.objects.all()
+def home(request, brand):
+    data = Car.objects.all()
     return render(
         request,
         "show_cars/show_post_list.html",
-        {"logged": request.user.is_authenticated, "cars": cars},
+        {"logged": request.user.is_authenticated, "cars": data},
     )
 
 

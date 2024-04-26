@@ -12,9 +12,13 @@
 <section class="container-fluid">
 
     <div class="text-center mt-5">
-        {% for brand in brands %}{% endfor %}
+        
+        {% for brand in brands %}
+
         <input type="radio" class="btn-check" name="options-base" autocomplete="off">
         <label class="btn btn-outline-danger" for="option5">{{brand.name}}</label>
+
+        {% endfor %}
 
     </div>
 
@@ -28,7 +32,7 @@
 
                 <div class="card-body text-center">
 
-                    <a href="{% url "detail" i.id %}" class="text-decoration-none">
+                    <a href="{% url "detail" car.id %}" class="text-decoration-none">
                         <h1 class="card-title text-danger">{{car.name}}</h1>
                     </a>
 
