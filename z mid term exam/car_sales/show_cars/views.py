@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import red
 from .models import Car, Comment
 from .forms import CarForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
@@ -63,3 +64,6 @@ class UpdatePostView(UpdateView):
         context = super().get_context_data(**kwargs)
         context["logged"] = self.request.user.is_authenticated
         return context
+    
+def buy_car(request, id):
+    return redire
