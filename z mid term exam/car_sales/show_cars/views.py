@@ -8,9 +8,12 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-def home(request):
+def home(request, brand=None):
     cars = Car.objects.all()
     brands = Brand.objects.all()
+    
+    if brand:
+        cars  = car
     return render(
         request,
         "show_cars/show_post_list.html",
