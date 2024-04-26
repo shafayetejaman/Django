@@ -22,8 +22,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
 
-                        <h2 class="card-title text-danger">{{i.name}}</h2>
-
+                        <a href="{% url "detail" i.id %}">
+                            <h2 class="card-title text-danger text">{{i.name}}</h2>
+                        </a>
                     </div>
 
                     <p class="text-dark h5 my-3">
