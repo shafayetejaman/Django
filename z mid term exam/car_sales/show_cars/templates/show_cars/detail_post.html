@@ -17,16 +17,23 @@
                 <img src="{{car.image.url}}" class="card-img-top rounded-2" alt="...">
 
                 <div class="card-body">
-                    <div class="d-flex justify-content-start">
 
-                        <h3 class="card-title text-danger">{{car.name}}</h3>
+                    <h1 class="card-title text-danger">{{i.name}}</h1>
 
+                    <p class="text-dark h4 my-4">
+                        Description: {{i.description}}
+                    </p>
+
+                    <h5 class="text-light">Quantity: {{i.quantity}}</h5>
+                    <h5 class="text-danger">Price: {{i.price}}</h5>
+                    <h5 class="text-warning">Brand: {{i.brand.name}}</h5>
+                    <div>
+
+                        <h5 class="btn bg-success text-white">Add To Cart</h5>
+                        <h5 class="btn bg-success text-white">Add To Cart</h5>
                     </div>
-                </div>
 
-                <p class="mx-3 text-light">
-                    {{car.description | truncatewords:10}}
-                </p>
+                </div>
             </div>
         </div>
 
