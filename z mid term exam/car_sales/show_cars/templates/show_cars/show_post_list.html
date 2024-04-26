@@ -12,15 +12,15 @@
 <section class="container-fluid">
 
     <div class="text-center mt-5">
-
+        {% for brand in brands %}{% endfor %}
         <input type="radio" class="btn-check" name="options-base" autocomplete="off">
-        <label class="btn btn-outline-danger" for="option5">Checked</label>
+        <label class="btn btn-outline-danger" for="option5">{{brand.name}}</label>
 
     </div>
 
     <div class="card-page row row-cols-3 mx-4">
 
-        {% for i in data %}
+        {% for i in cars %}
 
         <div class="col my-3">
             <div class="card">
