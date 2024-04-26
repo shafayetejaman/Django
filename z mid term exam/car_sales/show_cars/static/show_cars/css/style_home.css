@@ -1,3 +1,8 @@
+ body {
+      background: linear-gradient(13.89deg, #030640 10.47%, #690e87 98.32%, #383b81);
+      height: 100vh;
+    }
+
 .card {
     background-color: rgb(115, 59, 151);
 
