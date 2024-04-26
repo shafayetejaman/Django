@@ -66,47 +66,44 @@
 {% load crispy_forms_tags %}
 
 <section class="container-fluid my-4">
-    <div class="card-page row mx-4">
 
-        <div class="col my-3">
-            <div class="card p-4 m-1">
-                <div class="card-body">
-                    <img src="{{post.image.url}}" class="card-img-top" alt="..." style="width:50%;">
-                    <h1 class="card-title">{{post.title}}</h1>
-                    <p class="card-text">{{post.content}}</p>
-                    <p>Author : {{post.author.first_name}} {{post.author.last_name}}</p>
-                    <p>
-                        Category : {% for cat in post.category.all %}
-                        <button class="btn btn-warning btn-sm m-2" disabled>
-                            {{cat.name}}
-                        </button>
-                        {% endfor %}
-                    </p>
-                </div>
-
+    <div class="col-12">
+        <div class="card m-2">
+            <div class="card-body">
+                <img src="{{post.image.url}}" class="card-img-top" alt="..." style="width:50%;">
+                <h1 class="card-title">{{post.title}}</h1>
+                <p class="card-text">{{post.content}}</p>
+                <p>Author : {{post.author.first_name}} {{post.author.last_name}}</p>
+                <p>
+                    Category : {% for cat in post.category.all %}
+                    <button class="btn btn-warning btn-sm m-2" disabled>
+                        {{cat.name}}
+                    </button>
+                    {% endfor %}
+                </p>
             </div>
         </div>
     </div>
 
-    <form method="post" class="w-50 m-auto text-danger h5" novalidate>
-        {% for err in form.non_field_errors %}
-        <div class="m-3 bg-danger p-3 rounded-3 text-white">{{err}}</div>
-        {% endfor %}
-
-        {% csrf_token %}
-        <!-- {{form | crispy }} -->
-        {% for fm in form %}
-        <div class="my-3">
-            <h5 class="my-1">{{fm.label_tag}}</h5>
-            {{fm}}
-            {{fm.errors|striptags}}
+    <div class="card m-2">
+        <h5 class="p-3">Total Comments : {{comments | length}}</h5>
+        {% for comment in comments %}
+        <div class="card-body border m-2">
+            <p><b>{{comment.name}}</b> {{comment.created_on}}</p>
+            <p>{{comment.body}}</p>
         </div>
         {% endfor %}
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            <form method="post">
+                <h1>Add Comment</h1>
+                {% csrf_token %}
+                {{comment_form | crispy}}
 
-        <button class="btn btn-primary my-4" type="submit">Submit</button>
-
-    </form>
-
+                <button class="btn btn-warning">Submit</button>
+        </div>
+    </div>
 
     {% endif %}
 </section>
