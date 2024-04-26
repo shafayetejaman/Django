@@ -73,12 +73,13 @@
                 <h3 class="p-3">Total Comments : {{comments | length}}</h3>
                 {% for comment in comments %}
                 <div class="card-body border rounded-3 m-2 text-light">
-                    <div class="d-flex justify-content-around">
+
+                    <div class="d-flex justify-content-between">
                         <h5><strong>{{comment.name}}</strong></h5>
                         <h6>{{comment.created}}</h6>
-
                     </div>
-                    <p class="my-3">{{comment.text}}</p>
+
+                    <p class="mt-4">{{comment.text}}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -92,6 +93,7 @@
                 <div class="my-3 text-light">
                     <div class="card-body">
                         <form method="post">
+                            
                             <h2 class="text-dark mb-4">Add Comment</h2>
                             {% csrf_token %}
                             {{comment_form | crispy}}
