@@ -27,6 +27,8 @@
                     <h5 class="text-light">Quantity: {{car.quantity}}</h5>
                     <h5 class="text-danger">Price: {{car.price}}$</h5>
                     <h5 class="text-warning">Brand: {{car.brand.name}}</h5>
+
+                    {% if logged %}
                     <div class="d-flex justify-content-center gap-5 mt-5">
 
                         <h5 class="btn bg-success text-white">Add To Cart</h5>
@@ -34,6 +36,7 @@
                             <h5 class="btn bg-danger text-white">Buy Now</h5>
                         </a>
                     </div>
+                    {% endif %}
 
                 </div>
             </div>
