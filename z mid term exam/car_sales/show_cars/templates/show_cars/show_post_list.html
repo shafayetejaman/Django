@@ -10,21 +10,23 @@
 
 <!-- card section -->
 
-<section>
-    <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
-    <label class="btn" for="option5">Checked</label>
-
-    <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
-    <label class="btn" for="option6">Radio</label>
-
-    <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" disabled>
-    <label class="btn" for="option7">Disabled</label>
-
-    <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
-    <label class="btn" for="option8">Radio</label>
-</section>
 
 <section class="container-fluid my-4">
+
+    <div class="card-page ">
+        <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
+        <label class="btn btn-outline-danger" for="option5">Checked</label>
+
+        <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+        <label class="btn btn-outline-danger" for="option6">Radio</label>
+
+        <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" disabled>
+        <label class="btn btn-outline-danger" for="option7">Disabled</label>
+
+        <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
+        <label class="btn" btn-outline-danger for="option8">Radio</label>
+    </div>
+
     <div class="card-page row row-cols-3 mx-4">
 
         {% for i in data %}
