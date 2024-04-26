@@ -60,7 +60,7 @@
 
                 <div class="card-body text-center">
 
-                    <a href="{% url "detail" car.id %}" class="text-decoration-none">
+                    <a href="{% url "detail" car.id car.slug %}" class="text-decoration-none">
                         <h2 class="card-title text-danger">{{car.name}}</h2>
                     </a>
 
