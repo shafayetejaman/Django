@@ -40,7 +40,7 @@
 
                     <h5 class="text-light">Quantity: {{car.quantity}}</h5>
                     <h5 class="text-danger">Price: {{car.price}}$</h5>
-                    <h5 class="text-white btn bg-primary">Brand: {{car.brand.name}}</h5>
+                    <h5 class="text-white btn bg-primary mt">Brand: {{car.brand.name}}</h5>
 
                     {% if logged %}
                     <div class="d-flex justify-content-center gap-3 mt-5">
@@ -85,10 +85,10 @@
         <div class="col my-3">
 
             <div class="card p-4 m-1">
-                <div class="my-4 text-light">
+                <div class="my-3 text-light">
                     <div class="card-body">
                         <form method="post">
-                            <h2 class="text-dark">Add Comment</h2>
+                            <h2 class="text-dark mb-4">Add Comment</h2>
                             {% csrf_token %}
                             {{comment_form | crispy}}
 
