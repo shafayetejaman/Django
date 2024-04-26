@@ -20,25 +20,25 @@
 
     <div class="card-page row row-cols-3 mx-4">
 
-        {% for i in cars %}
+        {% for car in cars %}
 
         <div class="col my-3">
             <div class="card">
-                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <img src="{{car.image.url}}" class="card-img-top" alt="...">
 
                 <div class="card-body text-center">
 
                     <a href="{% url "detail" i.id %}" class="text-decoration-none">
-                        <h1 class="card-title text-danger">{{i.name}}</h1>
+                        <h1 class="card-title text-danger">{{car.name}}</h1>
                     </a>
 
                     <p class="text-dark h4 my-4">
-                        Description: {{i.description | truncatewords:10}}
+                        Description: {{car.description | truncatewords:10}}
                     </p>
 
-                    <h5 class="text-light">Quantity: {{i.quantity}}</h5>
-                    <h5 class="text-danger">Price: {{i.price}}$</h5>
-                    <h5 class="text-white btn bg-primary">Brand: {{i.brand.name}}</h5>
+                    <h5 class="text-light">Quantity: {{car.quantity}}</h5>
+                    <h5 class="text-danger">Price: {{car.price}}$</h5>
+                    <h5 class="text-white btn bg-primary">Brand: {{car.brand.name}}</h5>
 
                     {% if logged %}
                     <h5 class="btn bg-success text-white">Add To Cart</h5>
