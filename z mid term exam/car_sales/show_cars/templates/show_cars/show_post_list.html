@@ -28,20 +28,19 @@
 
     <div class="text-center my-5">
 
-        {% if not current_brand %}
-        <input type="radio" class="btn-check" name="options-base" id="option0" autocomplete="off" checked>
+        <input type="radio" class="btn-check" name="options-base" id="option0" autocomplete="off"
+            {% if not current_brand %}checked{% endif %}>
         <label class="btn btn-outline-danger" for="option0">
-            <a class="text-decoration-none text-white" href="{% url "home" %}"> All
+            <a class="text-decoration-none text-white" href="{% url "home" %}">All
             </a>
         </label>
-        {% endif %}
 
         {% for brand in brands %}
 
         <input type="radio" class="btn-check" name="options-base" id="option{{brand.id}}" autocomplete="off"
             {% if current_brand == brand %}checked{% endif %}>
         <label class="btn btn-outline-danger" for="option{{brand.id}}">
-            <a class="text-decoration-none text-white" href="{% url "group_by" brand.slug %}"> {{brand.name}}
+            <a class="text-decoration-none text-white" href="{% url "group_by" brand.slug %}">{{brand.name}}
             </a>
         </label>
 
