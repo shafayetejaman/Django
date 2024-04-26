@@ -12,9 +12,9 @@ def home(request, brand_slug=None):
     cars = Car.objects.all()
     brands = Brand.objects.all()
     
-    if brand:
-        cars = Brand.objects.get(slug = brand_slug)
-        
+    if brand_slug:
+        brand = Brand.objects.get(slug = brand_slug)
+        cars = Car.objects.filter(brands)
     return render(
         request,
         "show_cars/show_post_list.html",
