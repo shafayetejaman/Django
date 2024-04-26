@@ -26,7 +26,7 @@ urlpatterns = [
     path("accounts/", include("authenticate.urls")),
     path("profile/", include("profiles.urls")),
     path("show/", include("show_cars.urls")),
-    path("<int:id>", home, name="home"),
+    path("", home, name="home"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
