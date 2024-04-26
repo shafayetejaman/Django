@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Car, Comment,Brand
+from .models import Car, Comment, Brand
 from .forms import CarForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
@@ -8,13 +8,13 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 
-def home(request, id):
+def home(request):
     cars = Car.objects.all()
     brands = Brand.objects.all()
     return render(
         request,
         "show_cars/show_post_list.html",
-        {"logged": request.user.is_authenticated, "cars": cars, "brands":brands},
+        {"logged": request.user.is_authenticated, "cars": cars, "brands": brands},
     )
 
 
