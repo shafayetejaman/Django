@@ -11,14 +11,21 @@ from django.urls import reverse_lazy
 def home(request, brand_slug=None):
     cars = Car.objects.all()
     brands = Brand.objects.all()
-    
+    brand = None
+
     if brand_slug:
-        brand = Brand.objects.get(slug = brand_slug)
-        cars = Car.objects.filter(brand = brand)
+        brand = Brand.objects.get(slug=brand_slug)
+        cars = Car.objects.filter(brand=brand)
+
     return render(
         request,
         "show_cars/show_post_list.html",
-        {"logged": request.user.is_authenticated, "cars": cars, "brands": brands},
+        {
+            "logged": request.user.is_authenticated,
+            "cars": cars,
+            "brands": brands,
+            "current_brand": brand,
+        },
     )
 
 
