@@ -53,12 +53,14 @@ class DetailPostView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["logged"] = self.request.user.is_authenticated
-        post = self.object
+        car = self.object
         comments = post.comments.all()
         comment_form = CommentForm()
+        
+        context["logged"] = self.request.user.is_authenticated
         context['comments'] = comments
         context['comment_form'] = comment_form
+        
         return context
 
 
