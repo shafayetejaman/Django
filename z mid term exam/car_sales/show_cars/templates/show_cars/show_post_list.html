@@ -11,12 +11,12 @@
 <!-- card section -->
 <section class="container-fluid">
 
-    <div class="text-center mt-5">
+    <div class="sort-by text-center">
 
         {% for brand in brands %}
 
-        <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
-        <label class="btn btn-outline-danger" for="option5">{{brand.name}}</label>
+        <input type="radio" class="btn-check" name="options-base" id="option{{brand.id}}" autocomplete="off" checked>
+        <label class="btn btn-outline-danger" for="option{{brand.id}}">{{brand.name}}</label>
 
         {% endfor %}
 
