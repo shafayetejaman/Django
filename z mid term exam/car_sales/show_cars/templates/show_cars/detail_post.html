@@ -18,19 +18,19 @@
 
                 <div class="card-body">
 
-                    <h1 class="card-title text-danger">{{i.name}}</h1>
+                    <h1 class="card-title text-danger">{{car.name}}</h1>
 
                     <p class="text-dark h4 my-4">
-                        Description: {{i.description}}
+                        Description: {{car.description}}
                     </p>
 
-                    <h5 class="text-light">Quantity: {{i.quantity}}</h5>
-                    <h5 class="text-danger">Price: {{i.price}}</h5>
-                    <h5 class="text-warning">Brand: {{i.brand.name}}</h5>
-                    <div>
+                    <h5 class="text-light">Quantity: {{car.quantity}}</h5>
+                    <h5 class="text-danger">Price: {{car.price}}$</h5>
+                    <h5 class="text-warning">Brand: {{car.brand.name}}</h5>
+                    <div class="d-flex justify-content-center gap-5">
 
                         <h5 class="btn bg-success text-white">Add To Cart</h5>
-                        <h5 class="btn bg-success text-white">Add To Cart</h5>
+                        <h5 class="btn bg-danger text-white">Buy Now</h5>
                     </div>
 
                 </div>
