@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.urls import red
+from django.shortcuts import render,redirect
 from .models import Car, Comment
 from .forms import CarForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
@@ -66,4 +65,5 @@ class UpdatePostView(UpdateView):
         return context
     
 def buy_car(request, id):
-    return redire
+    
+    return redirect("home")
