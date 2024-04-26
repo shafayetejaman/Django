@@ -27,13 +27,13 @@
 <section class="container-fluid my-5">
 
     <div class="text-center my-5">
-        
+
         {% if not current_brand %}
-         <input type="radio" class="btn-check" name="options-base" id="option{{brand.id}}" autocomplete="off" checked>
-         <label class="btn btn-outline-danger" for="option{{brand.id}}">
-             <a class="text-decoration-none text-white" href="{% url "group_by" brand.slug %}"> All
-             </a>
-         </label>
+        <input type="radio" class="btn-check" name="options-base" id="option0" autocomplete="off" checked>
+        <label class="btn btn-outline-danger" for="option0">
+            <a class="text-decoration-none text-white" href="{% url "home" %}"> All
+            </a>
+        </label>
         {% endif %}
 
         {% for brand in brands %}
