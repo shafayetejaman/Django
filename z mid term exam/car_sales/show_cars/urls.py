@@ -25,4 +25,5 @@ urlpatterns = [
     path("update/<int:id>/", UpdatePostView.as_view(), name="update"),
     path("delete/<int:id>/", DeletePostView.as_view(), name="delete"),
     path("buy/<int:id>/", buy_car, name="buy"),
+    path("group_by/<slug:brand>", home, name="group_by")
 ]
