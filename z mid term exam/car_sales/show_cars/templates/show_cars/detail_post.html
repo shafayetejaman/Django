@@ -24,7 +24,7 @@
 <!-- card section -->
 
 <section class="container-fluid my-4 mb-0">
-    <div class="card-page row mx-4">
+    <div class="row mx-4">
 
         <div class="col my-3">
             <div class="card p-4 m-1">
@@ -67,7 +67,7 @@
 
 <section class="container-fluid my-0">
 
-    <div class="card-page row mx-4">
+    <div class="row mx-4">
 
         <div class="col my-3">
             <div class="card p-4 m-1">
@@ -81,18 +81,19 @@
             </div>
         </div>
 
-        <div class="card p-5 m-1 my-4 text-light">
+        <div class="card p-5 my-4 text-light">
             <div class="card-body">
                 <form method="post">
-                    <h1 class="text-dark">Add Comment</h1>
+                    <h2 class="text-dark">Add Comment</h2>
                     {% csrf_token %}
                     {{comment_form | crispy}}
 
-                    <button class="btn btn-warning">Submit</button>
+                    <button class="btn btn-primary text-white">Submit</button>
 
                 </form>
             </div>
         </div>
+    </div>
 
 </section>
 
