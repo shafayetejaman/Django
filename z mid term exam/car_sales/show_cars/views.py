@@ -73,5 +73,5 @@ class UpdatePostView(UpdateView):
 def buy_car(request, id):
     car = Car.objects.get(pk=id)
     car.quantity -= 1
-    
+    car.save()
     return redirect("home")
