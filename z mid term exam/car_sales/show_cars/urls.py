@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import DetailPostView, CreatePostView, DeletePostView, home, UpdatePostView
+from .views import DetailPostView, CreatePostView, DeletePostView, home, UpdatePostView, buy_car
 
 urlpatterns = [
     path("add/", CreatePostView.as_view(), name="add"),
     path("detail/<int:id>/", DetailPostView.as_view(), name="detail"),
     path("update/<int:id>/", UpdatePostView.as_view(), name="update"),
     path("delete/<int:id>/", DeletePostView.as_view(), name="delete"),
+    path("buy/<int:id>/", buy_car, name="buy"),
 ]
