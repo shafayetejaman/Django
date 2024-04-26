@@ -26,7 +26,10 @@
 
                     <h5 class="text-light">Quantity: {{car.quantity}}</h5>
                     <h5 class="text-danger">Price: {{car.price}}$</h5>
-                    <h5 class="text-white">Brand: {{car.brand.name}}</h5>
+                    <p>
+
+                        <h5 class="text-white btn bg-primary">{{car.brand.name}}</h5>
+                    </p>
 
                     {% if logged %}
                     <div class="d-flex justify-content-center gap-5 mt-5">
