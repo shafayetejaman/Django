@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Brand(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     
     def __str__(self) -> str:
@@ -17,7 +17,7 @@ class Car(models.Model):
     quantity = models.IntegerField()
     price = models.FloatField()
     slug = models.SlugField(max_length=100, unique=True)
-    bland = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     
     def __str__(self) -> str:
         return self.name
