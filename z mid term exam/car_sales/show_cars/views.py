@@ -53,7 +53,7 @@ class DetailPostView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        car = self.object
+        car = self.get_object()
         comments = car.comments.all()
         comment_form = CommentForm()
         
@@ -65,11 +65,11 @@ class DetailPostView(DetailView):
     
     def post(self, request, *args, **kwargs):
         comment_form = CommentForm(data=self.request.POST)
-        post = self.get_object()
+        car = self.get_object()
         
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.post = post
+            new_comment.car = car
             new_comment.save()
             
         return self.get(request, *args, **kwargs)
