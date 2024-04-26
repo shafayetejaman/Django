@@ -32,7 +32,10 @@
                     <h5 class="text-light">Quantity: {{i.quantity}}</h5>
                     <h5 class="text-danger">Price: {{i.price}}$</h5>
                     <h5 class="text-warning">Brand: {{i.brand.name}}</h5>
+
+                    {% if logged %}
                     <h5 class="btn bg-success text-white">Add To Cart</h5>
+                    {% endif %}
 
                 </div>
             </div>
