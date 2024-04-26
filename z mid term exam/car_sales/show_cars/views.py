@@ -14,7 +14,7 @@ def home(request, brand_slug=None):
     
     if brand_slug:
         brand = Brand.objects.get(slug = brand_slug)
-        cars = Car.objects.filter(brands)
+        cars = Car.objects.filter(brand = brand)
     return render(
         request,
         "show_cars/show_post_list.html",
