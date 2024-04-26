@@ -9,11 +9,11 @@ from django.urls import reverse_lazy
 
 
 def home(request):
-    data = Car.objects.all()
+    cars = Car.objects.all()
     return render(
         request,
         "show_cars/show_post_list.html",
-        {"logged": request.user.is_authenticated, "data": data},
+        {"logged": request.user.is_authenticated, "cars": cars},
     )
 
 
