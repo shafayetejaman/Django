@@ -13,7 +13,7 @@ def home(request, brand=None):
     brands = Brand.objects.all()
     
     if brand:
-        cars  = car
+        cars = Car.objects.get(brand = brand)
     return render(
         request,
         "show_cars/show_post_list.html",
