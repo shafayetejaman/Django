@@ -14,7 +14,7 @@ def home(request, id):
     return render(
         request,
         "show_cars/show_post_list.html",
-        {"logged": request.user.is_authenticated, "cars": cars,},
+        {"logged": request.user.is_authenticated, "cars": cars, "brands":brands},
     )
 
 
