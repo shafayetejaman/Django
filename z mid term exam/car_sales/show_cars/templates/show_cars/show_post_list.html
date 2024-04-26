@@ -10,6 +10,20 @@
 
 <!-- card section -->
 
+<section>
+    <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
+    <label class="btn" for="option5">Checked</label>
+
+    <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+    <label class="btn" for="option6">Radio</label>
+
+    <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" disabled>
+    <label class="btn" for="option7">Disabled</label>
+
+    <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off">
+    <label class="btn" for="option8">Radio</label>
+</section>
+
 <section class="container-fluid my-4">
     <div class="card-page row row-cols-3 mx-4">
 
@@ -31,7 +45,7 @@
 
                     <h5 class="text-light">Quantity: {{i.quantity}}</h5>
                     <h5 class="text-danger">Price: {{i.price}}$</h5>
-                    <h5 class="text-warning">Brand: {{i.brand.name}}</h5>
+                    <h5 class="text-white btn bg-primary">Brand: {{i.brand.name}}</h5>
 
                     {% if logged %}
                     <h5 class="btn bg-success text-white">Add To Cart</h5>
