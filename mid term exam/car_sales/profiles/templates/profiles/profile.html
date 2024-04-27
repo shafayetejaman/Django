@@ -41,14 +41,10 @@
                 <div class="card-body text-center">
 
                     <a href="{% url "detail" car.id car.slug %}" class="text-decoration-none">
-                        <h2 class="card-title text-danger">{{car.name}}</h2>
+                        <h3 class="card-title text-danger">{{car.name}}</h3>
                     </a>
 
-                    <p class="text-dark h4 my-4">
-                        Description: {{car.description | truncatewords:5}}
-                    </p>
-
-                    <h5 class="text-danger">Price: {{car.price}}$</h5>
+                    <h5 class="text-danger my-3">Price: {{car.price}}$</h5>
                     <h5 class="text-white btn bg-primary mt-4">Brand: {{car.brand.name}}</h5>
 
 
