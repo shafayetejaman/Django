@@ -26,8 +26,6 @@
     <a href="{% url "edit_profile" %}" class="m-5 btn btn-danger">Edit Your Profile</a>
 </section>
 
-{% if logged %}
-
 <section>
     <div class="card-page row row-cols-4 mx-4">
 
@@ -59,6 +57,5 @@
         {% endfor %}
 
 </section>
-{% endif %}
 
 {% endblock content %}
