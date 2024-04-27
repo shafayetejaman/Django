@@ -71,7 +71,7 @@ class DetailPostView(DetailView):
             new_comment.car = car
             new_comment.save()
 
-        return self.get(request, *args, **kwargs)
+        return render(request, self.template_name)
 
 
 class DeletePostView(DeleteView):
