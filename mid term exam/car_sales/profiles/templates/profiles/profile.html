@@ -30,29 +30,26 @@
     <div class="card-page row row-cols-4 mx-4">
 
         {% for transaction in history %}
-        
+        {% with car=transaction.car %}
 
         <div class="col my-3">
             <div class="card border-0">
-                <img src="{{car.image.url}}" class="card-img-top" alt="...">
-
+                <img src="{{ car.image.url }}" class="card-img-top" alt="Car Image">
                 <div class="card-body text-center">
-
-                    <a href="{% url "detail" car.id car.slug %}" class="text-decoration-none">
-                        <h3 class="card-title text-danger">{{car.name}}</h3>
+                    <a href="{% url 'detail' car.id car.slug %}" class="text-decoration-none">
+                        <h3 class="card-title text-danger">{{ car.name }}</h3>
                     </a>
-
-                    <h5 class="text-danger my-3">Price: {{car.price}}$</h5>
-                    <h5 class="text-white btn bg-primary mt-4">Brand: {{car.brand.name}}</h5>
-
-
+                    <h5 class="text-danger my-3">Price: {{ car.price }}$</h5>
+                    <h5 class="text-white btn bg-primary mt-4">Brand: {{ car.brand.name }}</h5>
                 </div>
             </div>
         </div>
-
-
+        
+        {% endwith %}
         {% endfor %}
-
+    </div>
 </section>
+
+
 
 {% endblock content %}
