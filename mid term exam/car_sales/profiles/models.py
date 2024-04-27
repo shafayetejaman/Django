@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from car_sales.modles import Car
+from show_cars.models import Car
 
 # Create your models here.
 
