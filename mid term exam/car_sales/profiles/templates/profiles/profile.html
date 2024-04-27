@@ -29,10 +29,8 @@
 <section>
     <div class="card-page row row-cols-4 mx-4">
 
-        {% for car in cars %}
         {% for transaction in history %}
-
-        {% if car.id == transaction.car_id %}
+        
 
         <div class="col my-3">
             <div class="card border-0">
@@ -52,8 +50,7 @@
             </div>
         </div>
 
-        {% endif %}
-        {% endfor %}
+
         {% endfor %}
 
 </section>

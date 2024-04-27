@@ -105,6 +105,6 @@ def buy_car(request, id):
     car.quantity -= 1
     car.save()
 
-    History.objects.create(car_id=id, user_id=request.user.id)
+    History.objects.create(car=car, user=request.user)
     
     return redirect("home")
