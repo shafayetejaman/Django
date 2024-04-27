@@ -7,6 +7,8 @@ from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 from .forms import UserChangeFormClass, User
+from show_cars.models import Car
+from .models import History
 
 
 # Create your views here.
@@ -26,10 +28,18 @@ class PasswordChangeView(PasswordChangeView):
 @login_required()
 def profile(request):
     data = request.user
+    history = History.objects.filter(user_id=request.user.id)
+    cars = Car.objects.all()
+
     return render(
         request,
         "profiles/profile.html",
-        {"data": data, "logged": request.user.is_authenticated},
+        {
+            "data": data,
+            "logged": request.user.is_authenticated,
+            "history": history,
+            "cars": cars,
+        },
     )
 
 

@@ -3,6 +3,7 @@ from .models import Car, Comment, Brand
 from .forms import CarForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
+from profiles.models import History
 
 
 # Create your views here.
@@ -103,4 +104,7 @@ def buy_car(request, id):
     car = Car.objects.get(pk=id)
     car.quantity -= 1
     car.save()
+
+    History.objects.create(car_id=id, user_id=request.user.id)
+    
     return redirect("home")

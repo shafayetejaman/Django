@@ -9,6 +9,39 @@
 </section>
 
 <section>
-    
+    <div class="card-page row row-cols-4 mx-4">
+
+        {% for car in cars %}
+        {% for transaction in history %}
+
+        {% if car.id == transaction.car_id %}
+
+        <div class="col my-3">
+            <div class="card border-0">
+                <img src="{{car.image.url}}" class="card-img-top" alt="...">
+
+                <div class="card-body text-center">
+
+                    <a href="{% url "detail" car.id car.slug %}" class="text-decoration-none">
+                        <h2 class="card-title text-danger">{{car.name}}</h2>
+                    </a>
+
+                    <p class="text-dark h4 my-4">
+                        Description: {{car.description | truncatewords:5}}
+                    </p>
+
+                    <h5 class="text-danger">Price: {{car.price}}$</h5>
+                    <h5 class="text-white btn bg-primary mt-4">Brand: {{car.brand.name}}</h5>
+
+
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+
+        {% endfor %}
+        {% endfor %}
 </section>
 {% endblock content %}
