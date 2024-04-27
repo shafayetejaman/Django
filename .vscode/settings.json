@@ -140,7 +140,7 @@
     "editor.fontLigatures": true,
     "codesnap.realLineNumbers": true,
     "editor.dragAndDrop": false,
-    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontSize": 14,
     "scm.inputFontSize": 14,
     "python.analysis.completeFunctionParens": true,
     "gitdoc.enabled": true,
