@@ -26,15 +26,15 @@ class PasswordChangeView(PasswordChangeView):
 
 @login_required()
 def profile(request):
-    data = request.user
-    history = History.objects.filter(user=data)
+    user = request.user
+    history = History.objects.filter(user=user)
 
     return render(
         request,
         "profiles/profile.html",
         {
-            "data": data,
-            "logged": request.user.is_authenticated,
+            "user": user,
+            "logged": user.is_authenticated,
             "history": history,
         },
     )
