@@ -72,7 +72,7 @@
                     <h5 class="text-danger">Price: {{car.price}}$</h5>
                     <h5 class="text-white btn bg-primary mt-4">Brand: {{car.brand.name}}</h5>
 
-                    {% if logged %}
+                    {% if logged and car.quantity > 0 %}
                     <h5 class="btn bg-success text-white mt-4">Add To Cart</h5>
                     {% endif %}
 
