@@ -38,7 +38,7 @@ const int M = 1e9 + 7;
 
 void solve()
 {
-    
+    int vv;
 
     // cout << ln;
 }
