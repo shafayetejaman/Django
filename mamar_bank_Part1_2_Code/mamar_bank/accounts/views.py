@@ -7,18 +7,17 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views import View
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView, UpdateView
 
-class UserRegistrationView(FormView):
-    template_name = 'accounts/user_registration.html'
+
+class UserRegistrationView(CreateView):
+    template_name = "accounts/user_registration.html"
     form_class = UserRegistrationForm
-    success_url = reverse_lazy('profile')
-    
-    def form_valid(self,form):
-        print(form.cleaned_data)
-        user = form.save()
-        login(self.request, user)
-        print(user)
-        return super().form_valid(form) # form_valid function call hobe jodi sob thik thake
+    success_url = reverse_lazy("profile")
+
+    def form_valid(self, form):
+        login(self.request, self.user)
+        return super().form_valid(form)
 
 
 class UserLoginView(LoginView):
