@@ -34,7 +34,6 @@ class DepositForm(TransactionForm):
 
 
 class WithdrawForm(TransactionForm):
-
     def clean_amount(self):
         account = self.account
         min_withdraw_amount = 500
