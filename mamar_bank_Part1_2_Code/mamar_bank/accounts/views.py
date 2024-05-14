@@ -18,7 +18,7 @@ class UserRegistrationView(FormView):
         login(self.request, user)
         print(user)
         return super().form_valid(form) # form_valid function call hobe jodi sob thik thake
-    
+
 
 class UserLoginView(LoginView):
     template_name = 'accounts/user_login.html'
@@ -27,9 +27,16 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(LogoutView):
     def get_success_url(self):
+        print("logouting.........")
         if self.request.user.is_authenticated:
             logout(self.request)
         return reverse_lazy('home')
+
+
+@login_required()
+def user_logout(request):
+    logout(request)
+    return redirect("login")
 
 
 class UserBankAccountUpdateView(View):
@@ -45,6 +52,3 @@ class UserBankAccountUpdateView(View):
             form.save()
             return redirect('profile')  # Redirect to the user's profile page
         return render(request, self.template_name, {'form': form})
-    
-    
-    
