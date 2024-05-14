@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views import View
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 class UserRegistrationView(FormView):
     template_name = 'accounts/user_registration.html'
@@ -25,16 +26,16 @@ class UserLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy('home')
 
-class UserLogoutView(LogoutView):
-    def get_success_url(self):
-        print("logouting.........")
-        if self.request.user.is_authenticated:
-            logout(self.request)
-        return reverse_lazy('home')
+# class UserLogoutView(LogoutView):
+#     def get_success_url(self):
+#         print("logouting.........")
+#         if self.request.user.is_authenticated:
+#             logout(self.request)
+#         return reverse_lazy('home')
 
 
 @login_required()
-def user_logout(request):
+def UserLogout(request):
     logout(request)
     return redirect("login")
 
