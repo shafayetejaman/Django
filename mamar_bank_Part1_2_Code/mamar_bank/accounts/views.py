@@ -29,16 +29,10 @@ class UserLogoutView(LogoutView):
         return reverse_lazy('home')
 
 
-class UserBankAccountUpdateView(View):
-    template_name = 'accounts/profile.html'
+class UserBankAccountUpdateView(UpdateView):
+    template_name = "accounts/profile.html"
+    form_class = UserUpdateForm
+    success_url = reverse_lazy("profile")
 
-    def get(self, request):
-        form = UserUpdateForm(instance=request.user)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
-        form = UserUpdateForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')  # Redirect to the user's profile page
-        return render(request, self.template_name, {'form': form})
+    def get_object(self, queryset=None):
+        return self.request.user
