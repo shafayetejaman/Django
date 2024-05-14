@@ -16,7 +16,8 @@ class UserRegistrationView(CreateView):
     success_url = reverse_lazy("profile")
 
     def form_valid(self, form):
-        login(self.request, self.user)
+        
+        login(self.request, form)
         return super().form_valid(form)
 
 
