@@ -209,7 +209,7 @@ class TransferMoneyView(TransactionCreateMixin):
 
         messages.success(
             self.request,
-            f'Successfully transfer to  {"{:,.2f}".format(float(amount))}$ from your account'
+            f'Successfully transfer {"{:,.2f}".format(float(amount))}$ from your account to {receiver_account.first}'
         )
 
         return super().form_valid(form)
