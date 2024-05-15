@@ -197,10 +197,9 @@ class TransferMoneyView(TransactionCreateMixin):
         amount = form.cleaned_data.get('amount')
         receiver_id = form.cleaned_data.get("receiver")
 
-        receiver_account = UserBankAccount.objects.get(id=receiver_id)
+        receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
-
 
         receiver_account.balance += amount
 
