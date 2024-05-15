@@ -193,7 +193,7 @@ class TransferMoneyView(TransactionCreateMixin):
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
         except UserBankAccount.DoesNotExist:
-            messages.filed(
+            messages.error(
                 self.request,
                 f'The receiver account does not exit',
             )
