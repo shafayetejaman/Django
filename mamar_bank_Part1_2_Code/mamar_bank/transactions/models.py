@@ -11,7 +11,7 @@ class Transaction(models.Model):
     transaction_type = models.IntegerField(choices=TRANSACTION_TYPE, null = True)
     timestamp = models.DateTimeField(auto_now_add=True)
     loan_approve = models.BooleanField(default=False) 
-    Withdraw_access = models.BooleanField(default=True)
+    withdraw_access = models.BooleanField(default=True)
 
     
     class Meta:
