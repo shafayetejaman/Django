@@ -201,7 +201,7 @@ class TransferMoneyView(TransactionCreateMixin):
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
 
-        receiver_account += amount
+        receiver_account.balance += amount
 
         # balance = 300
         # amount = 5000
