@@ -196,8 +196,9 @@ class TransferMoneyView(TransactionCreateMixin):
     def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
         receiver_id = form.cleaned_data.get("receiver")
+        print(receiver_id)
 
-        receiver_account = UserBankAccount.objects.filter(account_no=receiver_id)
+        receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
 
@@ -206,10 +207,11 @@ class TransferMoneyView(TransactionCreateMixin):
         # balance = 300
         # amount = 5000
         self.request.user.account.save(update_fields=['balance'])
+        receiver_account.save(update_fields=["balance"])    
 
         messages.success(
             self.request,
-            f'Successfully transfer {"{:,.2f}".format(float(amount))}$ from your account to {receiver_account.first_name}'
+            f'Successfully transfer {"{:,.2f}".format(float(amount))}$ from your account to {receiver_account.user.first_name}'
         )
 
         return super().form_valid(form)
