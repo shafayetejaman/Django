@@ -111,7 +111,7 @@ class LoanRequestView(TransactionCreateMixin):
         )
 
         return super().form_valid(form)
-    
+
 class TransactionReportView(LoginRequiredMixin, ListView):
     template_name = 'transactions/transaction_report.html'
     model = Transaction
@@ -144,8 +144,8 @@ class TransactionReportView(LoginRequiredMixin, ListView):
         })
 
         return context
-    
-        
+
+
 class PayLoanView(LoginRequiredMixin, View):
     def get(self, request, loan_id):
         loan = get_object_or_404(Transaction, id=loan_id)
@@ -182,8 +182,8 @@ class LoanListView(LoginRequiredMixin,ListView):
         queryset = Transaction.objects.filter(account=user_account,transaction_type=3)
         print(queryset)
         return queryset
-    
-    
+
+
 class TransferMoneyView(TransactionCreateMixin):
     form_class = TransferForm
     title = 'Transfer Money'
@@ -194,8 +194,10 @@ class TransferMoneyView(TransactionCreateMixin):
 
     def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
+        receiver_id = self.cleaned_data.get("receiver")
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
+        
         # balance = 300
         # amount = 5000
         self.request.user.account.save(update_fields=['balance'])
