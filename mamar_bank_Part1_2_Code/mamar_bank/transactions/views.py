@@ -195,7 +195,7 @@ class TransferMoneyView(TransactionCreateMixin):
         except UserBankAccount.DoesNotExist:
             messages.success(
                 self.request,
-                f'F {receiver_account.user.first_name}',
+                f'The rec account does  {receiver_account.user.first_name}',
             )
             return super().form_valid(form)
 
