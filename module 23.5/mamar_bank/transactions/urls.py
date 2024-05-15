@@ -1,5 +1,13 @@
 from django.urls import path
-from .views import DepositMoneyView, WithdrawMoneyView, TransactionReportView,LoanRequestView,LoanListView,PayLoanView
+from .views import (
+    DepositMoneyView,
+    WithdrawMoneyView,
+    TransactionReportView,
+    LoanRequestView,
+    LoanListView,
+    PayLoanView,
+    TransferMoneyView,
+)
 
 
 # app_name = 'transactions'
