@@ -13,6 +13,7 @@ from transactions.forms import (
     DepositForm,
     WithdrawForm,
     LoanRequestForm,
+    TransferForm
 )
 from transactions.models import Transaction
 
@@ -181,3 +182,27 @@ class LoanListView(LoginRequiredMixin,ListView):
         queryset = Transaction.objects.filter(account=user_account,transaction_type=3)
         print(queryset)
         return queryset
+    
+    
+class WithdrawMoneyView(TransactionCreateMixin):
+    form_class = TransferForm
+    title = 'Transfer Money'
+
+    def get_initial(self):
+        initial = {'transaction_type': WITHDRAWAL}
+        return initial
+
+    def form_valid(self, form):
+        amount = form.cleaned_data.get('amount')
+
+        self.request.user.account.balance -= form.cleaned_data.get('amount')
+        # balance = 300
+        # amount = 5000
+        self.request.user.account.save(update_fields=['balance'])
+
+        messages.success(
+            self.request,
+            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+        )
+
+        return super().form_valid(form)
