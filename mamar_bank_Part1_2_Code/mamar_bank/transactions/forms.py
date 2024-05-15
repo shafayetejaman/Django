@@ -71,3 +71,8 @@ class LoanRequestForm(TransactionForm):
         amount = self.cleaned_data.get("amount")
 
         return amount
+    
+    
+class TransferForm(TransactionForm):
+    def clean_amount(self):
+        
