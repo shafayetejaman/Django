@@ -182,7 +182,7 @@ class TransferMoneyView(TransactionCreateMixin):
     title = "Transfer Money"
 
     def get_initial(self):
-        initial = {"transaction_type": TRANSFER, "receiver": self.kwargs["receiver_id"]}
+        initial = {"transaction_type": TRANSFER, "receiver": self.kwargs["receiver"]}
         return initial
 
     def form_valid(self, form):
