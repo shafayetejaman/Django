@@ -55,14 +55,11 @@ class WithdrawForm(TransactionForm):
                 f'You have {balance} $ in your account. '
                 'You can not withdraw more than your account balance'
             )
-            
+
         if not account.is_withdraw_access:
-            raise forms.ValidationError(
-                f""
-            )
+            raise forms.ValidationError(f"The bank is bankrupt, ")
 
         return amount
-
 
 
 class LoanRequestForm(TransactionForm):
