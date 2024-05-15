@@ -186,7 +186,7 @@ class TransferMoneyView(TransactionCreateMixin):
         return initial
 
     def form_valid(self, form):
-        print(form.cleaned_data)
+        print(form.cleaned_data,form)
         amount = form.cleaned_data.get("amount")
         receiver_id = form.cleaned_data.get("receiver")
 
