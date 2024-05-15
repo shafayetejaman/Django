@@ -184,7 +184,7 @@ class LoanListView(LoginRequiredMixin,ListView):
         return queryset
     
     
-class WithdrawMoneyView(TransactionCreateMixin):
+class TransferMoneyView(TransactionCreateMixin):
     form_class = TransferForm
     title = 'Transfer Money'
 
