@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic import CreateView, ListView
-from transactions.constants import DEPOSIT, WITHDRAWAL,LOAN, LOAN_PAID
+from transactions.constants import DEPOSIT, WITHDRAWAL,LOAN, LOAN_PAID,TRANSFER
 from datetime import datetime
 from django.db.models import Sum
 from transactions.forms import (
@@ -189,7 +189,7 @@ class WithdrawMoneyView(TransactionCreateMixin):
     title = 'Transfer Money'
 
     def get_initial(self):
-        initial = {'transaction_type': WITHDRAWAL}
+        initial = {'transaction_type': TRANSFER}
         return initial
 
     def form_valid(self, form):
