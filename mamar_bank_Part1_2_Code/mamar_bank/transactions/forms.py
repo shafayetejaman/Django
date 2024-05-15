@@ -75,4 +75,30 @@ class LoanRequestForm(TransactionForm):
     
 class TransferForm(TransactionForm):
     def clean_amount(self):
-        
+        account = self.account
+        min_transfer_amount = 500
+        max_transfer_amount = 20000
+        balance = account.balance  # 1000
+        amount = self.cleaned_data.get("amount")
+        if amount < min_transfer_amount:
+            raise forms.ValidationError(
+                f"You can transfer at least {min_transfer_amount} $"
+            )
+
+        if amount > max_transfer_amount:
+            raise forms.ValidationError(
+                f"You can transfer at most {max_transfer_amount} $"
+            )
+
+        if amount > balance:  # amount = 5000, tar balance ache 200
+            raise forms.ValidationError(
+                f"You have {balance} $ in your account. "
+                "You can not withdraw more than your account balance"
+            )
+
+        if account.transactions.filter(withdraw_access=False):
+            raise forms.ValidationError(
+                "The bank is bankrupt, you can not withdraw the money"
+            )
+
+        return amount
