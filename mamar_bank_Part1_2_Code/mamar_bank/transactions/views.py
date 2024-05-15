@@ -209,7 +209,7 @@ class TransferMoneyView(TransactionCreateMixin):
 
         messages.success(
             self.request,
-            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+            f'Successfully Transfered {"{:,.2f}".format(float(amount))}$ from your account'
         )
 
         return super().form_valid(form)
