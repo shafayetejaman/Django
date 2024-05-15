@@ -71,8 +71,8 @@ class LoanRequestForm(TransactionForm):
         amount = self.cleaned_data.get("amount")
 
         return amount
-    
-    
+
+
 class TransferForm(TransactionForm):
     def clean_amount(self):
         account = self.account
@@ -80,6 +80,7 @@ class TransferForm(TransactionForm):
         max_transfer_amount = 20000
         balance = account.balance  # 1000
         amount = self.cleaned_data.get("amount")
+        
         if amount < min_transfer_amount:
             raise forms.ValidationError(
                 f"You can transfer at least {min_transfer_amount} $"
