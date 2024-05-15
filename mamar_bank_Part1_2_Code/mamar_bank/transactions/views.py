@@ -16,6 +16,7 @@ from transactions.forms import (
     TransferForm
 )
 from transactions.models import Transaction
+from accounts.models import UserBankAccount
 
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
     template_name = 'transactions/transaction_form.html'
@@ -195,6 +196,8 @@ class TransferMoneyView(TransactionCreateMixin):
     def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
         receiver_id = self.cleaned_data.get("receiver")
+        
+        receiver_account = UserBankAccount.objects.get(id=)
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
         
