@@ -186,9 +186,10 @@ class TransferMoneyView(TransactionCreateMixin):
         return initial
 
     def form_valid(self, form):
-        print(form.cleaned_data,form)
+        print(form.cleaned_data)
         amount = form.cleaned_data.get("amount")
-        receiver_id = form.cleaned_data.get("receiver")
+        receiver_id = self.request.POST.get("receiver")
+        
 
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
