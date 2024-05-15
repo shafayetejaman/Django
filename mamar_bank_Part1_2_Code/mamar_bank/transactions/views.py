@@ -196,9 +196,13 @@ class TransferMoneyView(TransactionCreateMixin):
     def form_valid(self, form):
         print(form.cleaned_data)
         amount = form.cleaned_data.get('amount')
-        receiver_id = form.cleaned_data.get("receiver")
+        receiver_id = self.cleaned_data.get("receiver")
+        
+        try:
+            receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
+        except UserBankAccount.DoesNotExist:
+            raise form.ValidationError("The receiver account does not exist")
 
-        receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
 
         self.request.user.account.balance -= form.cleaned_data.get('amount')
 
