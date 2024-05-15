@@ -182,13 +182,13 @@ class TransferMoneyView(TransactionCreateMixin):
     title = "Transfer Money"
 
     def get_initial(self):
-        initial = {"transaction_type": TRANSFER, "receiver": self.kwargs["receiver"]}
+        initial = {"transaction_type": TRANSFER}
         return initial
 
     def form_valid(self, form):
         print(form.cleaned_data)
         amount = form.cleaned_data.get("amount")
-        receiver_id = form.cleaned_data.get("receiver")
+        receiver_id = self.kwargs["receiver"]
 
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
