@@ -188,7 +188,7 @@ class TransferMoneyView(TransactionCreateMixin):
     def form_valid(self, form):
         print(form.cleaned_data)
         amount = form.cleaned_data.get("amount")
-        receiver_id = self.kwargs["receiver"]
+        receiver_id = form.cleaned_data.get("receiver")
 
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
