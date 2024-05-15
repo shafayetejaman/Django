@@ -58,7 +58,7 @@ class WithdrawForm(TransactionForm):
                 "You can not withdraw more than your account balance"
             )
 
-        if account.transactions.filter(withdraw_access=False):
+        if not account.withdraw_access:
             raise forms.ValidationError(
                 "The bank is bankrupt, you can not withdraw the money"
             )
@@ -96,9 +96,9 @@ class TransferForm(TransactionForm):
                 "You can not withdraw more than your account balance"
             )
 
-        if account.transactions.filter(withdraw_access=False):
+        if not account.withdraw_access:
             raise forms.ValidationError(
-                "The bank is bankrupt, you can not withdraw the money"
+                "The bank is bankrupt, you can not tra the money"
             )
 
         return amount
