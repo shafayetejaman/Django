@@ -190,7 +190,6 @@ class TransferMoneyView(TransactionCreateMixin):
         amount = form.cleaned_data.get("amount")
         receiver_id = self.request.POST.get("receiver")
         
-
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
         except UserBankAccount.DoesNotExist:
