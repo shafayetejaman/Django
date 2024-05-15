@@ -93,12 +93,12 @@ class TransferForm(TransactionForm):
         if amount > balance:  # amount = 5000, tar balance ache 200
             raise forms.ValidationError(
                 f"You have {balance} $ in your account. "
-                "You can not withdraw more than your account balance"
+                "You can not transfer more than your account balance"
             )
 
         if not account.withdraw_access:
             raise forms.ValidationError(
-                "The bank is bankrupt, you can not tra the money"
+                "The bank is bankrupt, you can not transfer the money"
             )
 
         return amount
