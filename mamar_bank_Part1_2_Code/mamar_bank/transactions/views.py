@@ -193,9 +193,9 @@ class TransferMoneyView(TransactionCreateMixin):
         try:
             receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
         except UserBankAccount.DoesNotExist:
-            messages.success(
+            messages.fild(
                 self.request,
-                f'The rec account does  {receiver_account.user.first_name}',
+                f'The receiver account does not exit',
             )
             return super().form_valid(form)
 
