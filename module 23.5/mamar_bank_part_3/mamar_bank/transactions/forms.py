@@ -1,5 +1,6 @@
 from django import forms
 from .models import Transaction
+
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
@@ -59,9 +60,40 @@ class WithdrawForm(TransactionForm):
         return amount
 
 
-
 class LoanRequestForm(TransactionForm):
     def clean_amount(self):
         amount = self.cleaned_data.get('amount')
+
+        return amount
+
+
+class TransferForm(TransactionForm):
+    def clean_amount(self):
+        account = self.account
+        min_transfer_amount = 500
+        max_transfer_amount = 20000
+        balance = account.balance  # 1000
+        amount = self.cleaned_data.get("amount")
+
+        if amount < min_transfer_amount:
+            raise forms.ValidationError(
+                f"You can transfer at least {min_transfer_amount} $"
+            )
+
+        if amount > max_transfer_amount:
+            raise forms.ValidationError(
+                f"You can transfer at most {max_transfer_amount} $"
+            )
+
+        if amount > balance:  # amount = 5000, tar balance ache 200
+            raise forms.ValidationError(
+                f"You have {balance} $ in your account. "
+                "You can not transfer more than your account balance"
+            )
+
+        if not account.withdraw_access:
+            raise forms.ValidationError(
+                "The bank is bankrupt, you can not transfer the money"
+            )
 
         return amount
