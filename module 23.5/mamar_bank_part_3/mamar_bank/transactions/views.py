@@ -20,7 +20,7 @@ from transactions.forms import (
 from transactions.models import Transaction
 from accounts.models import UserBankAccount
 
-def send_transaction_email(user, amount, subject, template):
+def send_transaction_email(user, amount, subject, template,receiver):
         message = render_to_string(template, {
             'user' : user,
             'amount' : amount,
