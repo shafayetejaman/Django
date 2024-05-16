@@ -9,5 +9,5 @@ TRANSACTION_TYPE = (
     (WITHDRAWAL, "Withdrawal"),
     (LOAN, "Loan"),
     (LOAN_PAID, "Loan Paid"),
-    (TRANSFER, "transfer"),
+    (TRANSFER, "Transfer"),
 )
