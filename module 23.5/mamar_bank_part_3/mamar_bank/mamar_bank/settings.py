@@ -104,18 +104,11 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DB_NAME = bank
-# DB_USER = postgres
-# DB_PASSWORD = qwer
-# DB_HOST = localhost
-# DB_PORT = 5432
-# EMAIL = shafaitzaman @ gmail.com
-# EMAIL_PASSWORD = qragnaqatnhfutqw
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env(""),
+        "NAME": env("DB_NAME"),
         "USER": env("DB_USER"),
         "PASSWORD": env("DB_PASSWORD"),
         "HOST": env("DB_HOST"),
