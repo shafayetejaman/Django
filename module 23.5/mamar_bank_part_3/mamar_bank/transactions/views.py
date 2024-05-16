@@ -121,7 +121,7 @@ class LoanRequestView(TransactionCreateMixin):
         )
         send_transaction_email(self.request.user, amount, "Loan Request Message", "transactions/loan_email.html")
         return super().form_valid(form)
-    
+
 class TransactionReportView(LoginRequiredMixin, ListView):
     template_name = 'transactions/transaction_report.html'
     model = Transaction
@@ -154,8 +154,8 @@ class TransactionReportView(LoginRequiredMixin, ListView):
         })
 
         return context
-    
-        
+
+
 class PayLoanView(LoginRequiredMixin, View):
     def get(self, request, loan_id):
         loan = get_object_or_404(Transaction, id=loan_id)
@@ -186,9 +186,48 @@ class LoanListView(LoginRequiredMixin,ListView):
     model = Transaction
     template_name = 'transactions/loan_request.html'
     context_object_name = 'loans' # loan list ta ei loans context er moddhe thakbe
-    
+
     def get_queryset(self):
         user_account = self.request.user.account
         queryset = Transaction.objects.filter(account=user_account,transaction_type=3)
         print(queryset)
         return queryset
+
+
+class TransferMoneyView(TransactionCreateMixin):
+    form_class = TransferForm
+    title = "Transfer Money"
+
+    def get_initial(self):
+        initial = {"transaction_type": TRANSFER}
+        return initial
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        amount = form.cleaned_data.get("amount")
+        receiver_id = self.request.POST.get("receiver")
+
+        try:
+            receiver_account = UserBankAccount.objects.get(account_no=receiver_id)
+        except UserBankAccount.DoesNotExist:
+            messages.error(
+                self.request,
+                f"The receiver account does not exit",
+            )
+            return super().form_valid(form)
+
+        self.request.user.account.balance -= form.cleaned_data.get("amount")
+
+        receiver_account.balance += amount
+
+        # balance = 300
+        # amount = 5000
+        self.request.user.account.save(update_fields=["balance"])
+        receiver_account.save(update_fields=["balance"])
+
+        messages.success(
+            self.request,
+            f'Successfully transfer {"{:,.2f}".format(float(amount))}$ from your account to {receiver_account.user.first_name}',
+        )
+
+        return super().form_valid(form)
