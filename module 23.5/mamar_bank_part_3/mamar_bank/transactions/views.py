@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic import CreateView, ListView
-from transactions.constants import DEPOSIT, WITHDRAWAL,LOAN, LOAN_PAID
+from transactions.constants import DEPOSIT, WITHDRAWAL,LOAN, LOAN_PAID,TRANSFER
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from datetime import datetime
@@ -18,6 +18,7 @@ from transactions.forms import (
     TransferForm
 )
 from transactions.models import Transaction
+from accounts.models import UserBankAccount
 
 def send_transaction_email(user, amount, subject, template):
         message = render_to_string(template, {
