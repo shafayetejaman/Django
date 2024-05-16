@@ -233,6 +233,11 @@ class TransferMoneyView(TransactionCreateMixin):
             f'Successfully transfer {"{:,.2f}".format(float(amount))}$ from your account to {receiver_account.user.first_name}',
         )
 
-        send_transaction_email(self.request.user,amount,"transactions/transfer_user_email.html")
+        send_transaction_email(
+            self.request.user,
+            amount,
+            "transactions/transfer_user_email.html",
+            receiver_account,
+        )
 
         return super().form_valid(form)
