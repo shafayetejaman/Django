@@ -15,6 +15,7 @@ from transactions.forms import (
     DepositForm,
     WithdrawForm,
     LoanRequestForm,
+    TransferForm
 )
 from transactions.models import Transaction
 
