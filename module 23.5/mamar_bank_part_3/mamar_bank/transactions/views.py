@@ -20,10 +20,11 @@ from transactions.forms import (
 from transactions.models import Transaction
 from accounts.models import UserBankAccount
 
-def send_transaction_email(user, amount, subject, template,receiver):
+def send_transaction_email(user, amount, subject, template,receiver=None):
         message = render_to_string(template, {
             'user' : user,
             'amount' : amount,
+            'receiver':receiver
         })
         send_email = EmailMultiAlternatives(subject, '', to=[user.email])
         send_email.attach_alternative(message, "text/html")
