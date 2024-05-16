@@ -90,7 +90,6 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 # }
 
 
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -105,11 +104,23 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DB_NAME = bank
+# DB_USER = postgres
+# DB_PASSWORD = qwer
+# DB_HOST = localhost
+# DB_PORT = 5432
+# EMAIL = shafaitzaman @ gmail.com
+# EMAIL_PASSWORD = qragnaqatnhfutqw
+
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://mamarbank_user:LALgYwd0AYd1wgoh3tFD2Mx6wa1tR4Rs@dpg-cm551lmd3nmc73am8kt0-a.oregon-postgres.render.com/mamarbank',
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "bank",
+        "USER": "postgres",
+        "PASSWORD": env(""),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
+    }
 }
 
 
