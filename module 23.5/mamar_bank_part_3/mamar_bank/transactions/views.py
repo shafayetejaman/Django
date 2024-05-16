@@ -239,5 +239,11 @@ class TransferMoneyView(TransactionCreateMixin):
             "transactions/transfer_user_email.html",
             receiver_account,
         )
+        send_transaction_email(
+            self.request.user,
+            amount,
+            "transactions/transfer_receiver_email.html",
+            receiver_account,
+        )
 
         return super().form_valid(form)
