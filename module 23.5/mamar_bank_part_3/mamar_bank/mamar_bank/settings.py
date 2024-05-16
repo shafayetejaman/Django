@@ -115,9 +115,9 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "bank",
-        "USER": "postgres",
-        "PASSWORD": env(""),
+        "NAME": env(""),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASSWORD"),
         "HOST": env("DB_HOST"),
         "PORT": env("DB_PORT"),
     }
