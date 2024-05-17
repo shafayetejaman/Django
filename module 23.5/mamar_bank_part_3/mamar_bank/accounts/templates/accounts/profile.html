@@ -11,9 +11,14 @@
 {% endfor %} {% endif %}
 <div class="bg-white px-3 py-4 rounded-xl my-6">
 
-    <h4 class="font-bold text-3xl text-left pb-5">Account NO: {{request.user.account.account_no}}</h4>
+    <div class="d-flex justify-content-between">
 
-    <h4 class="font-bold btn text-2xl text-right text-top pb-5">Account NO: {{request.user.account.account_no}}</h4>
+        <h4 class="font-bold text-3xl pb-5">Account NO: {{request.user.account.account_no}}</h4>
+    
+        <h4 class="font-bold btn text-2xl pb-5">Change </h4>
+
+    </div>
+
 
     <h1 class="font-bold text-3xl text-center pb-5">Update Profile Information</h1>
     <div class="w-full mt-10">
