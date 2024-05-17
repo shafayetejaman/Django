@@ -68,7 +68,7 @@ class PasswordChangeView(PasswordChangeView):
         update_session_auth_hash(self.request, form.user)
 
         send_profile_change_email(
-            self.request.user, "accounts/password_change_email.html"
+            self.request.user,"Someone changed your account password!", "accounts/password_change_email.html"
         )
 
         return super().form_valid(form)
