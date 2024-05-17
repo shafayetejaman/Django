@@ -236,12 +236,14 @@ class TransferMoneyView(TransactionCreateMixin):
         send_transaction_email(
             self.request.user,
             amount,
+            "Transfer Confirmation Email",
             "transactions/transfer_user_email.html",
             receiver_account,
         )
         send_transaction_email(
             self.request.user,
             amount,
+            "Transfer Confirmation Email",
             "transactions/transfer_receiver_email.html",
             receiver_account,
         )
