@@ -13,6 +13,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 class UserRegistrationView(FormView):
     template_name = 'accounts/user_registration.html'
@@ -47,9 +49,9 @@ class UserBankAccountUpdateView(UpdateView):
         return self.request.user
 
 
-def send_transaction_email(user, amount, subject, template, receiver=None):
+def send_profile_change_email(user, subject, template):
     message = render_to_string(
-        template, {"user": user, "amount": amount, "receiver": receiver}
+        template, {"user": user}
     )
     send_email = EmailMultiAlternatives(subject, "", to=[user.email])
     send_email.attach_alternative(message, "text/html")
@@ -64,5 +66,9 @@ class PasswordChangeView(PasswordChangeView):
     def form_valid(self, form):
         messages.success(self.request, "Password Updated Successfully!")
         update_session_auth_hash(self.request, form.user)
-        
+
+        send_profile_change_email(
+            self.request.user, "accounts/password_change_email.html"
+        )
+
         return super().form_valid(form)
