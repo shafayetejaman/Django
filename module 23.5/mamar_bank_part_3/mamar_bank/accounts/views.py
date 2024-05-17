@@ -47,6 +47,15 @@ class UserBankAccountUpdateView(UpdateView):
         return self.request.user
 
 
+def send_transaction_email(user, amount, subject, template, receiver=None):
+    message = render_to_string(
+        template, {"user": user, "amount": amount, "receiver": receiver}
+    )
+    send_email = EmailMultiAlternatives(subject, "", to=[user.email])
+    send_email.attach_alternative(message, "text/html")
+    send_email.send()
+
+
 @method_decorator(login_required, name="dispatch")
 class PasswordChangeView(PasswordChangeView):
     template_name = "accounts/pass_change.html"
@@ -55,4 +64,5 @@ class PasswordChangeView(PasswordChangeView):
     def form_valid(self, form):
         messages.success(self.request, "Password Updated Successfully!")
         update_session_auth_hash(self.request, form.user)
+        
         return super().form_valid(form)
