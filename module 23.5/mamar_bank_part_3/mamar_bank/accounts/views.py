@@ -49,7 +49,7 @@ class UserBankAccountUpdateView(UpdateView):
 
 @method_decorator(login_required, name="dispatch")
 class PasswordChangeView(PasswordChangeView):
-    template_name = "profiles/pass_change.html"
+    template_name = "accounts/pass_change.html"
     success_url = reverse_lazy("login")
 
     def form_valid(self, form):
