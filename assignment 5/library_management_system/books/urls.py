@@ -21,7 +21,7 @@ from .views import DetailPostView, CreatePostView, DeletePostView, home, UpdateP
 
 urlpatterns = [
     path("add/", CreatePostView.as_view(), name="add"),
-    path("detail/<int:id>/<slug:car_slug>/", DetailPostView.as_view(), name="detail"),
+    path("detail/<int:id>/<slug:book_slug>/", DetailPostView.as_view(), name="detail"),
     path("update/<int:id>/", UpdatePostView.as_view(), name="update"),
     path("delete/<int:id>/", DeletePostView.as_view(), name="delete"),
     path("buy/<int:id>/", buy_book, name="buy"),
