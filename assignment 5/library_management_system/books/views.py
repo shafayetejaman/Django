@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Book, Comment, Brand
+from .models import Book, Comment, Category
 from .forms import BookForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
@@ -9,14 +9,14 @@ from profiles.models import History
 # Create your views here.
 
 
-def home(request, brand_slug=None):
+def home(request, category_slug=None):
     books = Book.objects.all()
-    brands = Brand.objects.all()
-    brand = None
+    categories = Category.objects.all()
+    category = None
 
-    if brand_slug:
-        brand = Brand.objects.get(slug=brand_slug)
-        books = Book.objects.filter(brand=brand)
+    if category_slug:
+        category = Category.objects.get(slug=category_slug)
+        books = Book.objects.filter(category=category)
 
     return render(
         request,
@@ -24,8 +24,8 @@ def home(request, brand_slug=None):
         {
             "logged": request.user.is_authenticated,
             "books": books,
-            "brands": brands,
-            "current_brand": brand,
+            "categories": categories,
+            "current_category": category,
         },
     )
 
@@ -102,7 +102,6 @@ class UpdatePostView(UpdateView):
 
 def buy_book(request, id):
     book = Book.objects.get(pk=id)
-    book.quantity -= 1
     book.save()
 
     History.objects.create(book=book, user=request.user)
