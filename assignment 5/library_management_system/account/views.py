@@ -12,7 +12,7 @@ from django.views.generic import FormView
 # Create your views here.
 
 
-class UserSignupView(FormView):
+class UserSignupView(CreateView):
     template_name = "account/signup.html"
     form_class = UserRegistrationForm
     success_url = reverse_lazy("home")

@@ -19,9 +19,10 @@ class UserRegistrationForm(UserCreationForm):
 
         current_date = datetime.now()
         date = int(current_date.strftime("%Y%m%d"))
+        print(date)
 
         if commit:
             user.save()
-            UserAccount.objects.create(user=user, account_no=date + user.id)
+            UserAccount.objects.create(user=user, account_no=(date + user.id))
 
         return user
