@@ -12,8 +12,8 @@ from django.views.generic import FormView
 # Create your views here.
 
 
-class UserRegistrationView(FormView):
-    template_name = "accounts/signup.html"
+class UserSignupView(FormView):
+    template_name = "account/signup.html"
     form_class = UserRegistrationForm
     success_url = reverse_lazy("home")
 
