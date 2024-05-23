@@ -7,12 +7,7 @@
 {% load crispy_forms_tags %}
 
 <section class="m-3">
-    {% if messages %}
-    {% for m in messages %}
-    <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
-    {% endfor %}
-    {% endif %}
-
+ 
     <form method="post" class="w-50 m-auto text-danger h5" novalidate>
         {% for err in form.non_field_errors %}
         <div class="m-3 bg-danger p-3 rounded-3 text-white">{{err}}</div>

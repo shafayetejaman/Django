@@ -21,16 +21,16 @@
       height: 100vh;
     }
 
-  input {
-    background-color: rgb(18, 27, 60) !important;
-    color: white !important;
-  }
+    input {
+      background-color: rgb(18, 27, 60) !important;
+      color: white !important;
+    }
 
-  textarea {
-    background-color: rgb(18, 27, 60) !important;
-    color: white !important;
-  }
-</style>
+    textarea {
+      background-color: rgb(18, 27, 60) !important;
+      color: white !important;
+    }
+  </style>
 
 
   {% block link %}{% endblock link %}
@@ -69,6 +69,13 @@
 
     </div>
   </nav>
+
+  {% if messages %}
+  {% for m in messages %}
+  <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
+  {% endfor %}
+  {% endif %}
+
 
   {% block content %}
 
