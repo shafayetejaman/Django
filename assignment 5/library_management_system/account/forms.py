@@ -25,6 +25,3 @@ class UserRegistrationForm(UserCreationForm):
             UserAccount.objects.create(user=user, account_no=date + user.id)
 
         return user
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
