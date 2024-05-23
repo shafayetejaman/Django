@@ -43,15 +43,10 @@
 </head>
 
 <body>
-  {% if messages %}
-  {% for m in messages %}
-  <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
-  {% endfor %}
-  {% endif %}
-  
+
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      
+
       <img class="navbar-icon mx-2" src="{% static "images/open-book.png" %}" alt="">
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -85,6 +80,11 @@
   </nav>
 
   {% block content %}
+  {% if messages %}
+  {% for m in messages %}
+  <strong class="m-2 {% if m.tags %}text-{{m.tags}}{% endif %}">{{m}}</strong>
+  {% endfor %}
+  {% endif %}
 
   <section class="home-bg mt-5 w-100 d-flex justify-content-center align-items-center gap-4">
 
