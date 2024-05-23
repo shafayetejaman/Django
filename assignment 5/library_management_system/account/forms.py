@@ -11,3 +11,5 @@ class UserRegistrationForm(UserCreationForm):
             "last_name",
             "email",
         ]
+    def save(self, commit=True):
+        user = super().save(commit=False)
