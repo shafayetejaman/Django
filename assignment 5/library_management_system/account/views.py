@@ -12,12 +12,14 @@ from django.views.generic import FormView
 # Create your views here.
 
 
-class UserSignupView(CreateView):
+class UserSignupView(FormView):
     template_name = "account/signup.html"
     form_class = UserRegistrationForm
     success_url = reverse_lazy("home")
 
     def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
         messages.success(self.request, "Account Created Successful")
         return super().form_valid(form)  
 
