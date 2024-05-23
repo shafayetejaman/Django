@@ -17,7 +17,8 @@ class UserRegistrationForm(UserCreationForm):
         if commit:
             user.save()
             UserAccount.objects.create(
-                user=user
+                user=user,
+                account_no=1000+user.id
             )
         
         return user
