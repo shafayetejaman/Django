@@ -15,9 +15,9 @@ class UserRegistrationForm(UserCreationForm):
         user = super().save(commit=False)
         
         if commit:
+            user.save()
             UserAccount.objects.create(
                 user=user
             )
-            user.save()
         
         return user
