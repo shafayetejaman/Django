@@ -18,10 +18,7 @@ class UserSignupView(CreateView):
     success_url = reverse_lazy("home")
 
     def form_valid(self, form):
-        print(form.cleaned_data)
-        user = form.save()
-        login(self.request, user)
-        print(user)
+        messages.success(self.request, "Account C Successful")
         return super().form_valid(form)  
 
 
