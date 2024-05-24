@@ -1,7 +1,10 @@
 from django.shortcuts import render,redirect
 from .models import Transaction
 from books.models import Book
-from .forms import TransactionForm
+from .forms import DepositForm
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 
 # Create your views here.
 
@@ -33,7 +36,6 @@ class TransactionCreateMixin(LoginRequiredMixin, CreateView):
         context.update({"title": self.title})
 
         return context
-
 
 
 class DepositMoneyView(TransactionCreateMixin):
