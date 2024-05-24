@@ -17,12 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import DetailPostView, CreatePostView, DeletePostView, home, UpdatePostView
+from .views import buy_book
 
 urlpatterns = [
-    path("add/", CreatePostView.as_view(), name="add"),
-    path("detail/<int:id>/<slug:book_slug>/", DetailPostView.as_view(), name="detail"),
-    path("update/<int:id>/", UpdatePostView.as_view(), name="update"),
-    path("delete/<int:id>/", DeletePostView.as_view(), name="delete"),
-    path("group_by/<slug:category_slug>", home, name="group_by"),
+    path("buy/<int:id>/", buy_book, name="buy"),
 ]

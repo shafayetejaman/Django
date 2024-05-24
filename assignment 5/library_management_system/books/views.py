@@ -99,11 +99,3 @@ class UpdatePostView(UpdateView):
         context["logged"] = self.request.user.is_authenticated
         return context
 
-
-def buy_book(request, id):
-    book = Book.objects.get(pk=id)
-    book.save()
-
-    History.objects.create(book=book, user=request.user)
-
-    return redirect("home")
