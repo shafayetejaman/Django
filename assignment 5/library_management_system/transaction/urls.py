@@ -17,8 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import buy_book
+from .views import return_book
 
 urlpatterns = [
-    path("buy/<int:id>/", buy_book, name="buy"),
+    path("return/<int:id>/", return_book, name="return"),
 ]

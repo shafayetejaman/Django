@@ -74,5 +74,5 @@ class DepositMoneyView(TransactionCreateMixin):
         return super().form_valid(form)
 
 
-def ReturnBook(request,id):
+def return_book(request,id):
     pass
