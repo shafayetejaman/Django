@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from profiles.models import History
+from .models import Transaction
 from books.models import Book
 
 # Create your views here.

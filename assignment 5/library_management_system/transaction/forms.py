@@ -33,3 +33,11 @@ class DepositForm(TransactionForm):
         return amount
 
 
+class ReturnForm(TransactionForm):
+    def clean_amount(self):  # amount field ke filter korbo
+        amount = self.cleaned_data.get(
+            "amount"
+        )  # user er fill up kora form theke amra amount field er value ke niye aslam, 50
+        
+
+        return amount
