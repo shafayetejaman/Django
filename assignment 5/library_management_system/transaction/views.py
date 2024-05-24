@@ -5,6 +5,8 @@ from .forms import DepositForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from .constants import DEPOSIT
 
 # Create your views here.
 
