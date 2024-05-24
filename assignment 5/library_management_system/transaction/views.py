@@ -1,8 +1,39 @@
 from django.shortcuts import render,redirect
 from .models import Transaction
 from books.models import Book
+from .forms import TransactionForm
 
 # Create your views here.
+
+
+def send_transaction_email(user, amount, subject, template, receiver=None):
+    message = render_to_string(
+        template, {"user": user, "amount": amount, "receiver": receiver}
+    )
+    send_email = EmailMultiAlternatives(subject, "", to=[user.email])
+    send_email.attach_alternative(message, "text/html")
+    send_email.send()
+
+
+class TransactionCreateMixin(LoginRequiredMixin, CreateView):
+    template_name = "transactions/transaction_form.html"
+    model = Transaction
+    title = ""
+    success_url = reverse_lazy("transaction_report")
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({"account": self.request.user.account})
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(
+            **kwargs
+        )  # template e context data pass kora
+        context.update({"title": self.title})
+
+        return context
+
 
 
 class DepositMoneyView(TransactionCreateMixin):
@@ -35,5 +66,3 @@ class DepositMoneyView(TransactionCreateMixin):
             "transactions/deposite_email.html",
         )
         return super().form_valid(form)
-
-
