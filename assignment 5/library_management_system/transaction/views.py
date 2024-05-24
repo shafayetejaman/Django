@@ -68,11 +68,17 @@ class DepositMoneyView(TransactionCreateMixin):
         send_transaction_email(
             self.request.user,
             amount,
-            "Deposite Message",
-            "transaction/deposite_email.html",
+            "Deposit Message",
+            "transaction/deposit_email.html",
         )
         return super().form_valid(form)
 
 
 def return_book(request,id):
-    pass
+    book = Book.objects.get(pk=id)
+    book.quantity -= 1
+    book.save()
+
+    History.objects.create(book=book, user=request.user)
+
+    return redirect("home")
