@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .constants import DEPOSIT
+from .constants import DEPOSIT,RETURN
 from django.contrib import messages
 from django.views.generic import CreateView, ListView
 
@@ -23,10 +23,10 @@ def send_transaction_email(user, amount, subject, template, receiver=None):
 
 
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
-    template_name = "transactions/transaction_form.html"
+    template_name = "transaction/transaction_form.html"
     model = Transaction
     title = ""
-    success_url = reverse_lazy("transaction_report")
+    success_url = reverse_lazy("profile")
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -69,6 +69,30 @@ class DepositMoneyView(TransactionCreateMixin):
             self.request.user,
             amount,
             "Deposite Message",
-            "transactions/deposite_email.html",
+            "transaction/deposite_email.html",
         )
+        return super().form_valid(form)
+    
+    
+class ReturnMoneyView(TransactionCreateMixin):
+    form_class = WithdrawForm
+    title = 'Withdraw Money'
+
+    def get_initial(self):
+        initial = {'transaction_type': WITHDRAWAL}
+        return initial
+
+    def form_valid(self, form):
+        amount = form.cleaned_data.get('amount')
+
+        self.request.user.account.balance -= form.cleaned_data.get('amount')
+        # balance = 300
+        # amount = 5000
+        self.request.user.account.save(update_fields=['balance'])
+
+        messages.success(
+            self.request,
+            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+        )
+        send_transaction_email(self.request.user, amount, "Withdrawal Message", "transactions/withdrawal_email.html")
         return super().form_valid(form)
