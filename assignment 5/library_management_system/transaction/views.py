@@ -76,9 +76,13 @@ class DepositMoneyView(TransactionCreateMixin):
 
 def return_book(request,id):
     book = Book.objects.get(pk=id)
-    book.quantity -= 1
-    book.save()
+   
+    messages.success(
+            self.request,
+            f'{"{:,.2f}".format(float(amount))}$ was deposited to your account successfully',
+        )
+   
 
-    History.objects.create(book=book, user=request.user)
+    
 
     return redirect("home")
