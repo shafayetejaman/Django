@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from .constants import DEPOSIT
+from django.contrib import messages
+from django.views.generic import CreateView, ListView
 
 # Create your views here.
 
