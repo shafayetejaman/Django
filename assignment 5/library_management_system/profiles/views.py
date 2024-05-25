@@ -7,7 +7,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 from .forms import UserChangeFormClass, User
-from .models import History
+from transaction.models import Transaction
 
 
 # Create your views here.
@@ -27,7 +27,7 @@ class PasswordChangeView(PasswordChangeView):
 @login_required()
 def profile(request):
     user = request.user
-    history = History.objects.filter(user=user)
+    history = Transaction.objects.filter(account__user=user)
 
     return render(
         request,

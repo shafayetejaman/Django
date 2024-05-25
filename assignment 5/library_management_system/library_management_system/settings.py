@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "account",
     "profiles",
     "books"
+    "transaction"
 
 ]
 

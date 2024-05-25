@@ -3,7 +3,7 @@ from .models import Book, Comment, Category
 from .forms import BookForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
-from profiles.models import History
+
 
 
 # Create your views here.
