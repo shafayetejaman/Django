@@ -5,7 +5,7 @@ from .constants import TRANSACTION_TYPE
 
 class Transaction(models.Model):
     account = models.ForeignKey(
-        UserAccount, related_name="transactions", on_delete=models.CASCADE
+        UserAccount, related_name="transaction", on_delete=models.CASCADE
     )
 
     amount = models.DecimalField(decimal_places=2, max_digits=12)
