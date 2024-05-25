@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from .models import Transaction
 from books.models import Book
 from .forms import DepositForm, TransactionForm
@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .constants import DEPOSIT,RETURN
+from .constants import DEPOSIT, RETURN
 from django.contrib import messages
 from django.views.generic import CreateView, ListView
 
@@ -22,10 +22,11 @@ def send_transaction_email(user, amount, subject, template, receiver=None):
     send_email.send()
 
 
-class TransactionCreateMixin(LoginRequiredMixin, CreateView):
-    template_name = "transaction/transaction_form.html"
+class DepositMoneyView(LoginRequiredMixin, CreateView):
     model = Transaction
-    title = ""
+    template_name = "transaction/transaction_form.html"
+    form_class = DepositForm
+    title = "Deposit"
     success_url = reverse_lazy("profile")
 
     def get_form_kwargs(self):
@@ -41,11 +42,6 @@ class TransactionCreateMixin(LoginRequiredMixin, CreateView):
 
         return context
 
-
-class DepositMoneyView(TransactionCreateMixin):
-    form_class = DepositForm
-    title = "Deposit"
-
     def get_initial(self):
         initial = {"transaction_type": DEPOSIT}
         return initial
@@ -56,9 +52,8 @@ class DepositMoneyView(TransactionCreateMixin):
         # if not account.initial_deposit_date:
         #     now = timezone.now()
         #     account.initial_deposit_date = now
-        account.balance += (
-            amount  # amount = 200, tar ager balance = 0 taka new balance = 0+200 = 200
-        )
+        account.balance += amount  # amount = 200, tar ager balance = 0 taka new balance = 0+200 = 200
+        
         account.save(update_fields=["balance"])
 
         messages.success(
@@ -74,21 +69,7 @@ class DepositMoneyView(TransactionCreateMixin):
         return super().form_valid(form)
 
 
-# class Transaction(models.Model):
-#     account = models.ForeignKey(
-#         UserAccount, related_name="transactions", on_delete=models.CASCADE
-#     )
-
-#     amount = models.DecimalField(decimal_places=2, max_digits=12)
-#     balance_after_transaction = models.DecimalField(decimal_places=2, max_digits=12)
-#     transaction_type = models.IntegerField(choices=TRANSACTION_TYPE, null=True)
-#     timestamp = models.DateTimeField(auto_now_add=True)
-
-#     class Meta:
-#         ordering = ["timestamp"]
-
-
-def return_book(request,id):
+def return_book(request, id):
     book = Book.objects.get(pk=id)
     amount = book.price
 
@@ -98,7 +79,7 @@ def return_book(request,id):
         account=request.user.account,
         amount=amount,
         balance_after_transaction=request.user.account.balance,
-        transaction_type =RETURN
+        transaction_type=RETURN,
     )
 
     messages.success(
