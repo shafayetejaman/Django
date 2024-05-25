@@ -74,15 +74,42 @@ class DepositMoneyView(TransactionCreateMixin):
         return super().form_valid(form)
 
 
+# class Transaction(models.Model):
+#     account = models.ForeignKey(
+#         UserAccount, related_name="transactions", on_delete=models.CASCADE
+#     )
+
+#     amount = models.DecimalField(decimal_places=2, max_digits=12)
+#     balance_after_transaction = models.DecimalField(decimal_places=2, max_digits=12)
+#     transaction_type = models.IntegerField(choices=TRANSACTION_TYPE, null=True)
+#     timestamp = models.DateTimeField(auto_now_add=True)
+
+#     class Meta:
+#         ordering = ["timestamp"]
+
+
 def return_book(request,id):
     book = Book.objects.get(pk=id)
-   
-    messages.success(
-            self.request,
-            f'{"{:,.2f}".format(float(amount))}$ was deposited to your account successfully',
-        )
-   
+    amount = book.price
 
-    
+    request.user.account.balance += amount
+
+    Transaction.objects.create(
+        account=request.user.account,
+        amount=amount,
+        balance_after_transaction=request.user.account.balance,
+        transaction_type =RETURN
+    )
+
+    messages.success(
+        request,
+        f'{"{:,.2f}".format(float(amount))}$ was returned to your account successfully',
+    )
+    send_transaction_email(
+        request.user,
+        request.user.account.amount,
+        "Book Return Message",
+        "transaction/return_book_email.html",
+    )
 
     return redirect("home")
