@@ -8,11 +8,11 @@
         height: 100%;
     }
 
-    .card {
+    .book {
         background-color: rgb(115, 59, 151);
     }
 
-    .card-img-top {
+    .book-img-top {
         width: 100%;
     }
 </style>
@@ -21,32 +21,32 @@
 
 {% block content %}
 
-<!-- card section -->
+<!-- book section -->
 
 <section class="container-fluid my-4 mb-0">
     <div class="row mx-4">
 
         <div class="col my-3">
-            <div class="card p-4 m-1">
-                <img src="{{car.image.url}}" class="card-img-top rounded-2" alt="...">
+            <div class="book p-4 m-1 rounded-3 mx-5">
+                <img src="{{book.image.url}}" class="book-img-top rounded-2" alt="...">
 
-                <div class="card-body">
+                <div class="book-body">
 
-                    <h1 class="card-title text-danger">{{car.name}}</h1>
+                    <h1 class="book-title text-danger">{{book.title}}</h1>
 
                     <p class="text-dark h4 my-4">
-                        Description: {{car.description}}
+                        Description: {{book.description}}
                     </p>
 
-                    <h5 class="text-light">Quantity: {{car.quantity}}</h5>
-                    <h5 class="text-danger">Price: {{car.price}}$</h5>
-                    <h5 class="text-white btn bg-primary mt-3">Brand: {{car.brand.name}}</h5>
+                   
+                    <h5 class="text-danger">Price: {{book.price}}$</h5>
+                    <h5 class="text-white btn bg-primary mt-3">Category: {{book.category.name}}</h5>
 
-                    {% if logged and car.quantity > 0 %}
+                    {% if logged and book.quantity > 0 %}
                     <div class="d-flex justify-content-center gap-3 mt-5">
 
-                        <h5 class="btn bg-success text-white">Add To Cart</h5>
-                        <a href="{% url "buy" car.id %}">
+                        <h5 class="btn bg-success text-white">Add To bookt</h5>
+                        <a href="{% url "buy" book.id %}">
                             <h5 class="btn bg-danger text-white">Buy Now</h5>
                         </a>
                     </div>
@@ -69,10 +69,10 @@
 
     <div class="row mx-4">
         <div class="col my-3">
-            <div class="card p-4 m-1">
+            <div class="book p-4 m-1 rounded-3 mx-5">
                 <h3 class="p-3">Total Comments : {{comments | length}}</h3>
                 {% for comment in comments %}
-                <div class="card-body border rounded-3 m-2 text-light">
+                <div class="book-body border rounded-3 m-2 text-light">
 
                     <div class="d-flex justify-content-between">
                         <h5><strong>{{comment.name}}</strong></h5>
@@ -89,11 +89,11 @@
     <div class="row mx-4">
         <div class="col my-3">
 
-            <div class="card p-4 m-1">
+            <div class="book p-4 m-1 rounded-3 mx-5">
                 <div class="my-3 text-light">
-                    <div class="card-body">
+                    <div class="book-body rounded-3">
                         <form method="post">
-                            
+
                             <h2 class="text-dark mb-4">Add Comment</h2>
                             {% csrf_token %}
                             {{comment_form | crispy}}
