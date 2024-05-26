@@ -10,8 +10,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name",)}
-    list_display = ["name", "slug"]
+    prepopulated_fields = {"slug": ("title",)}
+    list_display = ["title", "slug"]
 
 
 admin.site.register(Category, CategoryAdmin)
