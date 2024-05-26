@@ -30,18 +30,18 @@
     <div class="card-page row row-cols-4 mx-4">
 
         {% for transaction in history %}
-        {% with car=transaction.car %}
+        {% with book=transaction.book %}
 
         <div class="col my-3">
             <div class="card border-0">
-                <img src="{{ car.image.url }}" class="card-img-top" alt="Car Image">
+                <img src="{{ book.image.url }}" class="card-img-top" alt="Car Image">
                 <div class="card-body text-center">
-                    <a href="{% url 'detail' car.id car.slug %}" class="text-decoration-none">
-                        <h3 class="card-title text-danger">{{ car.name }}</h3>
+                    <a href="{% url 'detail' book.id book.slug %}" class="text-decoration-none">
+                        <h3 class="card-title text-danger">{{ book.title }}</h3>
                     </a>
-                    <h5 class="text-danger my-3">Price: {{ car.price }}$</h5>
+                    <h5 class="text-danger my-3">Price: {{ book.price }}$</h5>
                     <h6 class="text-danger my-3">Parched On: {{ transaction.parched }}</h6>
-                    <h5 class="text-white btn bg-primary mt-4">Brand: {{ car.brand.name }}</h5>
+                    <h5 class="text-white btn bg-primary mt-4">Brand: {{ book.category.name }}</h5>
                 </div>
             </div>
         </div>
