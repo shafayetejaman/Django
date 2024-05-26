@@ -46,9 +46,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "account",
     "profiles",
-    "books"
-    "transaction"
-
+    "books",
+    "transaction",
 ]
 
 # django-crispy-forms
