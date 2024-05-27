@@ -28,6 +28,8 @@ class PasswordChangeView(PasswordChangeView):
 def profile(request):
     user = request.user
     transactions = Transaction.objects.filter(account=user.account)
+    borrows = Transaction.objects.filter(account=user.account,transaction_type=3)
+
 
     return render(
         request,
@@ -36,6 +38,7 @@ def profile(request):
             "user": user,
             "logged": user.is_authenticated,
             "transactions": transactions,
+            "borrows":borrows
         },
     )
 
