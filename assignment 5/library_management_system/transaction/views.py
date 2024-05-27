@@ -76,7 +76,7 @@ class DepositMoneyView(LoginRequiredMixin, CreateView):
 
 def return_book(request, id,transaction_id):
     book = Book.objects.get(pk=id)
-    Transaction.objects.delete(id=transaction_id)
+    Transaction.objects.get(id=transaction_id).delete()
     amount = book.price
 
     request.user.account.balance += amount
