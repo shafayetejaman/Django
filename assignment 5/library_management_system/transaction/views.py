@@ -119,8 +119,16 @@ def return_book(request, id,transaction_id):
 def borrow_book(request, id):
     book = Book.objects.get(pk=id)
     amount = book.price
+    account = request.user.account
 
-    request.user.account.balance -= amount
+    if (account.balance < amount):
+        messages.warning(
+            request,
+            f'Insufficient Balance!',
+        )
+        return redirect("home")
+
+    account.balance -= amount
     book.quantity -= 1
 
     book.save(
@@ -129,7 +137,7 @@ def borrow_book(request, id):
         ]
     )
 
-    request.user.account.save(
+    account.save(
             update_fields=[
                 'balance',
             ]

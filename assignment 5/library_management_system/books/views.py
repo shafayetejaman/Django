@@ -3,6 +3,7 @@ from .models import Book, Comment, Category
 from .forms import BookForm, CommentForm
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
+from transaction.models import Transaction
 
 
 # Create your views here.
@@ -53,12 +54,24 @@ class DetailPostView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         book = self.get_object()
-        comments = book.comments.all().order_by("created").reverse()
+        comments = book.comments.all().order_by("-created")
         comment_form = CommentForm()
+
+        borrowed = len(
+            Transaction.objects.filter(
+                account=self.request.user.account, book=book, transaction_type=2
+            )
+        )
+        borrowed += len(
+            Transaction.objects.filter(
+                account=self.request.user.account, book=book, transaction_type=3
+            )
+        )
 
         context["logged"] = self.request.user.is_authenticated
         context["comments"] = comments
         context["comment_form"] = comment_form
+        context["borrowed"] = borrowed
 
         return context
 

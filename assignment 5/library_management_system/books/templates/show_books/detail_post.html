@@ -63,7 +63,7 @@
 
 <!-- comment section -->
 
-{% if logged %}
+{% if logged and borrowed != 0 %}
 {% load crispy_forms_tags %}
 
 <section class="container-fluid my-0">

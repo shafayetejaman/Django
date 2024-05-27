@@ -15,23 +15,28 @@
     .card-img-top {
         width: 100%;
     }
+
+    .table {
+        --bs-table-striped-bg: rgb(18, 27, 60);
+    }
 </style>
 
 {% endblock link %}
 
 {% block content %}
+
 <section>
     <h1 class="m-5 text-danger">Wellcome {{user.username}}</h1>
     <a href="{% url "pass_change" %}" class="m-5 btn btn-danger">Change Your Password</a>
     <a href="{% url "edit_profile" %}" class="m-5 btn btn-danger">Edit Your Profile</a>
 </section>
 
+
+{% comment %} list of borrowed books {% endcomment %}
 <section>
     <div class="card-page row row-cols-5 mx-4">
 
         {% for transaction in borrows %}
-
-        {% if transaction.book %}
         {% with book=transaction.book %}
 
         <div class="col my-3">
@@ -50,15 +55,53 @@
             </div>
         </div>
         {% endwith %}
-        {% else %}
-
-
-        {% endif %}
-
         {% endfor %}
+
     </div>
 </section>
 
+{% comment %} history table {% endcomment %}
+<table class="table table-bordered table-striped table-dark w-75 m-auto my-5">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Transaction Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
 
+        {% for transaction in transactions %}
+        {% with book=transaction.book %}
+        <tr>
+            {% if transaction.transaction_type == 1 %}
+
+            {% with id=transaction.id amount=transaction.amount %}
+            <td scope="row">{{id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{transaction.timestamp}}</td>
+            <td>{{amount}}</td>
+            <td>{{transaction.get_transaction_type_display}}</td>
+            {% endwith %}
+
+            {% else %}
+
+            {% with id=book.id amount=book.price %}
+            <td scope="row">{{id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{transaction.timestamp}}</td>
+            <td>{{amount}}</td>
+            <td>{{transaction.get_transaction_type_display}}</td>
+            {% endwith %}
+
+            {% endif %}
+        </tr>
+        {% endwith %}
+        {% endfor %}
+
+    </tbody>
+</table>
 
 {% endblock content %}
