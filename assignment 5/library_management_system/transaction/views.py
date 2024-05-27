@@ -107,7 +107,7 @@ def return_book(request, id):
     )
     send_transaction_email(
         request.user,
-        request.user.account.amount,
+        request.user.account.balance,
         "Book Return Message",
         "transaction/return_book_email.html",
     )

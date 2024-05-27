@@ -27,7 +27,7 @@
 </section>
 
 <section>
-    <div class="card-page row row-cols-4 mx-4">
+    <div class="card-page row row-cols-5 mx-4">
 
         {% for transaction in transactions %}
 
@@ -44,7 +44,7 @@
                     <h5 class="text-danger my-3">Price: {{ book.price }}$</h5>
                     <h6 class="text-danger my-3">Borrowed On: {{ transaction.timestamp }}</h6>
                     <h5 class="text-white btn bg-primary mt-4">Category: {{ book.category.name }}</h5>
-                    <a class="text-white btn bg-success mt-4">Return</a>
+                    <a href="{% url "return" book.id %}" class="text-white btn bg-success mt-3">Return</a>
                 </div>
             </div>
         </div>
