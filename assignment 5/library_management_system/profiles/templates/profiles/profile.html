@@ -30,6 +30,8 @@
     <div class="card-page row row-cols-4 mx-4">
 
         {% for transaction in history %}
+
+        {% if tranaction.book %}
         {% with book=transaction.book %}
 
         <div class="col my-3">
@@ -40,13 +42,18 @@
                         <h3 class="card-title text-danger">{{ book.title }}</h3>
                     </a>
                     <h5 class="text-danger my-3">Price: {{ book.price }}$</h5>
-                    <h6 class="text-danger my-3">Parched On: {{ transaction.parched }}</h6>
-                    <h5 class="text-white btn bg-primary mt-4">Brand: {{ book.category.name }}</h5>
+                    <h6 class="text-danger my-3">Parched On: {{ transaction.timestamp }}</h6>
+                    <h5 class="text-white btn bg-primary mt-4">Category: {{ book.category.name }}</h5>
+                    <h5 class="text-white btn bg-succss mt-4">Return</h5>
                 </div>
             </div>
         </div>
-
         {% endwith %}
+        {% else %}
+
+
+        {% endif %}
+
         {% endfor %}
     </div>
 </section>

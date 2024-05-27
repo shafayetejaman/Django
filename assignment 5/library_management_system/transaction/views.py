@@ -38,7 +38,10 @@ class DepositMoneyView(LoginRequiredMixin, CreateView):
         context = super().get_context_data(
             **kwargs
         )  # template e context data pass kora
-        context.update({"title": self.title})
+        context.update({"title": self.title,
+                        "logged":True,
+                        "user":self.request.user
+                        })
 
         return context
 
@@ -105,6 +108,12 @@ def borrow_book(request, id):
 
     request.user.account.balance -= amount
     book.quantity -= 1
+    
+     request.user.ccount.save(
+            update_fields=[
+                'balance'
+            ]
+        )
 
     Transaction.objects.create(
         account=request.user.account,
@@ -119,7 +128,7 @@ def borrow_book(request, id):
     )
     send_transaction_email(
         request.user,
-        request.user.account.amount,
+        request.user.account.balance,
         "Book Borrowing Message",
         "transaction/borrow_book_email.html",
     )

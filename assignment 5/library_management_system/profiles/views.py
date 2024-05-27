@@ -27,7 +27,7 @@ class PasswordChangeView(PasswordChangeView):
 @login_required()
 def profile(request):
     user = request.user
-    history = Transaction.objects.filter(account__user=user)
+    history = Transaction.objects.filter(account=user.account)
 
     return render(
         request,

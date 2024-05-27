@@ -56,13 +56,13 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active text-white ms-5" aria-current="page" href="{% url "home" %}">
-            <h4 class="">Home</h4>
+            <h5 class="">Home</h5>
           </a>
 
           {% if logged %}
 
-          <a class="nav-link text-white ms-5" aria-current="page" href="{% url "deposit" %}">
-            <h4 class="">Deposit</h4>
+          <a class="nav-link text-white ms-2" aria-current="page" href="{% url "deposit" %}">
+            <h5 class="">Deposit</h5>
           </a>
           {% endif %}
 
@@ -77,6 +77,8 @@
       <a href="{% url 'login' %}" class="btn btn-outline-warning text-white" type="submit">Log In</a>
 
       {% else %}
+
+      <h4 class="text-white mt-1"><b>{{user.first_name}}:</b> {{user.account.balance}}$</h4>
 
       <a href="{% url "profile" %}" class="btn btn-outline-success mx-4 text-white">Profile</a>
       <a href="{% url 'logout' %}" class="btn btn-outline-danger text-white" type="submit">Log Out</a>
