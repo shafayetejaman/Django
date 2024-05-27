@@ -109,9 +109,10 @@ def borrow_book(request, id):
     request.user.account.balance -= amount
     book.quantity -= 1
     
-     request.user.ccount.save(
+    request.user.account.save(
             update_fields=[
-                'balance'
+                'balance',
+                'quantity'
             ]
         )
 
