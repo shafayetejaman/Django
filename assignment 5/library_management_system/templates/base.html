@@ -59,6 +59,14 @@
             <h4 class="">Home</h4>
           </a>
 
+          {% if logged %}
+
+          <a class="nav-link text-white ms-5" aria-current="page" href="{% url "deposit" %}">
+            <h4 class="">Deposit</h4>
+          </a>
+          {% endif %}
+
+
 
         </div>
       </div>
