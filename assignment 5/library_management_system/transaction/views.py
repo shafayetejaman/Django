@@ -52,8 +52,10 @@ class DepositMoneyView(LoginRequiredMixin, CreateView):
         # if not account.initial_deposit_date:
         #     now = timezone.now()
         #     account.initial_deposit_date = now
-        account.balance += amount  # amount = 200, tar ager balance = 0 taka new balance = 0+200 = 200
-        
+        account.balance += (
+            amount  # amount = 200, tar ager balance = 0 taka new balance = 0+200 = 200
+        )
+
         account.save(update_fields=["balance"])
 
         messages.success(
@@ -74,6 +76,7 @@ def return_book(request, id):
     amount = book.price
 
     request.user.account.balance += amount
+    book.quantity += 1
 
     Transaction.objects.create(
         account=request.user.account,
@@ -93,4 +96,32 @@ def return_book(request, id):
         "transaction/return_book_email.html",
     )
 
-    return redirect("home")
+    return redirect("profile")
+
+
+def borrow_book(request, id):
+    book = Book.objects.get(pk=id)
+    amount = book.price
+
+    request.user.account.balance -= amount
+    book.quantity -= 1
+
+    Transaction.objects.create(
+        account=request.user.account,
+        amount=amount,
+        balance_after_transaction=request.user.account.balance,
+        transaction_type=RETURN,
+    )
+
+    messages.success(
+        request,
+        f'{"{:,.2f}".format(float(amount))}$ was subtracted from your account successfully',
+    )
+    send_transaction_email(
+        request.user,
+        request.user.account.amount,
+        "Book Borrowing Message",
+        "transaction/borrow_book_email.html",
+    )
+
+    return redirect("profile")

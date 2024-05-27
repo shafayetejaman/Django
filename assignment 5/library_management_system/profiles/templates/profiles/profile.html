@@ -8,11 +8,11 @@
         height: 100%;
     }
 
-    .bookd {
+    .card {
         background-color: rgb(115, 59, 151);
     }
 
-    .bookd-img-top {
+    .card-img-top {
         width: 100%;
     }
 </style>
@@ -27,17 +27,17 @@
 </section>
 
 <section>
-    <div class="bookd-page row row-cols-4 mx-4">
+    <div class="card-page row row-cols-4 mx-4">
 
         {% for transaction in history %}
         {% with book=transaction.book %}
 
         <div class="col my-3">
-            <div class="bookd border-0">
-                <img src="{{ book.image.url }}" class="bookd-img-top" alt="book Image">
-                <div class="bookd-body text-center">
+            <div class="card border-0">
+                <img src="{{ book.image.url }}" class="card-img-top" alt="book Image">
+                <div class="card-body text-center">
                     <a href="{% url 'detail' book.id book.slug %}" class="text-decoration-none">
-                        <h3 class="bookd-title text-danger">{{ book.title }}</h3>
+                        <h3 class="card-title text-danger">{{ book.title }}</h3>
                     </a>
                     <h5 class="text-danger my-3">Price: {{ book.price }}$</h5>
                     <h6 class="text-danger my-3">Parched On: {{ transaction.parched }}</h6>

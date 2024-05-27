@@ -17,8 +17,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from .views import return_book
+from .views import return_book, borrow_book
 
 urlpatterns = [
     path("return/<int:id>/", return_book, name="return"),
+    path("borrow/<int:id>/", borrow_book, name="borrow"),
 ]

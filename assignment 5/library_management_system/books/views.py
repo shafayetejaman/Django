@@ -5,7 +5,6 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
 
-
 # Create your views here.
 
 
@@ -98,4 +97,3 @@ class UpdatePostView(UpdateView):
         context = super().get_context_data(**kwargs)
         context["logged"] = self.request.user.is_authenticated
         return context
-

@@ -1,4 +1,5 @@
 from django.db import models
+from more_itertools import quantify
 
 # Create your models here.
     
@@ -16,6 +17,7 @@ class Book(models.Model):
     description = models.TextField()
     price = models.FloatField()
     slug = models.SlugField(max_length=100, unique=True)
+    quantity = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
     def __str__(self) -> str:
