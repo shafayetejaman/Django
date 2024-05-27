@@ -20,7 +20,7 @@ from django.urls import path, include
 from .views import return_book, borrow_book, DepositMoneyView
 
 urlpatterns = [
-    path("return/<int:id>/<int:transaction_id/", return_book, name="return"),
+    path("return/<int:id>/<int:transaction_id>/", return_book, name="return"),
     path("borrow/<int:id>/", borrow_book, name="borrow"),
     path("deposit/",DepositMoneyView.as_view(), name="deposit")
 ]
