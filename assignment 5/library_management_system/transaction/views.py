@@ -80,6 +80,12 @@ def return_book(request, id):
 
     request.user.account.balance += amount
     book.quantity += 1
+    
+    request.user.account.save(
+            update_fields=[
+                'balance',
+            ]
+        )
 
     Transaction.objects.create(
         account=request.user.account,
@@ -112,7 +118,6 @@ def borrow_book(request, id):
     request.user.account.save(
             update_fields=[
                 'balance',
-                'quantity'
             ]
         )
 
