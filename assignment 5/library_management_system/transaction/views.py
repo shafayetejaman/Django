@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.template.loader import render_to_string
-from .constants import DEPOSIT, RETURN
+from .constants import DEPOSIT, RETURN,
 from django.contrib import messages
 from django.views.generic import CreateView, ListView
 
@@ -139,7 +139,7 @@ def borrow_book(request, id):
         amount=amount,
         book=book,
         balance_after_transaction=request.user.account.balance,
-        transaction_type=BO,
+        transaction_type=,
     )
 
     messages.success(
