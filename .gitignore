@@ -19,3 +19,4 @@ rad.json
 #Test results file
 TestResults.xml
 module 9/room1/
+*.env
