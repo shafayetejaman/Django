@@ -56,7 +56,9 @@
 
         <div class="col my-3">
             <div class="card border-0">
+                  <a href="{% url "detail" book.id book.slug %}" class="text-decoration-none">
                 <img src="{{book.image.url}}" class="card-img-top" alt="...">
+                </a>
 
                 <div class="card-body text-center">
 
