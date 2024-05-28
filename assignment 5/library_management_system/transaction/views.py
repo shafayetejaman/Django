@@ -9,11 +9,8 @@ from django.template.loader import render_to_string
 from .constants import DEPOSIT, RETURN,BORROW
 from django.contrib import messages
 from django.views.generic import CreateView, ListView
-from django.conf import settings
-import os
 
 # Create your views here.
-
 
 
 def send_transaction_email(user, amount, subject, template, receiver=None):
@@ -22,13 +19,6 @@ def send_transaction_email(user, amount, subject, template, receiver=None):
     )
     send_email = EmailMultiAlternatives(subject, "", to=[user.email])
     send_email.attach_alternative(message, "text/html")
-
-    # Attach image
-    image_path = os.path.join(settings.STATIC_ROOT, "images/library_home.png")
-    if os.path.isfile(image_path):
-        with open(image_path, "rb") as f:
-            send_email.attach("library_home.png", f.read(), "image/png")
-
     send_email.send()
 
 
