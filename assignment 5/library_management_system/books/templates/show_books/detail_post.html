@@ -121,11 +121,11 @@
 
     <!-- all books section -->
     <div class="col-3">
-        <div class="card-page row my-4">
+        <div class="card-page my-5">
 
             {% for book in books %}
 
-            <div class="col my-3">
+            <div class="my-4">
                 <div class="card border-0">
                     <a href="{% url "detail" book.id book.slug %}" class="text-decoration-none">
                         <img src="{{book.image.url}}" class="card-img-top" alt="...">
